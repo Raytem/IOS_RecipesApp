@@ -24,14 +24,61 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A5B933722D2AA94800D18C00 /* RecipeBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5B933722D2AA94800D18C00 /* Recipe Book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Recipe Book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5B933842D2AA94A00D18C00 /* RecipeBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipeBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5B9338E2D2AA94A00D18C00 /* RecipeBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipeBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		A5B933E92D2ACD4B00D18C00 /* Exceptions for "RecipeBook" folder in "RecipeBookTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Components/Layout/NavBar/NavBarTab.swift,
+				Components/Layout/NavBar/NavBarTabModel.swift,
+				Components/Layout/NavBar/NavBarView.swift,
+				"Resources/Fonts/Poppins-Bold.ttf",
+				"Resources/Fonts/Poppins-Italic.ttf",
+				"Resources/Fonts/Poppins-Regular.ttf",
+				Resources/Localization/Localizable.xcstrings,
+				Screens/Main/MainView.swift,
+				Screens/SavedRecipes/SavedRecipesView.swift,
+				Screens/Settings/SettingsView.swift,
+			);
+			target = A5B933832D2AA94A00D18C00 /* RecipeBookTests */;
+		};
+		A5B933EA2D2ACD4B00D18C00 /* Exceptions for "RecipeBook" folder in "RecipeBookUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Components/Layout/NavBar/NavBarTab.swift,
+				Components/Layout/NavBar/NavBarTabModel.swift,
+				Components/Layout/NavBar/NavBarView.swift,
+				"Resources/Fonts/Poppins-Bold.ttf",
+				"Resources/Fonts/Poppins-Italic.ttf",
+				"Resources/Fonts/Poppins-Regular.ttf",
+				Resources/Localization/Localizable.xcstrings,
+				Screens/Main/MainView.swift,
+				Screens/SavedRecipes/SavedRecipesView.swift,
+				Screens/Settings/SettingsView.swift,
+			);
+			target = A5B9338D2D2AA94A00D18C00 /* RecipeBookUITests */;
+		};
+		A5B933F22D2ACE0000D18C00 /* Exceptions for "RecipeBook" folder in "RecipeBook" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = A5B933712D2AA94800D18C00 /* RecipeBook */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		A5B933742D2AA94800D18C00 /* RecipeBook */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A5B933F22D2ACE0000D18C00 /* Exceptions for "RecipeBook" folder in "RecipeBook" target */,
+				A5B933E92D2ACD4B00D18C00 /* Exceptions for "RecipeBook" folder in "RecipeBookTests" target */,
+				A5B933EA2D2ACD4B00D18C00 /* Exceptions for "RecipeBook" folder in "RecipeBookUITests" target */,
+			);
 			path = RecipeBook;
 			sourceTree = "<group>";
 		};
@@ -85,7 +132,7 @@
 		A5B933732D2AA94800D18C00 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A5B933722D2AA94800D18C00 /* RecipeBook.app */,
+				A5B933722D2AA94800D18C00 /* Recipe Book.app */,
 				A5B933842D2AA94A00D18C00 /* RecipeBookTests.xctest */,
 				A5B9338E2D2AA94A00D18C00 /* RecipeBookUITests.xctest */,
 			);
@@ -114,7 +161,7 @@
 			packageProductDependencies = (
 			);
 			productName = RecipeBook;
-			productReference = A5B933722D2AA94800D18C00 /* RecipeBook.app */;
+			productReference = A5B933722D2AA94800D18C00 /* Recipe Book.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A5B933832D2AA94A00D18C00 /* RecipeBookTests */ = {
@@ -192,9 +239,13 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = A5B933692D2AA94800D18C00;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A5B933A12D2AB42B00D18C00 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A5B933732D2AA94800D18C00 /* Products */;
 			projectDirPath = "";
@@ -328,6 +379,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -384,6 +436,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -398,6 +451,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"RecipeBook/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RecipeBook/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -409,7 +464,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = d.rummo.RecipeBook;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Recipe Book";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -426,6 +481,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"RecipeBook/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RecipeBook/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -437,7 +494,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = d.rummo.RecipeBook;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Recipe Book";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -552,6 +609,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A5B933A12D2AB42B00D18C00 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = A5B9336A2D2AA94800D18C00 /* Project object */;
 }

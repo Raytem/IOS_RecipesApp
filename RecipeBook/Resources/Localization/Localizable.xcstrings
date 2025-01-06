@@ -1,7 +1,50 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Add Item" : {
 
+    },
+    "Blue" : {
+
+    },
+    "Green" : {
+
+    },
+    "Item at %@" : {
+
+    },
+    "Red" : {
+
+    },
+    "Saved Recipes" : {
+
+    },
+    "Screens.Main.RecipesTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recipes"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Рецепты"
+          }
+        }
+      }
+    },
+    "Select a color" : {
+
+    },
+    "Settings" : {
+
+    },
+    "Sort" : {
+
+    }
   },
   "version" : "1.0"
 }
