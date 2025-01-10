@@ -23,9 +23,7 @@ struct ContentView: View {
                     .setUpNavigationTab(.settings)
             }
             
-            if true {
-                NavBarView(selectedTab: $selectedTab)
-            }
+            NavBarView(selectedTab: $selectedTab)
         }
     }
 }
@@ -40,5 +38,6 @@ extension View {
             .tag(tab)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .toolbar(.hidden, for: .tabBar)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }

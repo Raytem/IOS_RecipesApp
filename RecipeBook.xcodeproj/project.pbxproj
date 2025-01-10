@@ -33,32 +33,46 @@
 		A5B933E92D2ACD4B00D18C00 /* Exceptions for "RecipeBook" folder in "RecipeBookTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Components/Layout/NavBar/NavBarTab.swift,
-				Components/Layout/NavBar/NavBarTabModel.swift,
-				Components/Layout/NavBar/NavBarView.swift,
+				Domain/Enums/SortDirection.swift,
+				Domain/UseCases/AutoCompleteRecipeSearch/AutoCompleteRecipeSearchUseCase.swift,
+				Presentation/Components/Layout/NavBar/NavBarTab.swift,
+				Presentation/Components/Layout/NavBar/NavBarTabModel.swift,
+				Presentation/Components/Layout/NavBar/NavBarView.swift,
+				Presentation/Components/Shared/RecipeCard/RecipeCardMockData.swift,
+				Presentation/Screens/Main/MainView.swift,
+				Presentation/Screens/SavedRecipes/SavedRecipesView.swift,
+				Presentation/Screens/SearchRecipes/Models/SarchRecipesSortOptions.swift,
+				Presentation/Screens/SearchRecipes/Models/SearchRecipesFilter.swift,
+				Presentation/Screens/SearchRecipes/SearchRecipesScreen.swift,
+				Presentation/Screens/SearchRecipes/SearchRecipesScreenViewModel.swift,
+				Presentation/Screens/Settings/SettingsView.swift,
 				"Resources/Fonts/Poppins-Bold.ttf",
 				"Resources/Fonts/Poppins-Italic.ttf",
 				"Resources/Fonts/Poppins-Regular.ttf",
 				Resources/Localization/Localizable.xcstrings,
-				Screens/Main/MainView.swift,
-				Screens/SavedRecipes/SavedRecipesView.swift,
-				Screens/Settings/SettingsView.swift,
 			);
 			target = A5B933832D2AA94A00D18C00 /* RecipeBookTests */;
 		};
 		A5B933EA2D2ACD4B00D18C00 /* Exceptions for "RecipeBook" folder in "RecipeBookUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Components/Layout/NavBar/NavBarTab.swift,
-				Components/Layout/NavBar/NavBarTabModel.swift,
-				Components/Layout/NavBar/NavBarView.swift,
+				Domain/Enums/SortDirection.swift,
+				Domain/UseCases/AutoCompleteRecipeSearch/AutoCompleteRecipeSearchUseCase.swift,
+				Presentation/Components/Layout/NavBar/NavBarTab.swift,
+				Presentation/Components/Layout/NavBar/NavBarTabModel.swift,
+				Presentation/Components/Layout/NavBar/NavBarView.swift,
+				Presentation/Components/Shared/RecipeCard/RecipeCardMockData.swift,
+				Presentation/Screens/Main/MainView.swift,
+				Presentation/Screens/SavedRecipes/SavedRecipesView.swift,
+				Presentation/Screens/SearchRecipes/Models/SarchRecipesSortOptions.swift,
+				Presentation/Screens/SearchRecipes/Models/SearchRecipesFilter.swift,
+				Presentation/Screens/SearchRecipes/SearchRecipesScreen.swift,
+				Presentation/Screens/SearchRecipes/SearchRecipesScreenViewModel.swift,
+				Presentation/Screens/Settings/SettingsView.swift,
 				"Resources/Fonts/Poppins-Bold.ttf",
 				"Resources/Fonts/Poppins-Italic.ttf",
 				"Resources/Fonts/Poppins-Regular.ttf",
 				Resources/Localization/Localizable.xcstrings,
-				Screens/Main/MainView.swift,
-				Screens/SavedRecipes/SavedRecipesView.swift,
-				Screens/Settings/SettingsView.swift,
 			);
 			target = A5B9338D2D2AA94A00D18C00 /* RecipeBookUITests */;
 		};
@@ -234,7 +248,7 @@
 				};
 			};
 			buildConfigurationList = A5B9336D2D2AA94800D18C00 /* Build configuration list for PBXProject "RecipeBook" */;
-			developmentRegion = en;
+			developmentRegion = ru;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,

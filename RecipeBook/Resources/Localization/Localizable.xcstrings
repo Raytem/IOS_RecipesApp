@@ -1,23 +1,160 @@
 {
-  "sourceLanguage" : "en",
+  "sourceLanguage" : "ru",
   "strings" : {
-    "Add Item" : {
+    "______________" : {
 
     },
-    "Blue" : {
+    "___________________________" : {
 
     },
-    "Green" : {
+    "_______________________________" : {
 
     },
-    "Item at %@" : {
+    "%lld likes" : {
 
     },
-    "Red" : {
+    "%lld min" : {
 
     },
-    "Saved Recipes" : {
+    "Add to saved" : {
 
+    },
+    "Hello, World!" : {
+
+    },
+    "Main page" : {
+
+    },
+    "No saved recipes" : {
+
+    },
+    "RecipeSearchSortingOption.FiewerIngridients" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Less ingredients"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Меньше ингредиентов"
+          }
+        }
+      }
+    },
+    "RecipeSearchSortingOption.Harmful" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Harmful to health"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вредные для здоровья"
+          }
+        }
+      }
+    },
+    "RecipeSearchSortingOption.Healty" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Useful for health"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Полезные для здоровья"
+          }
+        }
+      }
+    },
+    "RecipeSearchSortingOption.MoreIngridients" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "More ingredients"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Больше ингредиентов"
+          }
+        }
+      }
+    },
+    "RecipeSearchSortingOption.Popular" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Popular"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Популярные"
+          }
+        }
+      }
+    },
+    "RecipeSearchSortingOption.QickToCook" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quick to cook"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Быстрые в приготовлении"
+          }
+        }
+      }
+    },
+    "RecipeSearchSortingOption.TheLeastCaloric" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Least Caloric"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Наименее каллорийные"
+          }
+        }
+      }
+    },
+    "RecipeSearchSortingOption.TheMostHighCalorie" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The most hight-calorie"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Наиболее каллорийные"
+          }
+        }
+      }
     },
     "Screens.Main.RecipesTitle" : {
       "extractionState" : "manual",
@@ -36,13 +173,48 @@
         }
       }
     },
-    "Select a color" : {
+    "Search for recipes and add it to saved" : {
 
+    },
+    "SearchRecipesScreen.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поиск"
+          }
+        }
+      }
     },
     "Settings" : {
 
     },
-    "Sort" : {
+    "SortingConfirmationDialog.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Sorting"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сортировка"
+          }
+        }
+      }
+    },
+    "To Search page" : {
+
+    },
+    "View mode" : {
 
     }
   },

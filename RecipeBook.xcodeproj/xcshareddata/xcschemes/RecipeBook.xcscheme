@@ -16,7 +16,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A5B933712D2AA94800D18C00"
-               BuildableName = "RecipeBook.app"
+               BuildableName = "Recipe Book.app"
                BlueprintName = "RecipeBook"
                ReferencedContainer = "container:RecipeBook.xcodeproj">
             </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A5B933712D2AA94800D18C00"
-            BuildableName = "RecipeBook.app"
+            BuildableName = "Recipe Book.app"
             BlueprintName = "RecipeBook"
             ReferencedContainer = "container:RecipeBook.xcodeproj">
          </BuildableReference>
@@ -87,7 +87,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A5B933712D2AA94800D18C00"
-            BuildableName = "RecipeBook.app"
+            BuildableName = "Recipe Book.app"
             BlueprintName = "RecipeBook"
             ReferencedContainer = "container:RecipeBook.xcodeproj">
          </BuildableReference>
