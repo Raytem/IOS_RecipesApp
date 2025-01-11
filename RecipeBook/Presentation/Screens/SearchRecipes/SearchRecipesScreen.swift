@@ -15,11 +15,15 @@ struct SearchRecipesScreen: View {
     
     var body: some View {
         NavigationStack {
-            RecipeCardList(
-                recipeModels: $viewModel.recipesModels,
-                cardViewType: $viewModel.filters.cardViewType,
-                isLoading: $isRecipesLoading
-            )
+            ScrollView(.vertical) {
+                RecipeCardList(
+                    recipeModels: $viewModel.recipesModels,
+                    cardViewType: $viewModel.filters.cardViewType,
+                    isLoading: $isRecipesLoading
+                )
+                .padding()
+            }
+            .background(.backgroundLayer1)
             .navigationBarTitleDisplayMode(.inline)
             
             .searchable(text: $tempQueryText, placement: .navigationBarDrawer(displayMode: .always))

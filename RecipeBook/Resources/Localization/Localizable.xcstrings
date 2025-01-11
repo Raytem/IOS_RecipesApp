@@ -19,10 +19,10 @@
     "Add to saved" : {
 
     },
-    "Hello, World!" : {
+    "Main page" : {
 
     },
-    "Main page" : {
+    "No recipes found" : {
 
     },
     "No saved recipes" : {
@@ -191,6 +191,9 @@
           }
         }
       }
+    },
+    "Select other filters and try again." : {
+
     },
     "Settings" : {
 

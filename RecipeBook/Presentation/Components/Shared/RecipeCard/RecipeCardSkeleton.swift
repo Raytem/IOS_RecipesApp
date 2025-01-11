@@ -10,11 +10,25 @@ import SwiftUI
 struct RecipeCardSkeleton: View {
     @Binding var viewType: RecipeCardViewType
     
-    @State private var imageHeight: CGFloat = 0
-    @State private var imageWidth: CGFloat = 0
-    @State private var cardHeight: CGFloat = 0
-    @State private var buttonAlignment: Alignment = .center
-    @State private var isStackVertical: Bool = true
+    private var isStackVertical: Bool {
+        getRecipeCardSettings(for: viewType).isStackVertical
+   }
+    
+    private var imageHeight: CGFloat {
+       getRecipeCardSettings(for: viewType).imageHeight
+   }
+   
+    private var imageWidth: CGFloat {
+       getRecipeCardSettings(for: viewType).imageWidth
+    }
+
+    private var cardHeight: CGFloat {
+       getRecipeCardSettings(for: viewType).cardHeight
+    }
+
+    private var buttonAlignment: Alignment {
+       getRecipeCardSettings(for: viewType).buttonAlignment
+    }
     
     init(
         viewType: Binding<RecipeCardViewType> = .constant(.grid)
@@ -24,7 +38,7 @@ struct RecipeCardSkeleton: View {
     
     var body: some View {
         DynamicStack(
-            isVertical: $isStackVertical,
+            isVertical: isStackVertical,
             alignment: .leading,
             spacing: 0
         ) {
@@ -51,29 +65,14 @@ struct RecipeCardSkeleton: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(5)
         }
-        .padding(6)
         .frame(height: cardHeight)
         .background(.backgroundMain)
         .cornerRadius(15)
-        
-        .onAppear() {
-            updateSettings(for: viewType)
-        }
-        .onChange(of: viewType) {
-            updateSettings(for: viewType)
-        }
-    }
-    
-    private func updateSettings(for viewType: RecipeCardViewType) {
-        let settings = getRecipeCardSettings(for: viewType)
-        imageHeight = settings.imageHeight
-        imageWidth = settings.imageWidth
-        cardHeight = settings.cardHeight
-        buttonAlignment = settings.buttonAlignment
-        isStackVertical = settings.isStackVertical
     }
 }
 
 #Preview {
-    RecipeCardSkeleton()
+    RecipeCardSkeleton(
+        viewType: .constant(.grid)
+    )
 }

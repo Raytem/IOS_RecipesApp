@@ -8,26 +8,31 @@
 import SwiftUI
 
 struct RecipeCardListSkeleton: View {
-    @Binding var viewType: RecipeCardViewType
+    @Binding var cardViewType: RecipeCardViewType
+    let columns: [GridItem]
+    let spacing: CGFloat?
     
     init(
-        viewType: Binding<RecipeCardViewType> = .constant(.grid)
+        cardViewType: Binding<RecipeCardViewType> = .constant(.grid),
+        columns: [GridItem] = [],
+        spacing: CGFloat? = nil
     ) {
-        self._viewType = viewType
+        self._cardViewType = cardViewType
+        self.columns = columns
+        self.spacing = spacing
     }
     
     var body: some View {
         LazyVGrid(
-            columns: Array(
-                repeating: GridItem(.flexible(), spacing: 2),
-                count: viewType == .grid ? 2 : 1
-            ),
-            spacing: 10
+            columns: columns,
+            spacing: spacing
         ) {
-            ForEach(1...6, id: \.self) { _ in
-                RecipeCardSkeleton(viewType: $viewType)
+            ForEach(0..<6, id: \.self) { _ in
+                RecipeCardSkeleton(
+                    viewType: $cardViewType
+                )
             }
-        }.padding()
+        }
     }
 }
 

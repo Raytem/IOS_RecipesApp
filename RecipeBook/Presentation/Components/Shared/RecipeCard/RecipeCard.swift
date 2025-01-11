@@ -9,14 +9,27 @@ import SwiftUI
 
 struct RecipeCard: View {
     @State public var viewModel: RecipeCardViewModel
-    
     @Binding public var viewType: RecipeCardViewType
     
-    @State private var imageHeight: CGFloat = 0
-    @State private var imageWidth: CGFloat = 0
-    @State private var cardHeight: CGFloat = 0
-    @State private var buttonAlignment: Alignment = .center
-    @State private var isStackVertical: Bool = true
+    private var isStackVertical: Bool {
+        getRecipeCardSettings(for: viewType).isStackVertical
+   }
+    
+    private var imageHeight: CGFloat {
+       getRecipeCardSettings(for: viewType).imageHeight
+   }
+   
+    private var imageWidth: CGFloat {
+       getRecipeCardSettings(for: viewType).imageWidth
+    }
+
+    private var cardHeight: CGFloat {
+       getRecipeCardSettings(for: viewType).cardHeight
+    }
+
+    private var buttonAlignment: Alignment {
+       getRecipeCardSettings(for: viewType).buttonAlignment
+    }
     
     init(
         viewModel: RecipeCardViewModel,
@@ -24,39 +37,18 @@ struct RecipeCard: View {
     ) {
         self.viewModel = viewModel
         self._viewType = viewType
-        self.imageHeight = imageHeight
-        self.cardHeight = cardHeight
-        self.buttonAlignment = buttonAlignment
-        self.isStackVertical = isStackVertical
     }
     
     var body: some View {
         DynamicStack(
-            isVertical: $isStackVertical,
+            isVertical: isStackVertical,
             alignment: .leading,
             spacing: 0
         ) {
             // Image block
-            ZStack {
-                Color(.backgroundMain)
-                AsyncImage(url: viewModel.recipeModel.image) { phase in
-                    switch phase {
-                    case .empty:
-                        ProgressView()
-                            .scaleEffect(1.5)
-                    case .success(let image):
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                    case .failure:
-                        Image(systemName: "photo.badge.exclamationmark")
-                            .font(.system(.largeTitle))
-                            .foregroundColor(.white)
-                    default:
-                        EmptyView()
-                    }
-                }
-            }
+            CustomAsyncImage(
+                url: viewModel.recipeModel.image
+            )
             .overlay() {
                 LinearGradient(
                     colors: [
@@ -132,24 +124,9 @@ struct RecipeCard: View {
             .padding(5)
         }
         .frame(height: cardHeight)
-        .background(.backgroundMain)
-        
-        .onAppear() {
-            updateSettings(for: viewType)
-        }
-        .onChange(of: viewType) {
-            updateSettings(for: viewType)
-        }
+        .background(.clear)
     }
     
-    private func updateSettings(for viewType: RecipeCardViewType) {
-        let settings = getRecipeCardSettings(for: viewType)
-        imageHeight = settings.imageHeight
-        imageWidth = settings.imageWidth
-        cardHeight = settings.cardHeight
-        buttonAlignment = settings.buttonAlignment
-        isStackVertical = settings.isStackVertical
-    }
 }
 
 #Preview {

@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct DynamicStack<Content: View>: View {
-    @Binding public var isVertical: Bool
-    @State public var alignment: HorizontalAlignment = .center
-    @State  var spacing: CGFloat? = nil
+    var isVertical: Bool
+    var alignment: HorizontalAlignment = .center
+    var spacing: CGFloat? = nil
     @ViewBuilder public var content: () -> Content
     
     var body: some View {
@@ -29,7 +29,7 @@ struct DynamicStack<Content: View>: View {
 }
 
 #Preview {
-    DynamicStack(isVertical: .constant(true)) {
+    DynamicStack(isVertical: true) {
         Text("Hi")
         Text("Hi")
     }

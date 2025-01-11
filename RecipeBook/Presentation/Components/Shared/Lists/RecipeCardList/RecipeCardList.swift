@@ -12,6 +12,15 @@ struct RecipeCardList: View {
     @Binding var cardViewType: RecipeCardViewType
     @Binding var isLoading: Bool
     
+    let gridSpacing: CGFloat = 10
+    
+    private var columns: [GridItem] {
+        Array(
+            repeating: GridItem(.flexible(), spacing: 2),
+            count: cardViewType == .grid ? 2 : 1
+        )
+    }
+    
     init(
         recipeModels: Binding<[RecipeModel]> = .constant([]),
         cardViewType: Binding<RecipeCardViewType> = .constant(.grid),
@@ -23,36 +32,32 @@ struct RecipeCardList: View {
     }
     
     var body: some View {
-        ScrollView(.vertical) {
-            if isLoading {
-                RecipeCardListSkeleton(viewType: $cardViewType)
-            } else if recipeModels.isEmpty {
-                ContentUnavailableView(
-                    "No recipes found",
-                    systemImage: "text.page.badge.magnifyingglass",
-                    description: Text("Select other filters and try again.")
-                )
-                .padding(.top, 100)
-            } else {
-                LazyVGrid(
-                    columns: Array(
-                        repeating: GridItem(.flexible(), spacing: 2),
-                        count: cardViewType == .grid ? 2 : 1
-                    ),
-                    spacing: 10
-                ) {
-                    ForEach(recipeModels, id: \.id) { recipeModel in
-                        RecipeCard(
-                            viewModel: RecipeCardViewModel(recipeModel: recipeModel),
-                            viewType: $cardViewType
-                        )
-                    }
+        if isLoading {
+            RecipeCardListSkeleton(
+                cardViewType: $cardViewType,
+                columns: columns,
+                spacing: gridSpacing
+            )
+        } else if recipeModels.isEmpty {
+            ContentUnavailableView(
+                "No recipes found",
+                systemImage: "text.page.badge.magnifyingglass",
+                description: Text("Select other filters and try again.")
+            )
+            .padding(.top, 100)
+        } else {
+            LazyVGrid(
+                columns: columns,
+                spacing: gridSpacing
+            ) {
+                ForEach(recipeModels, id: \.id) { recipeModel in
+                    RecipeCard(
+                        viewModel: RecipeCardViewModel(recipeModel: recipeModel),
+                        viewType: $cardViewType
+                    )
                 }
-                .padding()
-                .background(Color(uiColor: .backgroundMain))
             }
         }
-        .background(Color(uiColor: .backgroundMain))
     }
 }
 
@@ -60,6 +65,6 @@ struct RecipeCardList: View {
     RecipeCardList(
         recipeModels: .constant([]),
         cardViewType: .constant(.grid),
-        isLoading: .constant(false)
+        isLoading: .constant(true)
     )
 }
