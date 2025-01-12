@@ -9,34 +9,26 @@ import SwiftUI
 
 struct RecipeCard: View {
     @State public var viewModel: RecipeCardViewModel
-    @Binding public var viewType: RecipeCardViewType
+    @Binding var viewType: RecipeCardViewType
     
     private var isStackVertical: Bool {
-        getRecipeCardSettings(for: viewType).isStackVertical
+        RecipeCardSettings.get(for: viewType).isStackVertical
    }
     
     private var imageHeight: CGFloat {
-       getRecipeCardSettings(for: viewType).imageHeight
+        RecipeCardSettings.get(for: viewType).imageHeight
    }
    
     private var imageWidth: CGFloat {
-       getRecipeCardSettings(for: viewType).imageWidth
+        RecipeCardSettings.get(for: viewType).imageWidth
     }
 
     private var cardHeight: CGFloat {
-       getRecipeCardSettings(for: viewType).cardHeight
+        RecipeCardSettings.get(for: viewType).cardHeight
     }
 
     private var buttonAlignment: Alignment {
-       getRecipeCardSettings(for: viewType).buttonAlignment
-    }
-    
-    init(
-        viewModel: RecipeCardViewModel,
-        viewType: Binding<RecipeCardViewType>
-    ) {
-        self.viewModel = viewModel
-        self._viewType = viewType
+        RecipeCardSettings.get(for: viewType).buttonAlignment
     }
     
     var body: some View {
@@ -89,7 +81,10 @@ struct RecipeCard: View {
                         .truncationMode(.tail)
                     
                     Text(
-                        viewModel.recipeModel.diets.map({ diet in diet.rawValue }).joined(separator: ", ")
+                        viewModel.recipeModel.diets
+                            .map({ diet in diet.displayName })
+                            .sorted(by: <)
+                            .joined(separator: ", ")
                     )
                         .font(.callout)
                         .lineLimit(1)
@@ -101,6 +96,7 @@ struct RecipeCard: View {
                         Text("\(viewModel.recipeModel.aggregateLikes) likes")
                             .font(.callout)
                             .lineLimit(1)
+                            .foregroundStyle(.gray)
                     }
                 }
                 
@@ -110,9 +106,7 @@ struct RecipeCard: View {
                     title: "Add to saved",
                     size: .medium,
                     startIcon: "bookmark.fill",
-                    action: {
-                        //TODO
-                    }
+                    action: handleAddToSavedButtonClick
                 )
                 .frame(
                     maxWidth: .infinity,
@@ -127,6 +121,9 @@ struct RecipeCard: View {
         .background(.clear)
     }
     
+    func handleAddToSavedButtonClick() {
+        viewModel.addToSaved()
+    }
 }
 
 #Preview {

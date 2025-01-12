@@ -30,7 +30,7 @@ struct RecipeCardList: View {
         self._cardViewType = cardViewType
         self._isLoading = isLoading
     }
-    
+
     var body: some View {
         if isLoading {
             RecipeCardListSkeleton(
@@ -52,7 +52,9 @@ struct RecipeCardList: View {
             ) {
                 ForEach(recipeModels, id: \.id) { recipeModel in
                     RecipeCard(
-                        viewModel: RecipeCardViewModel(recipeModel: recipeModel),
+                        viewModel: RecipeCardViewModel(
+                            recipeModel: recipeModel
+                        ),
                         viewType: $cardViewType
                     )
                 }

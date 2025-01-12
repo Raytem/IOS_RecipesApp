@@ -11,17 +11,17 @@ import Foundation
 class SearchRecipesFilter {
     var cardViewType: RecipeCardViewType
     var query: String?
-    var cuisines: [Cuisine]?
-    var diets: [Diet]?
-    var mealTypes: [MealType]?
+    var cuisines: Set<Cuisine>
+    var diets: Set<Diet>
+    var mealTypes: Set<MealType>
     var maxReadyTime: Double?
     
     init(
-        cardViewType: RecipeCardViewType,
+        cardViewType: RecipeCardViewType = .grid,
         query: String? = nil,
-        cuisines: [Cuisine]? = nil,
-        diets: [Diet]? = nil,
-        mealTypes: [MealType]? = nil,
+        cuisines: Set<Cuisine> = Set(),
+        diets: Set<Diet> = Set(),
+        mealTypes: Set<MealType> = Set(),
         maxReadyTime: Double? = nil
     ) {
         self.cardViewType = cardViewType

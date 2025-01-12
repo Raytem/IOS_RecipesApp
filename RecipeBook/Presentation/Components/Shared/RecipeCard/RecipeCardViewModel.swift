@@ -10,9 +10,16 @@ import SwiftUI
 
 @Observable
 class RecipeCardViewModel {
-    public var recipeModel: RecipeModel
+    var recipeModel: RecipeModel
     
-    init(recipeModel: RecipeModel) {
+    init(
+        recipeModel: RecipeModel
+    ) {
         self.recipeModel = recipeModel
     }
+    
+    func addToSaved() {
+        
+    }
 }
+

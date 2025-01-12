@@ -1,0 +1,276 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "African" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Африканская"
+          }
+        }
+      }
+    },
+    "American" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Американская"
+          }
+        }
+      }
+    },
+    "Asian" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Азиатская"
+          }
+        }
+      }
+    },
+    "British" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Британская"
+          }
+        }
+      }
+    },
+    "Cajun" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Каджунская"
+          }
+        }
+      }
+    },
+    "Caribbean" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Карибская"
+          }
+        }
+      }
+    },
+    "Chinese" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Китайская"
+          }
+        }
+      }
+    },
+    "Eastern European" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Восточно-европейская"
+          }
+        }
+      }
+    },
+    "European" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Европейская"
+          }
+        }
+      }
+    },
+    "French" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Французская"
+          }
+        }
+      }
+    },
+    "German" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Немецкая"
+          }
+        }
+      }
+    },
+    "Greek" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Греческая"
+          }
+        }
+      }
+    },
+    "Indian" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Индийская"
+          }
+        }
+      }
+    },
+    "Irish" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ирландская"
+          }
+        }
+      }
+    },
+    "Italian" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Итальянская"
+          }
+        }
+      }
+    },
+    "Japanese" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Японская"
+          }
+        }
+      }
+    },
+    "Jewish" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Иудейская"
+          }
+        }
+      }
+    },
+    "Korean" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Корейская"
+          }
+        }
+      }
+    },
+    "Latin American" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Латино-американская"
+          }
+        }
+      }
+    },
+    "Mediterranean" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Средиземноморская"
+          }
+        }
+      }
+    },
+    "Mexican" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мексиканская"
+          }
+        }
+      }
+    },
+    "Middle Eastern" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ближневосточная"
+          }
+        }
+      }
+    },
+    "Nordic" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скандинавская"
+          }
+        }
+      }
+    },
+    "Southern" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Южная"
+          }
+        }
+      }
+    },
+    "Spanish" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Испанская"
+          }
+        }
+      }
+    },
+    "Thai" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тайская"
+          }
+        }
+      }
+    },
+    "Vietnamese" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вьетнамская"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

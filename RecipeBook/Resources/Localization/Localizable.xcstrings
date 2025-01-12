@@ -1,6 +1,9 @@
 {
-  "sourceLanguage" : "ru",
+  "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "______________" : {
 
     },
@@ -11,147 +14,270 @@
 
     },
     "%lld likes" : {
-
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld like"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld likes"
+                }
+              }
+            }
+          }
+        },
+        "ru" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%lld понравилось"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%lld понравилось"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%lld понравилось"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld понравилось"
+                }
+              }
+            }
+          }
+        }
+      }
     },
     "%lld min" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld min"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld мин"
+          }
+        }
+      }
     },
     "Add to saved" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add to saved"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сохранить"
+          }
+        }
+      }
+    },
+    "African" : {
+
+    },
+    "American" : {
+
+    },
+    "Apply" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apply"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Применить"
+          }
+        }
+      }
+    },
+    "Asian" : {
+
+    },
+    "British" : {
+
+    },
+    "Cajun" : {
+
+    },
+    "Caribbean" : {
+
+    },
+    "Chinese" : {
+
+    },
+    "Close" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Close"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Закрыть"
+          }
+        }
+      }
+    },
+    "Cusine" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cusine"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кухня"
+          }
+        }
+      }
+    },
+    "Eastern European" : {
+
+    },
+    "European" : {
+
+    },
+    "Filters" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filters"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Фильтры"
+          }
+        }
+      }
+    },
+    "French" : {
+
+    },
+    "Indian" : {
+
+    },
+    "Irish" : {
+
+    },
+    "Italian" : {
+
+    },
+    "Japanese" : {
+
+    },
+    "Jewish" : {
+
+    },
+    "Key" : {
+      "extractionState" : "manual"
+    },
+    "Korean" : {
+
+    },
+    "Latin American" : {
 
     },
     "Main page" : {
 
     },
-    "No recipes found" : {
+    "Mediterranean" : {
 
+    },
+    "Mexican" : {
+
+    },
+    "Middle Eastern" : {
+
+    },
+    "No recipes found" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Рецепты не найдены"
+          }
+        }
+      }
     },
     "No saved recipes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No saved recipes"
+          }
+        }
+      }
+    },
+    "Nordic" : {
 
     },
-    "RecipeSearchSortingOption.FiewerIngridients" : {
+    "Reset" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Less ingredients"
+            "value" : "Reset"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Меньше ингредиентов"
+            "value" : "Сбросить"
           }
         }
       }
     },
-    "RecipeSearchSortingOption.Harmful" : {
+    "Reset all" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Harmful to health"
+            "value" : "Reset all"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Вредные для здоровья"
-          }
-        }
-      }
-    },
-    "RecipeSearchSortingOption.Healty" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Useful for health"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Полезные для здоровья"
-          }
-        }
-      }
-    },
-    "RecipeSearchSortingOption.MoreIngridients" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "More ingredients"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Больше ингредиентов"
-          }
-        }
-      }
-    },
-    "RecipeSearchSortingOption.Popular" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Popular"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Популярные"
-          }
-        }
-      }
-    },
-    "RecipeSearchSortingOption.QickToCook" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Quick to cook"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Быстрые в приготовлении"
-          }
-        }
-      }
-    },
-    "RecipeSearchSortingOption.TheLeastCaloric" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Least Caloric"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Наименее каллорийные"
-          }
-        }
-      }
-    },
-    "RecipeSearchSortingOption.TheMostHighCalorie" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The most hight-calorie"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Наиболее каллорийные"
+            "state" : "needs_review",
+            "value" : "Сбросить все"
           }
         }
       }
@@ -173,10 +299,7 @@
         }
       }
     },
-    "Search for recipes and add it to saved" : {
-
-    },
-    "SearchRecipesScreen.Title" : {
+    "Search" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -186,23 +309,84 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Поиск"
           }
         }
       }
     },
-    "Select other filters and try again." : {
-
-    },
-    "Settings" : {
-
-    },
-    "SortingConfirmationDialog.Title" : {
+    "Search for recipes and add it to saved" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search for recipes and add it to saved"
+          }
+        }
+      }
+    },
+    "Select All" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select All"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выбрать все"
+          }
+        }
+      }
+    },
+    "Select other filters and try again." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select other filters and try again"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
             "state" : "needs_review",
+            "value" : "Выберите другие фильтры и попробуйте снова"
+          }
+        }
+      }
+    },
+    "Selected: %d" : {
+      "comment" : "Title showing the number of selected items",
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выбрано: %d"
+          }
+        }
+      }
+    },
+    "Selected: %lld" : {
+
+    },
+    "Settings" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        }
+      }
+    },
+    "Sorting" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "Sorting"
           }
         },
@@ -214,11 +398,43 @@
         }
       }
     },
+    "Southern" : {
+
+    },
+    "Spanish" : {
+
+    },
+    "Thai" : {
+
+    },
     "To Search page" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To Search page"
+          }
+        }
+      }
+    },
+    "Vietnamese" : {
 
     },
     "View mode" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "View mode"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Режим отображения"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

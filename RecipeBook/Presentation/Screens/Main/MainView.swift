@@ -28,7 +28,9 @@ struct MainView: View {
                }
                .frame(maxWidth: .infinity, maxHeight: .infinity)
                .navigationDestination(isPresented: $navigateToSearchScreen) {
-                   SearchRecipesScreen()
+                    SearchRecipesScreen(
+                        viewModel: SearchRecipesScreenViewModel(recipesModels: [])
+                    )
                }
                .background(Color(uiColor: .backgroundMain))
         }

@@ -21,8 +21,12 @@ struct AppearanceManager {
 //        UISearchTextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = NSAttributedString(string: "Search", attributes: [.foregroundColor: Color(.red)])
         
                 
-        // Настройки для UIAlertController
+        // UIAlertController
         UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = UIColor(Color.primary50)
+        
+        // Segmented picker
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor(.primary50)], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor(.primary50)], for: .normal)
     }
 }
 

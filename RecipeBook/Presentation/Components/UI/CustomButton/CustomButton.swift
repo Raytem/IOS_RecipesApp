@@ -8,40 +8,43 @@
 import SwiftUI
 
 struct CustomButton: View {
-    var title: String
+    var title: LocalizedStringKey
     var color: ButtonColor
     var size: ButtonSize
     var variant: ButtonVariant
+    var fontWeight: Font.Weight
     var startIcon: String?
     var endIcon: String?
     var fullWidth: Bool
     var withShadow: Bool
-    @Binding var disabled: Bool
+    var disabled: Bool
     var action: () -> Void
     
     @State private var isPressed: Bool = false
     
     init(
-        title: String = "",
+        title: LocalizedStringKey = "",
         color: ButtonColor = .primary,
         size: ButtonSize = .medium,
         variant: ButtonVariant = .contained,
+        fontWeight: Font.Weight = .semibold,
         startIcon: String? = nil,
         endIcon: String? = nil,
         fullWidth: Bool = false,
         withShadow: Bool = false,
-        disabled: Binding<Bool> = .constant(false),
+        disabled: Bool = false,
         action: @escaping () -> Void
     ) {
         self.title = title
         self.color = color
         self.size = size
         self.variant = variant
+        self.fontWeight = fontWeight
         self.startIcon = startIcon
         self.endIcon = endIcon
         self.fullWidth = fullWidth
         self.withShadow = withShadow
-        self._disabled = disabled
+        self.disabled = disabled
         self.action = action
     }
     
@@ -115,8 +118,8 @@ struct CustomButton: View {
         }
         
         let color = switch color {
-        case .primary: Color.primary50
-        case .secondary: Color.secondary40
+        case .primary: Color.primary50.opacity(0.6)
+        case .secondary: Color.secondary40.opacity(0.6)
         }
         return color
     }
@@ -147,29 +150,27 @@ struct CustomButton: View {
         case .large: return .title3.weight(.bold)
         }
     }
-
     
     var body: some View {
-        Button(action: action) {
-            HStack(spacing: 10) {
-                if let startIcon {
-                    Image(systemName: startIcon)
-                }
-                
-                Text(title)
-                    .lineLimit(1)
-                    .truncationMode(.tail)
-                
-                if let endIcon {
-                    Image(systemName: endIcon)
-                }
+        HStack(spacing: 10) {
+            if let startIcon {
+                Image(systemName: startIcon)
+            }
+            
+            Text(title)
+                .lineLimit(1)
+                .truncationMode(.tail)
+            
+            if let endIcon {
+                Image(systemName: endIcon)
             }
         }
+        .frame(maxWidth: fullWidth == true ? .infinity : nil)
         .buttonStyle(.plain)
         .padding(padding)
-        
+
         .disabled(disabled)
-        .frame(maxWidth: fullWidth == true ? .infinity : nil)
+        
         
         .background(backgroundColor)
         .cornerRadius(cornerRadius)
@@ -179,17 +180,25 @@ struct CustomButton: View {
         }
         
         .font(font)
+        .fontWeight(fontWeight)
         .foregroundStyle(foregroundColor)
-        .shadow(color: withShadow ? shadowColor : Color.clear, radius: 10, x: 0, y: 5)
+        .shadow(color: withShadow ? shadowColor : Color.clear, radius: 15, x: 0, y: 3)
         
-        .scaleEffect(isPressed ? 0.95 : 1)
+        .scaleEffect(isPressed ? 0.97 : 1)
+        .onTapGesture {
+            if !disabled {
+                action()
+            }
+        }
         .simultaneousGesture(
             DragGesture(minimumDistance: 0)
                 .onChanged { _ in
-                    withAnimation(.spring(duration: 0.2)) { isPressed = true }
+                    withAnimation(.spring(duration: 0.5)) {
+                        isPressed = true
+                    }
                 }
                 .onEnded { _ in isPressed = false
-                    withAnimation(.spring(duration: 0.2)) { isPressed = false }
+                    withAnimation(.spring(duration: 0.5)) { isPressed = false }
                 }
         )
     }
@@ -198,11 +207,13 @@ struct CustomButton: View {
 #Preview {
     CustomButton(
         title: "Click",
-        color: .secondary,
-        size: .medium,
-        variant: .contained,
+        color: .primary,
+        size: .small,
+        variant: .text,
         startIcon: "heart",
+        fullWidth: true,
         withShadow: true,
-        disabled: .constant(false)
-    ) {}
+        disabled: false,
+        action: { print("tap") }
+    )
 }

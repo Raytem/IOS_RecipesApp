@@ -41,15 +41,18 @@
 				Presentation/Components/Shared/RecipeCard/RecipeCardMockData.swift,
 				Presentation/Screens/Main/MainView.swift,
 				Presentation/Screens/SavedRecipes/SavedRecipesView.swift,
-				Presentation/Screens/SearchRecipes/Models/SarchRecipesSortOptions.swift,
-				Presentation/Screens/SearchRecipes/Models/SearchRecipesFilter.swift,
+				Presentation/Screens/SearchRecipes/SarchRecipesSortOptions.swift,
+				Presentation/Screens/SearchRecipes/SearchRecipesFilter.swift,
 				Presentation/Screens/SearchRecipes/SearchRecipesScreen.swift,
 				Presentation/Screens/SearchRecipes/SearchRecipesScreenViewModel.swift,
 				Presentation/Screens/Settings/SettingsView.swift,
 				"Resources/Fonts/Poppins-Bold.ttf",
 				"Resources/Fonts/Poppins-Italic.ttf",
 				"Resources/Fonts/Poppins-Regular.ttf",
+				Resources/Localization/Cuisines.xcstrings,
 				Resources/Localization/Localizable.xcstrings,
+				Resources/Localization/MealTypes.xcstrings,
+				Resources/Localization/RecipeSortingOptions.xcstrings,
 			);
 			target = A5B933832D2AA94A00D18C00 /* RecipeBookTests */;
 		};
@@ -64,15 +67,18 @@
 				Presentation/Components/Shared/RecipeCard/RecipeCardMockData.swift,
 				Presentation/Screens/Main/MainView.swift,
 				Presentation/Screens/SavedRecipes/SavedRecipesView.swift,
-				Presentation/Screens/SearchRecipes/Models/SarchRecipesSortOptions.swift,
-				Presentation/Screens/SearchRecipes/Models/SearchRecipesFilter.swift,
+				Presentation/Screens/SearchRecipes/SarchRecipesSortOptions.swift,
+				Presentation/Screens/SearchRecipes/SearchRecipesFilter.swift,
 				Presentation/Screens/SearchRecipes/SearchRecipesScreen.swift,
 				Presentation/Screens/SearchRecipes/SearchRecipesScreenViewModel.swift,
 				Presentation/Screens/Settings/SettingsView.swift,
 				"Resources/Fonts/Poppins-Bold.ttf",
 				"Resources/Fonts/Poppins-Italic.ttf",
 				"Resources/Fonts/Poppins-Regular.ttf",
+				Resources/Localization/Cuisines.xcstrings,
 				Resources/Localization/Localizable.xcstrings,
+				Resources/Localization/MealTypes.xcstrings,
+				Resources/Localization/RecipeSortingOptions.xcstrings,
 			);
 			target = A5B9338D2D2AA94A00D18C00 /* RecipeBookUITests */;
 		};
@@ -248,7 +254,7 @@
 				};
 			};
 			buildConfigurationList = A5B9336D2D2AA94800D18C00 /* Build configuration list for PBXProject "RecipeBook" */;
-			developmentRegion = ru;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,

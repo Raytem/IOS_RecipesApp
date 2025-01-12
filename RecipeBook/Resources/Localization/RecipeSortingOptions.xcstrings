@@ -1,0 +1,86 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Harmful" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вредные для здоровья"
+          }
+        }
+      }
+    },
+    "Healthy" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Полезные для здоровья"
+          }
+        }
+      }
+    },
+    "Less ingridients" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Меньше ингредиентов"
+          }
+        }
+      }
+    },
+    "More ingridients" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Больше ингредиентов"
+          }
+        }
+      }
+    },
+    "Popular" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Популярные"
+          }
+        }
+      }
+    },
+    "Qick to cook" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Быстрые в приготовлении"
+          }
+        }
+      }
+    },
+    "The least caloric" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Наименее каллорийные"
+          }
+        }
+      }
+    },
+    "The most high calorie" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Наиболее каллорийные"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

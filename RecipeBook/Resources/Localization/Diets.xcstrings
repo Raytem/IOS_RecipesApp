@@ -1,0 +1,116 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Gluten free" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Без глютена"
+          }
+        }
+      }
+    },
+    "Ketogenic" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кетогенная"
+          }
+        }
+      }
+    },
+    "Lacto-vegetarian" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Лакто-вегетарианская"
+          }
+        }
+      }
+    },
+    "Low FODMAP" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Низкое содержание FODMAP"
+          }
+        }
+      }
+    },
+    "Ovo-vegetarian" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ово-вегетарианская"
+          }
+        }
+      }
+    },
+    "Paleo" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Палео"
+          }
+        }
+      }
+    },
+    "Pescetarian" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пескетарианская"
+          }
+        }
+      }
+    },
+    "Primal" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Первобытная"
+          }
+        }
+      }
+    },
+    "Vegan" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Веганская"
+          }
+        }
+      }
+    },
+    "Vegetarian" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вегетарианская"
+          }
+        }
+      }
+    },
+    "Whole30" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Цельнозерновые продукты"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

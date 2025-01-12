@@ -7,11 +7,9 @@
 
 import SwiftUI
 
+
 struct SearchRecipesScreen: View {
-    @State private var viewModel = SearchRecipesScreenViewModel(recipesModels: [])
-    
-    @State private var isRecipesLoading = true
-    @State private var tempQueryText = ""
+    @State var viewModel: SearchRecipesScreenViewModel
     
     var body: some View {
         NavigationStack {
@@ -19,24 +17,13 @@ struct SearchRecipesScreen: View {
                 RecipeCardList(
                     recipeModels: $viewModel.recipesModels,
                     cardViewType: $viewModel.filters.cardViewType,
-                    isLoading: $isRecipesLoading
+                    isLoading: $viewModel.isRecipesLoading
                 )
                 .padding()
             }
             .background(.backgroundLayer1)
-            .navigationBarTitleDisplayMode(.inline)
-            
-            .searchable(text: $tempQueryText, placement: .navigationBarDrawer(displayMode: .always))
-            .refreshable(action: {
-                fetchRecipes()
-            })
             
             .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text("SearchRecipesScreen.Title")
-                        .foregroundStyle(.white)
-                        .fontWeight(.semibold)
-                }
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     HStack {
                         Button(action: {
@@ -54,58 +41,61 @@ struct SearchRecipesScreen: View {
                     .fontWeight(.semibold)
                 }
             }
-            .toolbarBackground(.primary50, for: .navigationBar)
-            .toolbarBackgroundVisibility(.visible, for: .navigationBar)
-            .accentColor(.toolbarItemAccent)
+            .applyCustomNavigationBarTitle(String(localized: "Search"))
+            .applyDefaultTopBarStyle()
+            
+            // search input
+            .searchable(text: $viewModel.tempQueryText, placement: .navigationBarDrawer(displayMode: .always))
+            .refreshable(action: {
+                fetchRecipes()
+            })
             
             // sorting dialog
             .confirmationDialog(
-                "SortingConfirmationDialog.Title",
+                "Sorting",
                 isPresented: $viewModel.isSortingOptionsSheetShowing,
                 titleVisibility: .visible
             ) {
-                ForEach(viewModel.sortingOptions, id: \.self ) { title in
+                ForEach(SearchRecipesSortOption.allCases, id: \.self ) { option in
                     Button(action: {
-                        
+                        viewModel.handleSortByUpdate(new: option)
                     }) {
-                        Text(title)
+                        Text(viewModel.getSortOptionFormattedDisplayName(for: option))
                     }
                 }
             }
             
             // filters sheet
             .sheet(isPresented: $viewModel.isFiltersSheetShowing) {
-                Picker("View mode", selection: $viewModel.filters.cardViewType) {
-                    ForEach(RecipeCardViewType.allCases, id: \.self) { type in
-                        let imageSystemName = switch type {
-                        case .grid: "square.grid.2x2.fill"
-                        case .list: "list.dash"
-                        case .single: "square.fill"
-                        }
-                        Image(systemName: imageSystemName)
-                    }
-                }
-                .pickerStyle(.segmented)
-                .padding()
-                
-                Spacer()
+                RecipeFilterScreen(
+                    filters: $viewModel.filters,
+                    handleFiltersApplly: handleFiltersApply
+                )
             }
         }
+        .accentColor(.toolbarItemAccent)
         .onAppear {
             fetchRecipes()
         }
     }
     
+    private func handleFiltersApply() {
+        print("SearchRecipesScreen.handleFiltersApply")
+        fetchRecipes()
+    }
+    
     private func fetchRecipes() {
-        isRecipesLoading = true
+        viewModel.isRecipesLoading = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                //TODO: replace with real data
-                viewModel.recipesModels = recipeCardMockData
-                isRecipesLoading = false
-            }
+            //TODO: replace with real data
+            viewModel.recipesModels = recipeCardMockData
+            viewModel.isRecipesLoading = false
         }
+    }
 }
 
 #Preview {
-    SearchRecipesScreen()
+    SearchRecipesScreen(
+        viewModel: SearchRecipesScreenViewModel(recipesModels: [])
+    )
 }

@@ -11,23 +11,23 @@ struct RecipeCardSkeleton: View {
     @Binding var viewType: RecipeCardViewType
     
     private var isStackVertical: Bool {
-        getRecipeCardSettings(for: viewType).isStackVertical
+        RecipeCardSettings.get(for: viewType).isStackVertical
    }
     
     private var imageHeight: CGFloat {
-       getRecipeCardSettings(for: viewType).imageHeight
+        RecipeCardSettings.get(for: viewType).imageHeight
    }
    
     private var imageWidth: CGFloat {
-       getRecipeCardSettings(for: viewType).imageWidth
+        RecipeCardSettings.get(for: viewType).imageWidth
     }
 
     private var cardHeight: CGFloat {
-       getRecipeCardSettings(for: viewType).cardHeight
+        RecipeCardSettings.get(for: viewType).cardHeight
     }
 
     private var buttonAlignment: Alignment {
-       getRecipeCardSettings(for: viewType).buttonAlignment
+        RecipeCardSettings.get(for: viewType).buttonAlignment
     }
     
     init(
