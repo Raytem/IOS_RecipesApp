@@ -9,7 +9,7 @@ import SwiftUI
 
 extension View {
     
-    func applyCustomNavigationBarTitle(_ title: String) -> some View {
+    func applyCustomNavigationBarTitle(_ title: LocalizedStringKey) -> some View {
         self
             .toolbar {
                 ToolbarItem(placement: .principal) {

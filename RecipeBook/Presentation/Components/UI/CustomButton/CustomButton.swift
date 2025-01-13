@@ -127,7 +127,7 @@ struct CustomButton: View {
     private var padding: EdgeInsets {
         switch size {
         case .small:
-            return EdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15)
+            return EdgeInsets(top: 8, leading: 13, bottom: 8, trailing: 13)
         case .medium:
             return EdgeInsets(top: 13, leading: 20, bottom: 13, trailing: 20)
         case .large:
@@ -145,7 +145,7 @@ struct CustomButton: View {
 
     private var font: Font {
         switch size {
-        case .small: return .callout.weight(.bold)
+        case .small: return .subheadline.weight(.bold)
         case .medium: return .body.weight(.bold)
         case .large: return .title3.weight(.bold)
         }
@@ -209,9 +209,9 @@ struct CustomButton: View {
         title: "Click",
         color: .primary,
         size: .small,
-        variant: .text,
+        variant: .contained,
         startIcon: "heart",
-        fullWidth: true,
+        fullWidth: false,
         withShadow: true,
         disabled: false,
         action: { print("tap") }

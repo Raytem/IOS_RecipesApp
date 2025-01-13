@@ -1,10 +1,10 @@
 import SwiftUI
 
 struct RecipeModel: Identifiable {
-    let id: Int
-    let title: String
-    let image: URL?
-    let readyInMinutes: Int
-    let aggregateLikes: Int
-    let diets: [Diet]
+    var id: Int
+    var title: String
+    var image: URL?
+    var readyInMinutes: Int
+    var aggregateLikes: Int
+    var diets: [Diet]
 }

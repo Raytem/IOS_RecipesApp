@@ -11,6 +11,7 @@ struct RecipeCardList: View {
     @Binding var recipeModels: [RecipeModel]
     @Binding var cardViewType: RecipeCardViewType
     @Binding var isLoading: Bool
+    var onLastListElementAppear: () -> Void
     
     let gridSpacing: CGFloat = 10
     
@@ -24,20 +25,28 @@ struct RecipeCardList: View {
     init(
         recipeModels: Binding<[RecipeModel]> = .constant([]),
         cardViewType: Binding<RecipeCardViewType> = .constant(.grid),
-        isLoading: Binding<Bool> = .constant(false)
+        isLoading: Binding<Bool> = .constant(false),
+        onLastListElementAppear: @escaping () -> Void
     ) {
         self._recipeModels = recipeModels
         self._cardViewType = cardViewType
         self._isLoading = isLoading
+        self.onLastListElementAppear = onLastListElementAppear
     }
 
     var body: some View {
         if isLoading {
+            EmptyView()
+                .onAppear { onLastListElementAppear() }
             RecipeCardListSkeleton(
                 cardViewType: $cardViewType,
                 columns: columns,
                 spacing: gridSpacing
-            )
+            ).overlay {
+                Rectangle().fill(Color(.clear))
+                    .onAppear { onLastListElementAppear() }
+            }
+            
         } else if recipeModels.isEmpty {
             ContentUnavailableView(
                 "No recipes found",
@@ -45,6 +54,10 @@ struct RecipeCardList: View {
                 description: Text("Select other filters and try again.")
             )
             .padding(.top, 100)
+            .overlay {
+                Rectangle().fill(Color(.clear))
+                    .onAppear { onLastListElementAppear() }
+            }
         } else {
             LazyVGrid(
                 columns: columns,
@@ -57,6 +70,16 @@ struct RecipeCardList: View {
                         ),
                         viewType: $cardViewType
                     )
+                    .overlay {
+                        //TODO: remade offsets
+                        if (
+                            (recipeModels.firstIndex(where: { $0.id == recipeModel.id } )
+                             ?? (recipeModels.count - 2)) == recipeModels.count - 2
+                        ) {
+                            Rectangle().fill(Color(.clear))
+                                .onAppear { onLastListElementAppear() }
+                        }
+                    }
                 }
             }
         }
@@ -67,6 +90,7 @@ struct RecipeCardList: View {
     RecipeCardList(
         recipeModels: .constant([]),
         cardViewType: .constant(.grid),
-        isLoading: .constant(true)
+        isLoading: .constant(true),
+        onLastListElementAppear: { print("appeared") }
     )
 }

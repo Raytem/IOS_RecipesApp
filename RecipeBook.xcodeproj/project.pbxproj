@@ -34,12 +34,10 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Domain/Enums/SortDirection.swift,
-				Domain/UseCases/AutoCompleteRecipeSearch/AutoCompleteRecipeSearchUseCase.swift,
 				Presentation/Components/Layout/NavBar/NavBarTab.swift,
 				Presentation/Components/Layout/NavBar/NavBarTabModel.swift,
 				Presentation/Components/Layout/NavBar/NavBarView.swift,
 				Presentation/Components/Shared/RecipeCard/RecipeCardMockData.swift,
-				Presentation/Screens/Main/MainView.swift,
 				Presentation/Screens/SavedRecipes/SavedRecipesView.swift,
 				Presentation/Screens/SearchRecipes/SarchRecipesSortOptions.swift,
 				Presentation/Screens/SearchRecipes/SearchRecipesFilter.swift,
@@ -60,12 +58,10 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Domain/Enums/SortDirection.swift,
-				Domain/UseCases/AutoCompleteRecipeSearch/AutoCompleteRecipeSearchUseCase.swift,
 				Presentation/Components/Layout/NavBar/NavBarTab.swift,
 				Presentation/Components/Layout/NavBar/NavBarTabModel.swift,
 				Presentation/Components/Layout/NavBar/NavBarView.swift,
 				Presentation/Components/Shared/RecipeCard/RecipeCardMockData.swift,
-				Presentation/Screens/Main/MainView.swift,
 				Presentation/Screens/SavedRecipes/SavedRecipesView.swift,
 				Presentation/Screens/SearchRecipes/SarchRecipesSortOptions.swift,
 				Presentation/Screens/SearchRecipes/SearchRecipesFilter.swift,

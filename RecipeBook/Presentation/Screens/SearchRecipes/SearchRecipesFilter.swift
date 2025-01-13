@@ -7,25 +7,19 @@
 
 import Foundation
 
-@Observable
-class SearchRecipesFilter {
-    var cardViewType: RecipeCardViewType
-    var query: String?
+struct SearchRecipesFilter {
     var cuisines: Set<Cuisine>
     var diets: Set<Diet>
     var mealTypes: Set<MealType>
-    var maxReadyTime: Double?
+    var maxReadyTime: Int?
     
     init(
         cardViewType: RecipeCardViewType = .grid,
-        query: String? = nil,
         cuisines: Set<Cuisine> = Set(),
         diets: Set<Diet> = Set(),
         mealTypes: Set<MealType> = Set(),
-        maxReadyTime: Double? = nil
+        maxReadyTime: Int? = nil
     ) {
-        self.cardViewType = cardViewType
-        self.query = query
         self.cuisines = cuisines
         self.diets = diets
         self.mealTypes = mealTypes

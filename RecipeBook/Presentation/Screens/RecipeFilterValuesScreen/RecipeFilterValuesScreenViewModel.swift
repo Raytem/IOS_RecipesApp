@@ -14,10 +14,10 @@ class RecipeFilterValuesScreenViewModel<Item: DisplayNamable> {
     var searchTerm: String
     
     let allItems: [Item]
-    let navigationTitle: String
+    let navigationTitle: LocalizedStringKey
     
     init(
-        navigationTitle: String,
+        navigationTitle: LocalizedStringKey,
         allItems: [Item]
     ) {
         self.temporarySelectedItems = []
@@ -32,11 +32,11 @@ class RecipeFilterValuesScreenViewModel<Item: DisplayNamable> {
         : .selectAll
     }
     
-    var navigationTitleText: String {
+    var navigationTitleText: LocalizedStringKey {
         if temporarySelectedItems.isEmpty {
             return navigationTitle
         }
-        return String(localized: "Selected: \(temporarySelectedItems.count)")
+        return "Selected: \(temporarySelectedItems.count)"
     }
     
     

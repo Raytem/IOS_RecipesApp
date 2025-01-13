@@ -11,44 +11,84 @@ import SwiftUI
 struct SearchRecipesScreen: View {
     @State var viewModel: SearchRecipesScreenViewModel
     
+    @State private var isNavigateToNewSearchPage: Bool = false
+    
     var body: some View {
         NavigationStack {
             ScrollView(.vertical) {
                 RecipeCardList(
                     recipeModels: $viewModel.recipesModels,
-                    cardViewType: $viewModel.filters.cardViewType,
-                    isLoading: $viewModel.isRecipesLoading
+                    cardViewType: $viewModel.cardViewType,
+                    isLoading: $viewModel.isRecipesLoading,
+                    onLastListElementAppear: onLastListTiemElementAppear
                 )
                 .padding()
+                
+                // Navigation link for transitioning to the search results screen
+                NavigationLink(
+                    destination: SearchRecipesScreen(
+                        viewModel: viewModel.getNewInstanceForNewSearchRequest()
+                    ),
+                    isActive: $isNavigateToNewSearchPage
+                ) { EmptyView() }
             }
             .background(.backgroundLayer1)
             
+            // searchable
+            .searchable(
+                text: $viewModel.tempQueryText,
+                isPresented: $viewModel.isSearchablePresented,
+                placement: .navigationBarDrawer(displayMode: .always)
+            )
+            .refreshable { handleRefreshData() }
+            .onSubmit(of: .search) { handleSearchSubmit() }
+//            .searchSuggestions {
+//                ForEach(viewModel.searchSuggestions, id: \.self) { suggestion in
+//                    HStack {
+//                        Image(systemName: "magnifyingglass")
+//                            .foregroundStyle(Color(.gray))
+//                        Text(suggestion)
+//                            .foregroundStyle(Color(.label))
+//                        Spacer()
+//                        Image(systemName: "chevron.forward")
+//                            .foregroundStyle(Color(.gray))
+//                    }
+//                    .frame(maxWidth: .infinity, alignment: .leading)
+//                    .contentShape(Rectangle())
+//                    .onTapGesture {
+//                        viewModel.tempQueryText = suggestion
+//                        handleSearchSubmit()
+//                    }
+//                }
+//            }
+            
+            // toolbar
             .toolbar {
-                ToolbarItemGroup(placement: .topBarTrailing) {
-                    HStack {
-                        Button(action: {
-                            viewModel.isSortingOptionsSheetShowing.toggle()
-                        }) {
-                            Image(systemName: "arrow.up.arrow.down")
+                if !viewModel.isRecipesLoading {
+                    ToolbarItemGroup(placement: .topBarTrailing) {
+                        HStack {
+                            Button(action: handleSortByButtonClick) {
+                                Image(systemName: "arrow.up.arrow.down")
+                            }
+                            
+                            Button(action: handleFiltersButtonClick) {
+                                Image(systemName: "slider.horizontal.3")
+                                    .overlay {
+                                        if viewModel.showFiltersBadge {
+                                            Circle()
+                                                .fill(Color(.badge))
+                                                .frame(width: 10)
+                                                .offset(x: 10, y: -10)
+                                        }
+                                    }
+                            }
                         }
-                        
-                        Button(action: {
-                            viewModel.isFiltersSheetShowing.toggle()
-                        }) {
-                            Image(systemName: "slider.horizontal.3")
-                        }
+                        .fontWeight(.semibold)
                     }
-                    .fontWeight(.semibold)
                 }
             }
-            .applyCustomNavigationBarTitle(String(localized: "Search"))
+            .applyCustomNavigationBarTitle("Search")
             .applyDefaultTopBarStyle()
-            
-            // search input
-            .searchable(text: $viewModel.tempQueryText, placement: .navigationBarDrawer(displayMode: .always))
-            .refreshable(action: {
-                fetchRecipes()
-            })
             
             // sorting dialog
             .confirmationDialog(
@@ -58,7 +98,7 @@ struct SearchRecipesScreen: View {
             ) {
                 ForEach(SearchRecipesSortOption.allCases, id: \.self ) { option in
                     Button(action: {
-                        viewModel.handleSortByUpdate(new: option)
+                        handleSortByUpdate(new: option)
                     }) {
                         Text(viewModel.getSortOptionFormattedDisplayName(for: option))
                     }
@@ -69,26 +109,70 @@ struct SearchRecipesScreen: View {
             .sheet(isPresented: $viewModel.isFiltersSheetShowing) {
                 RecipeFilterScreen(
                     filters: $viewModel.filters,
-                    handleFiltersApplly: handleFiltersApply
+                    cardViewType: $viewModel.cardViewType,
+                    handleFiltersApplly: { handleFiltersAppllyButtonClick() }
                 )
             }
         }
         .accentColor(.toolbarItemAccent)
+        
         .onAppear {
-            fetchRecipes()
+            viewModel.tempQueryText = viewModel.startQueryText
+        }
+        .onDisappear {
+            viewModel.tempQueryText = viewModel.startQueryText
         }
     }
     
-    private func handleFiltersApply() {
-        print("SearchRecipesScreen.handleFiltersApply")
-        fetchRecipes()
+    private func handleSortByButtonClick() {
+        viewModel.isSortingOptionsSheetShowing.toggle()
     }
     
-    private func fetchRecipes() {
+    private func handleFiltersButtonClick() {
+        viewModel.isFiltersSheetShowing.toggle()
+    }
+    
+    private func handleSearchSubmit() {
+        isNavigateToNewSearchPage = true
+        viewModel.isSearchablePresented = false
+    }
+    
+    private func handleSortByUpdate(new value: SearchRecipesSortOption) {
+        if value != viewModel.sortBy {
+            viewModel.currentPage = 0
+            viewModel.recipesModels = []
+            viewModel.sortBy = value
+            viewModel.isRecipesLoading = true
+        }
+    }
+    
+    private func handleFiltersAppllyButtonClick() {
+        viewModel.currentPage = 0
+        viewModel.recipesModels = []
         viewModel.isRecipesLoading = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+    }
+    
+    private func handleRefreshData() {
+        viewModel.currentPage = 0
+        viewModel.recipesModels = []
+        viewModel.isRecipesLoading = true
+    }
+    
+    private func onLastListTiemElementAppear() {
+        print(viewModel.currentPage)
+        if (viewModel.totalPages > viewModel.currentPage) {
+            fetchRecipes(showLoadingState: false)
+            viewModel.currentPage = viewModel.currentPage + 1
+        }
+    }
+    
+    private func fetchRecipes(showLoadingState: Bool = true) {
+        if showLoadingState {
+            viewModel.isRecipesLoading = true
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
             //TODO: replace with real data
-            viewModel.recipesModels = recipeCardMockData
+            viewModel.recipesModels.append(contentsOf: getNewRicipeMockData())
             viewModel.isRecipesLoading = false
         }
     }

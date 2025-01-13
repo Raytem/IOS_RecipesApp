@@ -15,8 +15,12 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             TabView(selection: $selectedTab) {
-                MainView()
-                    . setUpNavigationTab(.main)
+                SearchRecipesScreen(
+                    viewModel: SearchRecipesScreenViewModel(
+                        recipesModels: []
+                    )
+                )
+                    .setUpNavigationTab(.main)
                 SavedRecipesView()
                     .setUpNavigationTab(.savedRecipes)
                 SettingsView()

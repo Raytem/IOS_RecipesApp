@@ -129,7 +129,7 @@ struct RecipeCard: View {
 #Preview {
     RecipeCard(
         viewModel: RecipeCardViewModel(
-            recipeModel: recipeCardMockData[0]
+            recipeModel: recipeCardMockData[1]
         ),
         viewType: .constant(.grid)
     )

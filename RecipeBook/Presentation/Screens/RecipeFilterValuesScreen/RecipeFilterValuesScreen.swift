@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct RecipeFilterValuesScreen<Item: DisplayNamable>: View {
     @Environment(\.dismiss) var dismiss
     
@@ -50,14 +51,16 @@ struct RecipeFilterValuesScreen<Item: DisplayNamable>: View {
                        fullWidth: true,
                        withShadow: true,
                        disabled: viewModel.isApplyButtonDisabled,
-                       action: {
-                           dismiss()
-                           handleApplyButtonClick()
-                       }
+                       action: handleApplyButtonClick
                    )
                    .padding(15)
                }
            }
+           
+           .searchable(
+                text: $viewModel.searchTerm,
+                placement: .navigationBarDrawer(displayMode: .always)
+           )
            
            .toolbar {
                ToolbarItem(placement: .topBarTrailing) {
@@ -66,11 +69,6 @@ struct RecipeFilterValuesScreen<Item: DisplayNamable>: View {
                    }
                }
            }
-        
-           .searchable(
-                text: $viewModel.searchTerm,
-                placement: .navigationBarDrawer(displayMode: .always)
-           )
            
            .applyCustomNavigationBarTitle(viewModel.navigationTitleText)
            .applyDefaultTopBarStyle()
@@ -83,11 +81,10 @@ struct RecipeFilterValuesScreen<Item: DisplayNamable>: View {
     }
 
     func handleApplyButtonClick() {
-        print("RecipeFilterValuesScreen.handleApplyButtonClick")
         dismiss()
-//        viewModel.handleApply(
-//            selectedItemsBinding: &selectedItems
-//        )
+        viewModel.handleApply(
+            selectedItemsBinding: &selectedItems
+        )
     }
 
 }

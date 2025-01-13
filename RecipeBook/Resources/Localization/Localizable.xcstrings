@@ -166,6 +166,26 @@
         }
       }
     },
+    "Diet" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Диета"
+          }
+        }
+      }
+    },
+    "Done" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Готово"
+          }
+        }
+      }
+    },
     "Eastern European" : {
 
     },
@@ -194,6 +214,16 @@
     "Indian" : {
 
     },
+    "Input minutes" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Введите минуты"
+          }
+        }
+      }
+    },
     "Irish" : {
 
     },
@@ -215,8 +245,25 @@
     "Latin American" : {
 
     },
-    "Main page" : {
-
+    "Max ready time, min" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Максимальное время приготовления, мин"
+          }
+        }
+      }
+    },
+    "Meal types" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тип блюда"
+          }
+        }
+      }
     },
     "Mediterranean" : {
 
@@ -228,6 +275,7 @@
 
     },
     "No recipes found" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -276,7 +324,7 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Сбросить все"
           }
         }
@@ -309,7 +357,7 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Поиск"
           }
         }
@@ -342,6 +390,7 @@
       }
     },
     "Select other filters and try again." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -351,7 +400,7 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Выберите другие фильтры и попробуйте снова"
           }
         }
@@ -370,7 +419,14 @@
       }
     },
     "Selected: %lld" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выбрано: %lld"
+          }
+        }
+      }
     },
     "Settings" : {
       "localizations" : {
@@ -408,6 +464,7 @@
 
     },
     "To Search page" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

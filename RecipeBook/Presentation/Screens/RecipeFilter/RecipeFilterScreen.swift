@@ -10,7 +10,12 @@ import SwiftUI
 struct RecipeFilterScreen: View {
     @Environment(\.dismiss) private var dismiss
     
+    @State var maxReadyTimeText: String = ""
+    
+    @State var temporaryFilters = SearchRecipesFilter()
     @Binding var filters: SearchRecipesFilter
+    @Binding var cardViewType: RecipeCardViewType
+    
     var handleFiltersApplly: () -> Void
     
     var body: some View {
@@ -22,7 +27,7 @@ struct RecipeFilterScreen: View {
                             .textCase(.none)
                             .font(.headline)
                     ) {
-                        Picker("View mode", selection: $filters.cardViewType) {
+                        Picker("View mode", selection: $cardViewType) {
                             ForEach(RecipeCardViewType.allCases, id: \.self) { type in
                                 Image(systemName: getViewModeImageSystemName(for: type))
                             }
@@ -37,24 +42,29 @@ struct RecipeFilterScreen: View {
                                     .textCase(.none)
                                     .font(.headline)
                     ) {
-                        NavigationLink {
-                            RecipeFilterValuesScreen(
-                                viewModel: RecipeFilterValuesScreenViewModel(
-                                    navigationTitle: "Cusine",
-                                    allItems: Cuisine.allCases
-                                ),
-                                selectedItems: $filters.cuisines
-                            )
-                        } label: {
-                            RecipeFilterFormRow(
-                                title: "Cusine",
-                                selectedValues: Array(filters.cuisines),
-                                handleRest: { filters.cuisines.removeAll() }
-                            )
+                        VStack(alignment: .leading) {
+                            Text("Max ready time, min")
+                            TextField("Input minutes", text: $maxReadyTimeText)
+                                .padding(10)
+                                .background(.backgroundLayer2)
+                                .cornerRadius(10)
+                                .keyboardType(.numberPad)
                         }
-//                        var cuisines: [Cuisine]?
-//                        var diets: [Diet]?
-//                        var mealTypes: [MealType]?
+                        RecipeFilterFormNavigationLink(
+                            title: "Cusine",
+                            allItems: Cuisine.allCases,
+                            selectedItems: $temporaryFilters.cuisines
+                        )
+                        RecipeFilterFormNavigationLink(
+                            title: "Diet",
+                            allItems: Diet.allCases,
+                            selectedItems: $temporaryFilters.diets
+                        )
+                        RecipeFilterFormNavigationLink(
+                            title: "Meal types",
+                            allItems: MealType.allCases,
+                            selectedItems: $temporaryFilters.mealTypes
+                        )
 //                        var maxReadyTime: Double?
                     }
                     .listRowBackground(Color(.backgroundLayer1))
@@ -91,12 +101,33 @@ struct RecipeFilterScreen: View {
                         Text("Reset all")
                     }
                 }
+                
+                ToolbarItemGroup(placement: .keyboard) {
+                    HStack() {
+                        Spacer()
+                        Button("Done") {
+                            hideKeyboard()
+                        }
+                        .foregroundStyle(Color(.primary50))
+                    }
+                }
             }
             
-            .applyCustomNavigationBarTitle(String(localized: "Filters"))
+            .applyCustomNavigationBarTitle("Filters")
             .applyDefaultTopBarStyle()
         }
         .accentColor(.toolbarItemAccent)
+        
+        .onAppear {
+            temporaryFilters = filters
+            if let maxReadyTime = filters.maxReadyTime {
+                maxReadyTimeText = String(maxReadyTime)
+            }
+        }
+        
+        .onChange(of: maxReadyTimeText) {
+            maxReadyTimeText = maxReadyTimeText.filter { $0.isNumber }
+        }
     }
     
     private func getViewModeImageSystemName(for type: RecipeCardViewType) -> String {
@@ -112,13 +143,16 @@ struct RecipeFilterScreen: View {
     }
     
     private func handleApplyButtonClick() {
-        print("RecipeFilterScreen.handleApplyButtonClick")
+        temporaryFilters.maxReadyTime = maxReadyTimeText.isEmpty ? nil : Int(maxReadyTimeText)
+        filters = temporaryFilters
+        
         dismiss()
         handleFiltersApplly()
     }
     
     private func resetAllFilters() {
-        filters = SearchRecipesFilter(cardViewType: filters.cardViewType)
+        temporaryFilters = SearchRecipesFilter()
+        maxReadyTimeText = ""
     }
     
 }
@@ -126,6 +160,7 @@ struct RecipeFilterScreen: View {
 #Preview {
     RecipeFilterScreen(
         filters: .constant(SearchRecipesFilter()),
+        cardViewType: .constant(.grid),
         handleFiltersApplly: { print("handleFiltersApplly") }
     )
 }
