@@ -6,25 +6,29 @@
 //
 
 enum Diet: String, CaseIterable, Codable, DisplayNamable {
-    case glutenFree = "Gluten Free"
-    case ketogenic = "Ketogenic"
-    case vegetarian = "Vegetarian"
-    case lactoVegetarian = "Lacto-Vegetarian"
-    case ovoVegetarian = "Ovo-Vegetarian"
-    case vegan = "Vegan"
-    case pescetarian = "Pescetarian"
-    case paleo = "Paleo"
-    case primal = "Primal"
-    case lowFODMAP = "Low FODMAP"
-    case whole30 = "Whole30"
+    case glutenFree = "gluten free"
+    case dairyFree = "dairy free"
+    case ketogenic = "ketogenic"
+    case vegetarian = "vegetarian"
+    case lactoVegetarian = "lacto vegetarian"
+    case ovoVegetarian = "ovo vegetarian"
+    case lactoOvoVegeterian = "lacto ovo vegetarian"
+    case vegan = "vegan"
+    case pescetarian = "pescetarian"
+    case paleo = "paleo"
+    case primal = "primal"
+    case lowFODMAP = "low foodmap"
+    case whole30 = "whole 30"
     
     var displayName: String {
         switch self {
+        case .dairyFree: String(localized: "Dairy free", table: "Diets")
         case .glutenFree: String(localized: "Gluten free", table: "Diets")
         case .ketogenic: String(localized: "Ketogenic", table: "Diets")
         case .vegetarian: String(localized: "Vegetarian", table: "Diets")
         case .lactoVegetarian: String(localized: "Lacto-vegetarian", table: "Diets")
         case .ovoVegetarian: String(localized: "Ovo-vegetarian", table: "Diets")
+        case .lactoOvoVegeterian: String(localized: "Lacto-ovo-vegetarian", table: "Diets")
         case .vegan: String(localized: "Vegan", table: "Diets")
         case .pescetarian: String(localized: "Pescetarian", table: "Diets")
         case .paleo: String(localized: "Paleo", table: "Diets")

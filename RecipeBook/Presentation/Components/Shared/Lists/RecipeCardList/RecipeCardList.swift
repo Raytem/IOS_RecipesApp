@@ -11,7 +11,7 @@ struct RecipeCardList: View {
     @Binding var recipeModels: [RecipeModel]
     @Binding var cardViewType: RecipeCardViewType
     @Binding var isLoading: Bool
-    var onLastListElementAppear: () -> Void
+    var onScrollTargetAppear: () -> Void
     
     let gridSpacing: CGFloat = 10
     
@@ -26,28 +26,28 @@ struct RecipeCardList: View {
         recipeModels: Binding<[RecipeModel]> = .constant([]),
         cardViewType: Binding<RecipeCardViewType> = .constant(.grid),
         isLoading: Binding<Bool> = .constant(false),
-        onLastListElementAppear: @escaping () -> Void
+        onScrollTargetAppear: @escaping () -> Void
     ) {
         self._recipeModels = recipeModels
         self._cardViewType = cardViewType
         self._isLoading = isLoading
-        self.onLastListElementAppear = onLastListElementAppear
+        self.onScrollTargetAppear = onScrollTargetAppear
     }
 
     var body: some View {
         if isLoading {
             EmptyView()
-                .onAppear { onLastListElementAppear() }
+                .onAppear { onScrollTargetAppear() }
             RecipeCardListSkeleton(
                 cardViewType: $cardViewType,
                 columns: columns,
                 spacing: gridSpacing
             ).overlay {
                 Rectangle().fill(Color(.clear))
-                    .onAppear { onLastListElementAppear() }
+                    .onAppear { onScrollTargetAppear() }
             }
             
-        } else if recipeModels.isEmpty {
+        } else if recipeModels.isEmpty && !isLoading {
             ContentUnavailableView(
                 "No recipes found",
                 systemImage: "text.page.badge.magnifyingglass",
@@ -56,7 +56,7 @@ struct RecipeCardList: View {
             .padding(.top, 100)
             .overlay {
                 Rectangle().fill(Color(.clear))
-                    .onAppear { onLastListElementAppear() }
+                    .onAppear { onScrollTargetAppear() }
             }
         } else {
             LazyVGrid(
@@ -71,13 +71,9 @@ struct RecipeCardList: View {
                         viewType: $cardViewType
                     )
                     .overlay {
-                        //TODO: remade offsets
-                        if (
-                            (recipeModels.firstIndex(where: { $0.id == recipeModel.id } )
-                             ?? (recipeModels.count - 2)) == recipeModels.count - 2
-                        ) {
+                        if (recipeModel == recipeModels.last) {
                             Rectangle().fill(Color(.clear))
-                                .onAppear { onLastListElementAppear() }
+                                .onAppear { onScrollTargetAppear() }
                         }
                     }
                 }
@@ -91,6 +87,6 @@ struct RecipeCardList: View {
         recipeModels: .constant([]),
         cardViewType: .constant(.grid),
         isLoading: .constant(true),
-        onLastListElementAppear: { print("appeared") }
+        onScrollTargetAppear: { print("appeared") }
     )
 }

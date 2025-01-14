@@ -20,7 +20,7 @@ struct SearchRecipesScreen: View {
                     recipeModels: $viewModel.recipesModels,
                     cardViewType: $viewModel.cardViewType,
                     isLoading: $viewModel.isRecipesLoading,
-                    onLastListElementAppear: onLastListTiemElementAppear
+                    onScrollTargetAppear: onScrollTargetAppear
                 )
                 .padding()
                 
@@ -32,6 +32,7 @@ struct SearchRecipesScreen: View {
                     isActive: $isNavigateToNewSearchPage
                 ) { EmptyView() }
             }
+            .scrollDisabled(viewModel.isRecipesLoading)
             .background(.backgroundLayer1)
             
             // searchable
@@ -113,6 +114,12 @@ struct SearchRecipesScreen: View {
                     handleFiltersApplly: { handleFiltersAppllyButtonClick() }
                 )
             }
+            
+            // error alert
+            .alert("An error has occurred", isPresented: $viewModel.isShowingErrorAlert) {
+            } message: {
+                Text("Сheck your internet connection or try again later")
+            }
         }
         .accentColor(.toolbarItemAccent)
         
@@ -138,43 +145,19 @@ struct SearchRecipesScreen: View {
     }
     
     private func handleSortByUpdate(new value: SearchRecipesSortOption) {
-        if value != viewModel.sortBy {
-            viewModel.currentPage = 0
-            viewModel.recipesModels = []
-            viewModel.sortBy = value
-            viewModel.isRecipesLoading = true
-        }
+        viewModel.updateSortBy(to: value)
     }
-    
+
     private func handleFiltersAppllyButtonClick() {
-        viewModel.currentPage = 0
-        viewModel.recipesModels = []
-        viewModel.isRecipesLoading = true
+        viewModel.applyFilters()
     }
-    
+
     private func handleRefreshData() {
-        viewModel.currentPage = 0
-        viewModel.recipesModels = []
-        viewModel.isRecipesLoading = true
+        viewModel.refreshData()
     }
-    
-    private func onLastListTiemElementAppear() {
-        print(viewModel.currentPage)
-        if (viewModel.totalPages > viewModel.currentPage) {
-            fetchRecipes(showLoadingState: false)
-            viewModel.currentPage = viewModel.currentPage + 1
-        }
-    }
-    
-    private func fetchRecipes(showLoadingState: Bool = true) {
-        if showLoadingState {
-            viewModel.isRecipesLoading = true
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-            //TODO: replace with real data
-            viewModel.recipesModels.append(contentsOf: getNewRicipeMockData())
-            viewModel.isRecipesLoading = false
-        }
+
+    private func onScrollTargetAppear() {
+        viewModel.fetchRecipes()
     }
 }
 

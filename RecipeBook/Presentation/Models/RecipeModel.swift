@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct RecipeModel: Identifiable {
+struct RecipeModel: Identifiable, Equatable {
     var id: Int
     var title: String
     var image: URL?

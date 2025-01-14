@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A56728CF2D367CC1003D0C7A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A56728CE2D367CC1003D0C7A /* Alamofire */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		A5B933852D2AA94A00D18C00 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -33,7 +37,7 @@
 		A5B933E92D2ACD4B00D18C00 /* Exceptions for "RecipeBook" folder in "RecipeBookTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Domain/Enums/SortDirection.swift,
+				Data/API/RecipeApi/Enums/SortDirection.swift,
 				Presentation/Components/Layout/NavBar/NavBarTab.swift,
 				Presentation/Components/Layout/NavBar/NavBarTabModel.swift,
 				Presentation/Components/Layout/NavBar/NavBarView.swift,
@@ -57,7 +61,7 @@
 		A5B933EA2D2ACD4B00D18C00 /* Exceptions for "RecipeBook" folder in "RecipeBookUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Domain/Enums/SortDirection.swift,
+				Data/API/RecipeApi/Enums/SortDirection.swift,
 				Presentation/Components/Layout/NavBar/NavBarTab.swift,
 				Presentation/Components/Layout/NavBar/NavBarTabModel.swift,
 				Presentation/Components/Layout/NavBar/NavBarView.swift,
@@ -115,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A56728CF2D367CC1003D0C7A /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +180,7 @@
 			);
 			name = RecipeBook;
 			packageProductDependencies = (
+				A56728CE2D367CC1003D0C7A /* Alamofire */,
 			);
 			productName = RecipeBook;
 			productReference = A5B933722D2AA94800D18C00 /* Recipe Book.app */;
@@ -636,6 +642,14 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A56728CE2D367CC1003D0C7A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5B933A12D2AB42B00D18C00 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A5B9336A2D2AA94800D18C00 /* Project object */;
 }

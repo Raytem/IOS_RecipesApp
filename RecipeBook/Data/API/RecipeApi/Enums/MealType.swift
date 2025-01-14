@@ -7,6 +7,7 @@
 
 enum MealType: String, CaseIterable, Codable, DisplayNamable {
     case mainCourse = "main course"
+    case mainDish = "main dish"
     case sideDish = "side dish"
     case dessert = "dessert"
     case appetizer = "appetizer"
@@ -20,10 +21,13 @@ enum MealType: String, CaseIterable, Codable, DisplayNamable {
     case fingerfood = "fingerfood"
     case snack = "snack"
     case drink = "drink"
+    case lunch = "lunch"
+    case dinner = "dinner"
     
     var displayName: String {
         switch self {
         case .mainCourse: String(localized: "Main course", table: "MealTypes")
+        case .mainDish: String(localized: "Main dish", table: "MealTypes")
         case .sideDish: String(localized: "Side dish", table: "MealTypes")
         case .dessert: String(localized: "Dessert", table: "MealTypes")
         case .appetizer: String(localized: "Appetizer", table: "MealTypes")
@@ -37,6 +41,8 @@ enum MealType: String, CaseIterable, Codable, DisplayNamable {
         case .fingerfood: String(localized: "Finger food", table: "MealTypes")
         case .snack: String(localized: "Snack", table: "MealTypes")
         case .drink: String(localized: "Drink", table: "MealTypes")
+        case .lunch: String(localized: "Lunch", table: "MealTypes")
+        case .dinner: String(localized: "Dinner", table: "MealTypes")
         }
     }
 }

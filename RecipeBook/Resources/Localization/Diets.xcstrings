@@ -1,6 +1,16 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Dairy free" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Без молочных продуктов"
+          }
+        }
+      }
+    },
     "Gluten free" : {
       "localizations" : {
         "ru" : {
@@ -17,6 +27,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Кетогенная"
+          }
+        }
+      }
+    },
+    "Lacto-ovo-vegetarian" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Лакто-ово-вегетарианская"
           }
         }
       }

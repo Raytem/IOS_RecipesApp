@@ -44,7 +44,7 @@ struct RecipeFilterScreen: View {
                     ) {
                         VStack(alignment: .leading) {
                             Text("Max ready time, min")
-                            TextField("Input minutes", text: $maxReadyTimeText)
+                            TextField("∞", text: $maxReadyTimeText)
                                 .padding(10)
                                 .background(.backgroundLayer2)
                                 .cornerRadius(10)

@@ -51,6 +51,16 @@
         }
       }
     },
+    "Dinner" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "На ужин"
+          }
+        }
+      }
+    },
     "Drink" : {
       "localizations" : {
         "ru" : {
@@ -71,7 +81,27 @@
         }
       }
     },
+    "Lunch" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обеденное блюдо"
+          }
+        }
+      }
+    },
     "Main course" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Горячее блюдо"
+          }
+        }
+      }
+    },
+    "Main dish" : {
       "localizations" : {
         "ru" : {
           "stringUnit" : {

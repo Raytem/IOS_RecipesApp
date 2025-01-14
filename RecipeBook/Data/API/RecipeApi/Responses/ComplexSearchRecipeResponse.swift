@@ -5,14 +5,14 @@
 //  Created by Daniil on 7.01.25.
 //
 
-struct RecipeDto: Codable, Identifiable {
+struct ComplexSearchRecipeResponse: Codable, Identifiable {
     let id: Int
     let title: String
     let image: String
     let summary: String
     let readyInMinutes: Int
-    let preparationMinutes: Int
-    let cookingMinutes: Int
+    let preparationMinutes: Int?
+    let cookingMinutes: Int?
     let cuisines: [Cuisine]
     let dishTypes: [MealType]
     let diets: [Diet]

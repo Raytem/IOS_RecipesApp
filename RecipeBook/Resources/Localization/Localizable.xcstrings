@@ -81,6 +81,9 @@
         }
       }
     },
+    "∞" : {
+
+    },
     "Add to saved" : {
       "localizations" : {
         "en" : {
@@ -102,6 +105,16 @@
     },
     "American" : {
 
+    },
+    "An error has occurred" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Произошла ошибка"
+          }
+        }
+      }
     },
     "Apply" : {
       "localizations" : {
@@ -214,16 +227,6 @@
     "Indian" : {
 
     },
-    "Input minutes" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Введите минуты"
-          }
-        }
-      }
-    },
     "Irish" : {
 
     },
@@ -275,7 +278,6 @@
 
     },
     "No recipes found" : {
-      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -390,7 +392,6 @@
       }
     },
     "Select other filters and try again." : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -463,17 +464,6 @@
     "Thai" : {
 
     },
-    "To Search page" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "To Search page"
-          }
-        }
-      }
-    },
     "Vietnamese" : {
 
     },
@@ -489,6 +479,16 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "Режим отображения"
+          }
+        }
+      }
+    },
+    "Сheck your internet connection or try again later" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Проверьте свое интернет соединение или попробуйте позже"
           }
         }
       }

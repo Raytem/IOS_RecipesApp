@@ -75,6 +75,23 @@
             ReferencedContainer = "container:RecipeBook.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "RECIPE_API_BASE_URL"
+            value = "https://api.spoonacular.com"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "RECIPE_API_KEY"
+            value = "8de75a697d344ba28aa9c526d11d7952"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "RECIPE_API_INGREDIENTS_IMG_SERVER_BASE_URL"
+            value = "https://img.spoonacular.com/ingredients_100x100"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
