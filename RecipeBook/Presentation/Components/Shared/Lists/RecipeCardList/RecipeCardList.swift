@@ -84,9 +84,9 @@ struct RecipeCardList: View {
 
 #Preview {
     RecipeCardList(
-        recipeModels: .constant([]),
+        recipeModels: .constant(recipeCardMockData),
         cardViewType: .constant(.grid),
-        isLoading: .constant(true),
+        isLoading: .constant(false),
         onScrollTargetAppear: { print("appeared") }
     )
 }

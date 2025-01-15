@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Antipasti" : {
-
-    },
     "Antipasto" : {
       "localizations" : {
         "ru" : {
@@ -133,9 +130,6 @@
           }
         }
       }
-    },
-    "Hor d'oeuvre" : {
-
     },
     "Lunch" : {
       "localizations" : {

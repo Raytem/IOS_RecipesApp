@@ -17,6 +17,7 @@ struct CustomButton: View {
     var endIcon: String?
     var fullWidth: Bool
     var withShadow: Bool
+    var withPaddings: Bool
     var disabled: Bool
     var action: () -> Void
     
@@ -32,6 +33,7 @@ struct CustomButton: View {
         endIcon: String? = nil,
         fullWidth: Bool = false,
         withShadow: Bool = false,
+        withPaddings: Bool = true,
         disabled: Bool = false,
         action: @escaping () -> Void
     ) {
@@ -44,6 +46,7 @@ struct CustomButton: View {
         self.endIcon = endIcon
         self.fullWidth = fullWidth
         self.withShadow = withShadow
+        self.withPaddings = withPaddings
         self.disabled = disabled
         self.action = action
     }
@@ -125,6 +128,10 @@ struct CustomButton: View {
     }
     
     private var padding: EdgeInsets {
+        if !withPaddings {
+            return EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+        }
+        
         switch size {
         case .small:
             return EdgeInsets(top: 8, leading: 13, bottom: 8, trailing: 13)

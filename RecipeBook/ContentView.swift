@@ -10,7 +10,8 @@ import SwiftData
 
 
 struct ContentView: View {
-    @State public var selectedTab: NavBarTab = .main
+    @State var selectedTab: NavBarTab = .main
+    @StateObject var tabBarSettings = TabBarSettings()
     
     var body: some View {
         VStack(spacing: 0) {
@@ -29,6 +30,7 @@ struct ContentView: View {
             
             NavBarView(selectedTab: $selectedTab)
         }
+        .environmentObject(tabBarSettings)
     }
 }
 

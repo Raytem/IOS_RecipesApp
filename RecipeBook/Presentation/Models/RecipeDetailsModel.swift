@@ -29,5 +29,6 @@ struct RecipeDetailsModel: Identifiable {
     var summary: String
     var healthScore: Int
     var servings: Int
+    var sourceUrl: String
     var extendedIngredients: [ExtendedIngredient]
 }

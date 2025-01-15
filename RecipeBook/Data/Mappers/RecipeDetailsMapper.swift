@@ -35,6 +35,7 @@ struct RecipeDetailsMapper {
             summary: resp.summary,
             healthScore: resp.healthScore,
             servings: resp.servings,
+            sourceUrl: resp.spoonacularSourceUrl,
             extendedIngredients: resp.extendedIngredients.map({
                 RecipeDetailsModel.ExtendedIngredient(
                     id: $0.id,

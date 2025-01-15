@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct NavBarView: View {
+    @EnvironmentObject var tabBarSettings: TabBarSettings
     @Binding public var selectedTab: NavBarTab
     
     @State private var navBarTabsModels: [NavBarTabModel] = [
@@ -16,6 +17,12 @@ struct NavBarView: View {
         .init(tab: .settings, imageName: "gear")
     ]
     
+//    var shadowColor: Color {
+//        tabBarSettings.isShadowShowing
+//        ? Color(.shadow)
+//        : Color(.clear)
+//    }
+//    
     var body: some View {
             HStack(spacing: 0) {
                 ForEach($navBarTabsModels, id: \.tab) { $tabModel in
@@ -48,8 +55,13 @@ struct NavBarView: View {
             }
             .background(
                 Color(.backgroundLayer1)
-                    .shadow(color: .black.opacity(0.05), radius: 4, y: -4)
-                    .ignoresSafeArea(edges: .bottom)
+                    .shadow(
+                        color: tabBarSettings.isShadowShowing
+                            ? Color(.shadow)
+                            : Color(.clear),
+                        radius: 4,
+                        y: -4
+                    )
             )
         }
 }
@@ -58,4 +70,5 @@ struct NavBarView: View {
     NavBarView(
         selectedTab: .constant(.main)
     )
+    .environmentObject(TabBarSettings())
 }

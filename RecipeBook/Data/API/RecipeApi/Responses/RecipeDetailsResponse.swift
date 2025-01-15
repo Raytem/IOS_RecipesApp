@@ -45,6 +45,7 @@ struct RecipeDetailsResponse: Decodable {
     let sourceUrl: String
     let aggregateLikes: Int
     let healthScore: Int
+    let spoonacularSourceUrl: String
     
     let vegetarian: Bool
     let vegan: Bool

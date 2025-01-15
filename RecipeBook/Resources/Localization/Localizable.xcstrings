@@ -13,6 +13,74 @@
     "_______________________________" : {
 
     },
+    "%@" : {
+
+    },
+    "%@ %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$@"
+          }
+        }
+      }
+    },
+    "%lld" : {
+
+    },
+    "%lld items" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld item"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%lld items"
+                }
+              }
+            }
+          }
+        },
+        "ru" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld позиции"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%lld позиций"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%lld позиция"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld позиций"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "%lld likes" : {
       "localizations" : {
         "en" : {
@@ -81,8 +149,73 @@
         }
       }
     },
+    "%lld servings" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld serving"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld servings"
+                }
+              }
+            }
+          }
+        },
+        "ru" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld порции"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld порций"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld порция"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld порций"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "∞" : {
 
+    },
+    "12" : {
+
+    },
+    "About recipe" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "О рецепте"
+          }
+        }
+      }
     },
     "Add to saved" : {
       "localizations" : {
@@ -163,6 +296,16 @@
         }
       }
     },
+    "Cuisines" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кухни"
+          }
+        }
+      }
+    },
     "Cusine" : {
       "localizations" : {
         "en" : {
@@ -185,6 +328,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Диета"
+          }
+        }
+      }
+    },
+    "Diets" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Диеты"
           }
         }
       }
@@ -224,8 +377,28 @@
     "French" : {
 
     },
+    "full list" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "полный список"
+          }
+        }
+      }
+    },
     "Indian" : {
 
+    },
+    "Ingredients" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ингредиенты"
+          }
+        }
+      }
     },
     "Irish" : {
 
@@ -248,6 +421,29 @@
     "Latin American" : {
 
     },
+    "likes" : {
+
+    },
+    "Likes" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Понравилось"
+          }
+        }
+      }
+    },
+    "Main info" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Основная информация"
+          }
+        }
+      }
+    },
     "Max ready time, min" : {
       "localizations" : {
         "ru" : {
@@ -263,7 +459,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Тип блюда"
+            "value" : "Типы блюд"
           }
         }
       }
@@ -276,6 +472,16 @@
     },
     "Middle Eastern" : {
 
+    },
+    "more info" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "больше информации"
+          }
+        }
+      }
     },
     "No recipes found" : {
       "localizations" : {
@@ -299,6 +505,32 @@
     },
     "Nordic" : {
 
+    },
+    "Ready time" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Время готовности"
+          }
+        }
+      }
+    },
+    "RecipeDetailsSection" : {
+
+    },
+    "RecipeDetailsSkeleton" : {
+
+    },
+    "Related recipes" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Похожие рецепты"
+          }
+        }
+      }
     },
     "Reset" : {
       "localizations" : {
@@ -462,6 +694,9 @@
 
     },
     "Thai" : {
+
+    },
+    "Title" : {
 
     },
     "Vietnamese" : {

@@ -32,95 +32,112 @@ struct RecipeCard: View {
     }
     
     var body: some View {
-        DynamicStack(
-            isVertical: isStackVertical,
-            alignment: .leading,
-            spacing: 0
+        NavigationLink(
+            destination: {
+                RecipeDetailsScreen(
+                    viewModel: .init(
+                        recipeId: viewModel.recipeModel.id,
+                        recipeDetailsPreview: .init(
+                            title: viewModel.recipeModel.title,
+                            image: viewModel.recipeModel.image
+                        )
+                    )
+                )
+            }
         ) {
-            // Image block
-            CustomAsyncImage(
-                url: viewModel.recipeModel.image
-            )
-            .overlay() {
-                LinearGradient(
-                    colors: [
-                        .black,
-                        .clear,
-                        .clear,
-                        .clear
-                    ],
-                    startPoint: .bottom,
-                    endPoint: .top
-                ).opacity(0.7)
+            DynamicStack(
+                isVertical: isStackVertical,
+                alignment: .leading,
+                spacing: 0
+            ) {
+                // Image block
+                CustomAsyncImage(
+                    url: viewModel.recipeModel.image
+                )
+                .overlay() {
+                    LinearGradient(
+                        colors: [
+                            .black,
+                            .clear,
+                            .clear,
+                            .clear
+                        ],
+                        startPoint: .bottom,
+                        endPoint: .top
+                    ).opacity(0.7)
+                    
+                    VStack(alignment: .leading, spacing: 0) {
+                        Spacer()
+                        
+                        HStack(alignment: .top, spacing: 5) {
+                            Image(systemName: "clock")
+                            Text("\(viewModel.recipeModel.readyInMinutes) min")
+                                .lineLimit(1)
+                            Spacer()
+                        }
+                        .foregroundStyle(.white)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(7)
+                }
+                .frame(width: imageWidth, height: imageHeight)
+                .cornerRadius(20)
+                .clipped()
                 
+                // Card info
                 VStack(alignment: .leading, spacing: 0) {
+                    
+                    VStack(alignment: .leading, spacing: 5) {
+                        
+                        Text(viewModel.recipeModel.title)
+                            .font(.headline)
+                            .foregroundStyle(Color(.label))
+                            .lineLimit(2)
+                            .truncationMode(.tail)
+                        
+                        if !viewModel.recipeModel.diets.isEmpty {
+                            Text(
+                                viewModel.recipeModel.diets
+                                    .map({ diet in diet.displayName })
+                                    .sorted(by: <)
+                                    .joined(separator: ", ")
+                            )
+                                .font(.callout)
+                                .foregroundStyle(Color(.label))
+                                .lineLimit(1)
+                                .truncationMode(.tail)
+                        }
+                        
+                        HStack {
+                            Image(systemName: "heart.fill")
+                                .foregroundStyle(.red)
+                            Text("\(viewModel.recipeModel.aggregateLikes) likes")
+                                .font(.callout)
+                                .lineLimit(1)
+                                .foregroundStyle(.gray)
+                        }
+                    }
+                    
                     Spacer()
                     
-                    HStack(alignment: .top, spacing: 5) {
-                        Image(systemName: "clock")
-                        Text("\(viewModel.recipeModel.readyInMinutes) min")
-                            .lineLimit(1)
-                        Spacer()
-                    }
-                    .foregroundStyle(.white)
-                }
-                .frame(maxWidth: .infinity)
-                .padding(7)
-            }
-            .frame(width: imageWidth, height: imageHeight)
-            .cornerRadius(20)
-            .clipped()
-            
-            // Card info
-            VStack(alignment: .leading, spacing: 0) {
-                
-                VStack(alignment: .leading, spacing: 5) {
-                    Text(viewModel.recipeModel.title)
-                        .font(.headline)
-                        .lineLimit(2)
-                        .truncationMode(.tail)
+                    CustomButton(
+                        title: "Add to saved",
+                        size: .medium,
+                        startIcon: "bookmark.fill",
+                        action: handleAddToSavedButtonClick
+                    )
+                    .frame(
+                        maxWidth: .infinity,
+                        alignment: buttonAlignment
+                    )
                     
-                    if !viewModel.recipeModel.diets.isEmpty {
-                        Text(
-                            viewModel.recipeModel.diets
-                                .map({ diet in diet.displayName })
-                                .sorted(by: <)
-                                .joined(separator: ", ")
-                        )
-                            .font(.callout)
-                            .lineLimit(1)
-                            .truncationMode(.tail)
-                    }
-                    
-                    HStack {
-                        Image(systemName: "heart.fill")
-                            .foregroundStyle(.red)
-                        Text("\(viewModel.recipeModel.aggregateLikes) likes")
-                            .font(.callout)
-                            .lineLimit(1)
-                            .foregroundStyle(.gray)
-                    }
                 }
-                
-                Spacer()
-                
-                CustomButton(
-                    title: "Add to saved",
-                    size: .medium,
-                    startIcon: "bookmark.fill",
-                    action: handleAddToSavedButtonClick
-                )
-                .frame(
-                    maxWidth: .infinity,
-                    alignment: buttonAlignment
-                )
-                
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(5)
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(5)
+            .frame(height: cardHeight)
+            .background(.clear)
         }
-        .frame(height: cardHeight)
-        .background(.clear)
     }
     
     func handleAddToSavedButtonClick() {
