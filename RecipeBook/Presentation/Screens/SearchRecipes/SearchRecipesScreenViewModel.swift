@@ -74,7 +74,6 @@ class SearchRecipesScreenViewModel {
     }
     
     private func resetRecipes() {
-        isRecipesLoading = true
         currentPage = 0
         recipesModels = []
     }
@@ -109,30 +108,30 @@ class SearchRecipesScreenViewModel {
         }
         
         // for testing
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//            self.recipesModels.append(contentsOf: getNewRicipeMockData())
-//            self.lastPage = self.lastPage + 1
-//            self.isRecipesLoading = false
-//        }
-        
-        RecipeRepository.shared.getManyRecipes(
-            query: tempQueryText,
-            filters: filters,
-            sortBy: sortBy,
-            page: currentPage,
-            perPage: 10
-        ) { result in
-            switch result {
-            case .success(let paginatedData):
-                self.recipesModels.append(contentsOf: paginatedData.data)
-                self.lastPage = paginatedData.lastPage
-                self.isRecipesLoading = false
-            case .failure(let error):
-                print(error)
-                self.isRecipesLoading = false
-                self.isShowingErrorAlert = true
-            }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.recipesModels.append(contentsOf: getNewRicipeMockData())
+            self.lastPage = self.lastPage + 1
+            self.isRecipesLoading = false
         }
+        
+//        RecipeRepository.shared.getManyRecipes(
+//            query: tempQueryText,
+//            filters: filters,
+//            sortBy: sortBy,
+//            page: currentPage,
+//            perPage: 10
+//        ) { result in
+//            switch result {
+//            case .success(let paginatedData):
+//                self.recipesModels.append(contentsOf: paginatedData.data)
+//                self.lastPage = paginatedData.lastPage
+//                self.isRecipesLoading = false
+//            case .failure(let error):
+//                print(error)
+//                self.isRecipesLoading = false
+//                self.isShowingErrorAlert = true
+//            }
+//        }
     }
     
 }

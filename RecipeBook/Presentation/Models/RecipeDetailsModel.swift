@@ -11,11 +11,11 @@ import SwiftUI
 struct RecipeDetailsModel: Identifiable {
     struct ExtendedIngredient: Identifiable {
         var id: Int
-        let name: String
+        var name: String
         var image: URL?
-        let consistency: String
-        let amount: Double
-        let unit: String
+        var consistency: String
+        var amount: Double
+        var unit: String
     }
     
     var id: Int
@@ -24,9 +24,10 @@ struct RecipeDetailsModel: Identifiable {
     var readyInMinutes: Int
     var aggregateLikes: Int
     var diets: [Diet]
-    let cuisines: [Cuisine]
-    let dishTypes: [MealType]
-    let summary: String
-    let healthScore: Int
+    var cuisines: [Cuisine]
+    var dishTypes: [MealType]
+    var summary: String
+    var healthScore: Int
+    var servings: Int
     var extendedIngredients: [ExtendedIngredient]
 }

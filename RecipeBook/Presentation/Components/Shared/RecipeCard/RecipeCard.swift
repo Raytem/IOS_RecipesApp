@@ -80,15 +80,17 @@ struct RecipeCard: View {
                         .lineLimit(2)
                         .truncationMode(.tail)
                     
-                    Text(
-                        viewModel.recipeModel.diets
-                            .map({ diet in diet.displayName })
-                            .sorted(by: <)
-                            .joined(separator: ", ")
-                    )
-                        .font(.callout)
-                        .lineLimit(1)
-                        .truncationMode(.tail)
+                    if !viewModel.recipeModel.diets.isEmpty {
+                        Text(
+                            viewModel.recipeModel.diets
+                                .map({ diet in diet.displayName })
+                                .sorted(by: <)
+                                .joined(separator: ", ")
+                        )
+                            .font(.callout)
+                            .lineLimit(1)
+                            .truncationMode(.tail)
+                    }
                     
                     HStack {
                         Image(systemName: "heart.fill")

@@ -14,7 +14,7 @@ enum Diet: String, CaseIterable, Codable, DisplayNamable {
     case ovoVegetarian = "ovo vegetarian"
     case lactoOvoVegeterian = "lacto ovo vegetarian"
     case vegan = "vegan"
-    case pescetarian = "pescetarian"
+    case pescatarian = "pescatarian"
     case paleo = "paleo"
     case primal = "primal"
     case lowFODMAP = "low foodmap"
@@ -30,7 +30,7 @@ enum Diet: String, CaseIterable, Codable, DisplayNamable {
         case .ovoVegetarian: String(localized: "Ovo-vegetarian", table: "Diets")
         case .lactoOvoVegeterian: String(localized: "Lacto-ovo-vegetarian", table: "Diets")
         case .vegan: String(localized: "Vegan", table: "Diets")
-        case .pescetarian: String(localized: "Pescetarian", table: "Diets")
+        case .pescatarian: String(localized: "Pescatarian", table: "Diets")
         case .paleo: String(localized: "Paleo", table: "Diets")
         case .primal: String(localized: "Primal", table: "Diets")
         case .lowFODMAP: String(localized: "Low FODMAP", table: "Diets")

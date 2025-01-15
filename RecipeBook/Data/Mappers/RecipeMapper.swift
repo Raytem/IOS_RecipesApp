@@ -11,13 +11,17 @@ struct RecipeMapper {
     static func mapFromComplexSearchResponse(
         _ resp: ComplexSearchRecipeResponse
     ) -> RecipeModel {
-        RecipeModel(
+        let mappedDiets = Diet.allCases.filter {
+            resp.diets.contains($0.rawValue) ? true : false
+        }
+        
+        return RecipeModel(
             id: resp.id,
             title: resp.title,
             image: URL(string: resp.image),
             readyInMinutes: resp.readyInMinutes,
             aggregateLikes: resp.aggregateLikes,
-            diets: resp.diets
+            diets: mappedDiets
         )
     }
 }

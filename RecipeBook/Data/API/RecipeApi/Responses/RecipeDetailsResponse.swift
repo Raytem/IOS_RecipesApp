@@ -39,9 +39,9 @@ struct RecipeDetailsResponse: Decodable {
     let readyInMinutes: Int
     let preparationMinutes: Int?
     let cookingMinutes: Int?
-    let cuisines: [Cuisine]
-    let dishTypes: [MealType]
-    let diets: [Diet]
+    let cuisines: [String]
+    let dishTypes: [String]
+    let diets: [String]
     let sourceUrl: String
     let aggregateLikes: Int
     let healthScore: Int

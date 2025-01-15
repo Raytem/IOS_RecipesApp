@@ -14,6 +14,8 @@ enum MealType: String, CaseIterable, Codable, DisplayNamable {
     case salad = "salad"
     case bread = "bread"
     case breakfast = "breakfast"
+    case morningMeal = "morning meal"
+    case brunch = "brunch"
     case soup = "soup"
     case beverage = "beverage"
     case sauce = "sauce"
@@ -23,6 +25,10 @@ enum MealType: String, CaseIterable, Codable, DisplayNamable {
     case drink = "drink"
     case lunch = "lunch"
     case dinner = "dinner"
+    case antipasto = "antipasto"
+    case frosting = "frosting"
+    case condiment = "condiment"
+    case dip = "dip"
     
     var displayName: String {
         switch self {
@@ -34,6 +40,8 @@ enum MealType: String, CaseIterable, Codable, DisplayNamable {
         case .salad: String(localized: "Salad", table: "MealTypes")
         case .bread: String(localized: "Bread", table: "MealTypes")
         case .breakfast: String(localized: "Breakfast", table: "MealTypes")
+        case .morningMeal: String(localized: "Morning meal", table: "MealTypes")
+        case .brunch: String(localized: "Brunch", table: "MealTypes")
         case .soup: String(localized: "Soup", table: "MealTypes")
         case .beverage: String(localized: "Beverage", table: "MealTypes")
         case .sauce: String(localized: "Sauce", table: "MealTypes")
@@ -43,6 +51,10 @@ enum MealType: String, CaseIterable, Codable, DisplayNamable {
         case .drink: String(localized: "Drink", table: "MealTypes")
         case .lunch: String(localized: "Lunch", table: "MealTypes")
         case .dinner: String(localized: "Dinner", table: "MealTypes")
+        case .antipasto: String(localized: "Antipasto", table: "MealTypes")
+        case .frosting: String(localized: "Frosting", table: "MealTypes")
+        case .condiment: String(localized: "Condiment", table: "MealTypes")
+        case .dip: String(localized: "Dip", table: "MealTypes")
         }
     }
 }

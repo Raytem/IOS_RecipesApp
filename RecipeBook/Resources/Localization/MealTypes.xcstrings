@@ -1,6 +1,19 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Antipasti" : {
+
+    },
+    "Antipasto" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Антипасто"
+          }
+        }
+      }
+    },
     "Appetizer" : {
       "localizations" : {
         "ru" : {
@@ -41,6 +54,26 @@
         }
       }
     },
+    "Brunch" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поздний завтрак"
+          }
+        }
+      }
+    },
+    "Condiment" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Приправа"
+          }
+        }
+      }
+    },
     "Dessert" : {
       "localizations" : {
         "ru" : {
@@ -57,6 +90,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "На ужин"
+          }
+        }
+      }
+    },
+    "Dip" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Для соуса"
           }
         }
       }
@@ -80,6 +123,19 @@
           }
         }
       }
+    },
+    "Frosting" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Глазировка"
+          }
+        }
+      }
+    },
+    "Hor d'oeuvre" : {
+
     },
     "Lunch" : {
       "localizations" : {
@@ -117,6 +173,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Маринад"
+          }
+        }
+      }
+    },
+    "Morning meal" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Еда на утро"
           }
         }
       }

@@ -56,6 +56,9 @@ final class RecipeAPI {
         queryParams["addRecipeInformation"] = "true"
         queryParams["addRecipeNutrition"] = "false"
         
+        if let query = parameters.query {
+            queryParams["query"] = query
+        }
         if let cuisines = parameters.cuisines {
             queryParams["cuisine"] = Array(cuisines).map { $0.rawValue }.joined(separator: ",")
         }
@@ -70,8 +73,13 @@ final class RecipeAPI {
         }
         
         AF.request("\(RecipeAPI.baseUrl)/recipes/complexSearch", parameters: queryParams)
-            .validate()
             .response { response in
+                do {
+                    try NetworkError.mapResponse(response: (data: response.data, response: response.response))
+                } catch {
+                    completion(.failure(error))
+                }
+                
                 guard let data = response.data else {
                     if let error = response.error {
                         completion(.failure(error))
@@ -96,8 +104,13 @@ final class RecipeAPI {
         addApiKeyToParams(&queryParams)
         
         AF.request("\(RecipeAPI.baseUrl)/recipes/\(recipeId)/information", parameters: queryParams)
-            .validate()
             .response { response in
+                do {
+                    try NetworkError.mapResponse(response: (data: response.data, response: response.response))
+                } catch {
+                    completion(.failure(error))
+                }
+                
                 guard let data = response.data else {
                     if let error = response.error {
                         completion(.failure(error))

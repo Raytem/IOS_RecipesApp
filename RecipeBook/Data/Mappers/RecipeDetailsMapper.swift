@@ -13,17 +13,28 @@ struct RecipeDetailsMapper {
     static func mapFormDetailsResponse(
         _ resp: RecipeDetailsResponse
     ) -> RecipeDetailsModel {
-        RecipeDetailsModel(
+        let mappedDiets = Diet.allCases.filter {
+            resp.diets.contains($0.rawValue)
+        }
+        let mappedMealTypes = MealType.allCases.filter {
+            resp.dishTypes.contains($0.rawValue)
+        }
+        let mappedCuisines = Cuisine.allCases.filter {
+            resp.cuisines.contains($0.rawValue)
+        }
+        
+        return RecipeDetailsModel(
             id: resp.id,
             title: resp.title,
             image: URL(string: resp.image),
             readyInMinutes: resp.readyInMinutes,
             aggregateLikes: resp.aggregateLikes,
-            diets: resp.diets,
-            cuisines: resp.cuisines,
-            dishTypes: resp.dishTypes,
+            diets: mappedDiets,
+            cuisines: mappedCuisines,
+            dishTypes: mappedMealTypes,
             summary: resp.summary,
             healthScore: resp.healthScore,
+            servings: resp.servings,
             extendedIngredients: resp.extendedIngredients.map({
                 RecipeDetailsModel.ExtendedIngredient(
                     id: $0.id,

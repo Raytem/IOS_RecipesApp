@@ -81,12 +81,12 @@
         }
       }
     },
-    "Pescetarian" : {
+    "Pescatarian" : {
       "localizations" : {
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Пескетарианская"
+            "value" : "Пескатерианская"
           }
         }
       }

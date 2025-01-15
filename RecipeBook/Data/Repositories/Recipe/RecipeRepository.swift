@@ -30,26 +30,22 @@ final class RecipeRepository {
             mealTypes: filters?.mealTypes,
             maxReadyTime: filters?.maxReadyTime
         )
-        
-        print(queryParams)
-        
-        completion(.failure(NetworkError.badRequest)) // TODO: delete, uncommtent
-//
-//        RecipeAPI.shared.complexRecipeSearch(
-//            parameters: queryParams
-//        ) { result in
-//            switch result {
-//            case .success(let data):
-//                let mappedData = PaginatedDataMapper
-//                    .mapFromPaginatedDataResponse(data)
-//                    .mapData { RecipeMapper.mapFromComplexSearchResponse($0) }
-//                  
-//                completion(.success(mappedData))
-//                
-//            case .failure(let error):
-//                completion(.failure(error))
-//            }
-//        }
+
+        RecipeAPI.shared.complexRecipeSearch(
+            parameters: queryParams
+        ) { result in
+            switch result {
+            case .success(let data):
+                let mappedData = PaginatedDataMapper
+                    .mapFromPaginatedDataResponse(data)
+                    .mapData { RecipeMapper.mapFromComplexSearchResponse($0) }
+                  
+                completion(.success(mappedData))
+                
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
     
     func getRecipeDetails(
