@@ -12,7 +12,7 @@ let recipeDetailsMockData = RecipeDetailsModel(
     id: 716429,
     title: "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs",
     image: URL(string: "https://img.spoonacular.com/recipes/775585-556x370.jpg"),
-    readyInMinutes: 45,
+    readyInMinutes: 70,
     aggregateLikes: 209,
     diets: [.dairyFree],
     cuisines: [.asian],

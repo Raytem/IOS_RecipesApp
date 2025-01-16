@@ -8,17 +8,16 @@
 import SwiftUI
 
 struct ImageSection: View {
-    var title: String
-    var image: URL?
+    var recipeDetailsPreview: RecipeDetailsPreview? = nil
     
     var body: some View {
         RecipeDetailsSection {
-            Text(title)
+            Text(recipeDetailsPreview?.title ?? "")
                 .font(.headline)
                 .fontWeight(.semibold)
         } topOutOfPaddingContent: {
             CustomAsyncImage(
-                url: image,
+                url: recipeDetailsPreview?.image,
                 background: {AnyView(Color(uiColor: .backgroundLayer1))}
             )
             .frame(height: 350)
@@ -28,7 +27,9 @@ struct ImageSection: View {
 
 #Preview {
     ImageSection(
-        title: "Title",
-        image: recipeDetailsMockData.image
+        recipeDetailsPreview: RecipeDetailsPreview(
+            title: recipeDetailsMockData.title,
+            image: recipeDetailsMockData.image
+        )
     )
 }

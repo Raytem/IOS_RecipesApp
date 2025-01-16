@@ -39,7 +39,8 @@ struct RecipeCardSkeleton: View {
     var body: some View {
         DynamicStack(
             isVertical: isStackVertical,
-            alignment: .leading,
+            horizontalAlignment: .leading,
+            verticalAlignment: .top,
             spacing: 0
         ) {
             // Image block

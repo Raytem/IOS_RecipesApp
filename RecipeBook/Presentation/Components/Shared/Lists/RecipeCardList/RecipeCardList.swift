@@ -50,8 +50,7 @@ struct RecipeCardList: View {
         } else if recipeModels.isEmpty && !isLoading {
             ContentUnavailableView(
                 "No recipes found",
-                systemImage: "text.page.badge.magnifyingglass",
-                description: Text("Select other filters and try again.")
+                systemImage: "text.page.badge.magnifyingglass"
             )
             .padding(.top, 100)
             .overlay {

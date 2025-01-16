@@ -47,7 +47,8 @@ struct RecipeCard: View {
         ) {
             DynamicStack(
                 isVertical: isStackVertical,
-                alignment: .leading,
+                horizontalAlignment: .leading,
+                verticalAlignment: .top,
                 spacing: 0
             ) {
                 // Image block
@@ -71,7 +72,7 @@ struct RecipeCard: View {
                         
                         HStack(alignment: .top, spacing: 5) {
                             Image(systemName: "clock")
-                            Text("\(viewModel.recipeModel.readyInMinutes) min")
+                            Text(TimeUtil.fromMinutesToLocalizedTimeString(min: viewModel.recipeModel.readyInMinutes))
                                 .lineLimit(1)
                             Spacer()
                         }
@@ -88,12 +89,12 @@ struct RecipeCard: View {
                 VStack(alignment: .leading, spacing: 0) {
                     
                     VStack(alignment: .leading, spacing: 5) {
-                        
                         Text(viewModel.recipeModel.title)
                             .font(.headline)
                             .foregroundStyle(Color(.label))
                             .lineLimit(2)
                             .truncationMode(.tail)
+                            .multilineTextAlignment(.leading)
                         
                         if !viewModel.recipeModel.diets.isEmpty {
                             Text(
@@ -132,7 +133,6 @@ struct RecipeCard: View {
                     )
                     
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(5)
             }
             .frame(height: cardHeight)
@@ -148,7 +148,7 @@ struct RecipeCard: View {
 #Preview {
     RecipeCard(
         viewModel: RecipeCardViewModel(
-            recipeModel: recipeCardMockData[1]
+            recipeModel: recipeCardMockData[0]
         ),
         viewType: .constant(.grid)
     )

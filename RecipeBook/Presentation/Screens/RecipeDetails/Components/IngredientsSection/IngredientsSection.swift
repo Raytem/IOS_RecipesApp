@@ -12,7 +12,7 @@ struct IngredientsSection: View {
     
     var body: some View {
         RecipeDetailsSection(title: "Ingredients") {
-            ZStack {
+            ZStack(alignment: .topLeading) {
                 Text(getIngredientsString())
                     .lineLimit(2)
                     .foregroundStyle(.gray)

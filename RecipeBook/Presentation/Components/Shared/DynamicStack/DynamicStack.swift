@@ -9,20 +9,19 @@ import SwiftUI
 
 struct DynamicStack<Content: View>: View {
     var isVertical: Bool
-    var alignment: HorizontalAlignment = .center
+    var horizontalAlignment: HorizontalAlignment = .center
+    var verticalAlignment: VerticalAlignment = .center
     var spacing: CGFloat? = nil
     @ViewBuilder public var content: () -> Content
     
     var body: some View {
-        Group {
-            if isVertical {
-                VStack() {
-                    content()
-                }
-            } else {
-                HStack {
-                    content()
-                }
+        if isVertical {
+            VStack(alignment: horizontalAlignment, spacing: spacing) {
+                content()
+            }
+        } else {
+            HStack(alignment: verticalAlignment, spacing: spacing) {
+                content()
             }
         }
     }

@@ -134,6 +134,7 @@
       }
     },
     "%lld min" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -201,10 +202,43 @@
         }
       }
     },
-    "∞" : {
-
+    "%lldh" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lldч"
+          }
+        }
+      }
     },
-    "12" : {
+    "%lldh %lldmin" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lldh %2$lldmin"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lldч %2$lldмин"
+          }
+        }
+      }
+    },
+    "%lldmin" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lldмин"
+          }
+        }
+      }
+    },
+    "∞" : {
 
     },
     "About recipe" : {
@@ -421,9 +455,6 @@
     "Latin American" : {
 
     },
-    "likes" : {
-
-    },
     "Likes" : {
       "localizations" : {
         "ru" : {
@@ -515,12 +546,6 @@
           }
         }
       }
-    },
-    "RecipeDetailsSection" : {
-
-    },
-    "RecipeDetailsSkeleton" : {
-
     },
     "Related recipes" : {
       "localizations" : {
@@ -623,22 +648,6 @@
         }
       }
     },
-    "Select other filters and try again." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Select other filters and try again"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Выберите другие фильтры и попробуйте снова"
-          }
-        }
-      }
-    },
     "Selected: %d" : {
       "comment" : "Title showing the number of selected items",
       "extractionState" : "manual",
@@ -694,9 +703,6 @@
 
     },
     "Thai" : {
-
-    },
-    "Title" : {
 
     },
     "Vietnamese" : {

@@ -7,19 +7,14 @@
 
 import SwiftUI
 
-struct RecipeDetailsSkeleton: View {
+struct RecipeDetailsBodySkeleton: View {
     var recipeDetailsPreview: RecipeDetailsPreview? = nil
     
     var body: some View {
         ZStack {
             Color(.backgroundMain)
             
-            VStack(spacing: 10) {
-                ImageSection(
-                    title: recipeDetailsPreview?.title ?? "",
-                    image: recipeDetailsPreview?.image
-                )
-                
+            VStack(spacing: 10) { 
                 HStack(spacing: 10) {
                     ForEach(1...2, id: \.self) { _ in
                         RecipeDetailsSection {
@@ -44,5 +39,5 @@ struct RecipeDetailsSkeleton: View {
 }
 
 #Preview {
-    RecipeDetailsSkeleton()
+    RecipeDetailsBodySkeleton()
 }

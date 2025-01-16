@@ -15,33 +15,16 @@ struct RecipeDetailsScreen: View {
         NavigationStack {
             ZStack {
                 ScrollView(.vertical) {
-//                    if (viewModel.isDetailsLoading || viewModel.recipeDetailsModel == nil) {
-//                        RecipeDetailsSkeleton(
-//                            recipeDetailsPreview: viewModel.recipeDetailsPreview
-//                        )
-//                    } else {
-//                    
-//                        if let recipeDetails = viewModel.recipeDetailsModel {
-//                            VStack(spacing: 10) {
-//
-//                            }
-//                            
-//                        }
-//                    
-//                    }
-                    
-                    
                     VStack(spacing: 10) {
                         ImageSection(
-                            title: viewModel.recipeDetailsPreview?.title ?? "",
-                            image: viewModel.recipeDetailsPreview?.image
+                            recipeDetailsPreview: viewModel.recipeDetailsPreview
                         )
                         
                         if let recipeDetails = viewModel.recipeDetailsModel {
                             HStack(spacing: 10) {
                                 SmallInformationalSection(
                                     imageSystemName: "clock",
-                                    title: "\(recipeDetails.readyInMinutes) min",
+                                    title: TimeUtil.fromMinutesToLocalizedTimeString(min: recipeDetails.readyInMinutes),
                                     desctiption: "Ready time"
                                 )
                                 SmallInformationalSection(
@@ -77,14 +60,6 @@ struct RecipeDetailsScreen: View {
                                 )
                             }
                             
-                            RecipeDetailsSection(title: "Related recipes") {
-                                RecipeCardList(
-                                    recipeModels: .constant(recipeCardMockData),
-                                    isLoading: .constant(false),
-                                    onScrollTargetAppear: {}
-                                )
-                            } topOutOfPaddingContent: {}
-                            
                             .toolbar {
                                 if !viewModel.isDetailsLoading {
                                     ToolbarItemGroup(placement: .topBarTrailing) {
@@ -95,8 +70,18 @@ struct RecipeDetailsScreen: View {
                                     }
                                 }
                             }
-                        } else {
-                            RecipeDetailsSkeleton()
+                            
+                            RecipeDetailsSection(title: "Related recipes") {
+                                RecipeCardList(
+                                    recipeModels: $viewModel.relatedRecipesModels,
+                                    isLoading: $viewModel.isRelatedRecipesLoading,
+                                    onScrollTargetAppear: {}
+                                )
+                            } topOutOfPaddingContent: {}
+                        } else if (
+                            viewModel.recipeDetailsModel == nil || viewModel.isDetailsLoading
+                        ) {
+                            RecipeDetailsBodySkeleton()
                         }
                     }
                 }

@@ -12,7 +12,7 @@ var recipeCardMockData: [RecipeModel] = [
         id: 1,
         title: "Red Lentil Soup with ",
         image: URL(string: "https://img.spoonacular.com/recipes/715415-312x231.jpg"),
-        readyInMinutes: 45,
+        readyInMinutes: 78,
         aggregateLikes: 1340,
         diets: [.vegan, .glutenFree]
     ),

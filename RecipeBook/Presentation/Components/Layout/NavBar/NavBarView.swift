@@ -55,6 +55,7 @@ struct NavBarView: View {
             }
             .background(
                 Color(.backgroundLayer1)
+                    .ignoresSafeArea(edges: [.bottom])
                     .shadow(
                         color: tabBarSettings.isShadowShowing
                             ? Color(.shadow)

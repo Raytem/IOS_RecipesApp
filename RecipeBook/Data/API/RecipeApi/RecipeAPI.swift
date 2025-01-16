@@ -126,4 +126,71 @@ final class RecipeAPI {
                 completion(.success(results))
             }
     }
+    
+    func getRelatedRecipes(
+        for recipeId: Int,
+        completion: @escaping ((Result<[SimilarRecipesResponse], Error>) -> ())
+    ) {
+        var queryParams: [String:String] = [
+            "number": "8"
+        ]
+        addApiKeyToParams(&queryParams)
+        
+        AF.request("\(RecipeAPI.baseUrl)/recipes/\(recipeId)/similar", parameters: queryParams)
+            .response { response in
+                do {
+                    try NetworkError.mapResponse(response: (data: response.data, response: response.response))
+                } catch {
+                    completion(.failure(error))
+                }
+                
+                guard let data = response.data else {
+                    if let error = response.error {
+                        completion(.failure(error))
+                    }
+                    return
+                }
+                guard let results = try? JSONDecoder()
+                    .decode([SimilarRecipesResponse].self, from: data) else {
+                    completion(.failure(NetworkError.invalidResponse(data)))
+                    return
+                }
+                
+                completion(.success(results))
+            }
+    }
+    
+    func getRecipesInformatioinBulk(
+        ids recipeIds: [Int],
+        completion: @escaping ((Result<[ComplexSearchRecipeResponse], Error>) -> ())
+    ) {
+        var queryParams: [String:String] = [
+            "ids": recipeIds.map({ String($0) }).joined(separator: ","),
+            "includeNutrition": "false"
+        ]
+        addApiKeyToParams(&queryParams)
+        
+        AF.request("\(RecipeAPI.baseUrl)/recipes/informationBulk", parameters: queryParams)
+            .response { response in
+                do {
+                    try NetworkError.mapResponse(response: (data: response.data, response: response.response))
+                } catch {
+                    completion(.failure(error))
+                }
+                
+                guard let data = response.data else {
+                    if let error = response.error {
+                        completion(.failure(error))
+                    }
+                    return
+                }
+                guard let results = try? JSONDecoder()
+                    .decode([ComplexSearchRecipeResponse].self, from: data) else {
+                    completion(.failure(NetworkError.invalidResponse(data)))
+                    return
+                }
+                
+                completion(.success(results))
+            }
+    }
 }

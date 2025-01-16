@@ -48,6 +48,32 @@ final class RecipeRepository {
         }
     }
     
+    func getRelatedRecipes(
+        for recipeId: Int,
+        completion: (@escaping (Result<[RecipeModel], Error>) -> ())
+    ) {
+        RecipeAPI.shared.getRelatedRecipes(for: recipeId) { result in
+            switch result {
+            case .success(let data):
+                RecipeAPI.shared.getRecipesInformatioinBulk(
+                    ids: data.map { $0.id }
+                ) { result in
+                    switch result {
+                    case .success(let data2):
+                        let mappedData = data2.map { RecipeMapper.mapFromComplexSearchResponse($0) }
+                        completion(.success(mappedData))
+                        
+                    case .failure(let error):
+                        completion(.failure(error))
+                    }
+                }
+                
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
     func getRecipeDetails(
         id recipeId: Int,
         completion: (@escaping (Result<RecipeDetailsModel, Error>) -> ())
