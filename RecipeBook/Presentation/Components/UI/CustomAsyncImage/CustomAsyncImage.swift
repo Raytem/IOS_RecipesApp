@@ -9,17 +9,20 @@ import SwiftUI
 
 struct CustomAsyncImage: View {
     var url: URL?
+    var contentMode: ContentMode
     var background: (() -> AnyView)?
     var onEmpty: (() -> AnyView)?
     var onFailure: (() -> AnyView)?
     
     init(
         url: URL? = nil,
+        contentMode: ContentMode = .fit,
         background: (() -> AnyView)? = nil,
         onEmpty: (() -> AnyView)? = nil,
         onFailure: (() -> AnyView)? = nil
     ) {
         self.url = url
+        self.contentMode = contentMode
         self.background = background
         self.onEmpty = onEmpty
         self.onFailure = onFailure
@@ -53,7 +56,7 @@ struct CustomAsyncImage: View {
                 case .success(let image):
                     image
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
+                        .aspectRatio(contentMode: contentMode)
                 case .failure:
                     failureView
                 default:

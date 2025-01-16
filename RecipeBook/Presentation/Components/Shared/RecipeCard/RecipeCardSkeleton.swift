@@ -41,10 +41,10 @@ struct RecipeCardSkeleton: View {
             isVertical: isStackVertical,
             horizontalAlignment: .leading,
             verticalAlignment: .top,
-            spacing: 0
+            spacing: 10
         ) {
             // Image block
-            Color(.backgroundLayer2)
+            Color(.backgroundMain)
             .frame(width: imageWidth, height: imageHeight)
             .cornerRadius(20)
             
@@ -52,23 +52,23 @@ struct RecipeCardSkeleton: View {
             VStack(alignment: .leading, spacing: 0) {
                 VStack(alignment: .leading, spacing: 5) {
                     Text("_______________________________").redacted(reason: .placeholder)
-                        .overlay(Rectangle().foregroundColor(.backgroundLayer2))
+                        .overlay(Rectangle().foregroundColor(.backgroundMain))
                     Text("___________________________").redacted(reason: .placeholder)
-                        .overlay(Rectangle().foregroundColor(.backgroundLayer2))
+                        .overlay(Rectangle().foregroundColor(.backgroundMain))
                     Text("______________").redacted(reason: .placeholder)
-                        .overlay(Rectangle().foregroundColor(.backgroundLayer2))
+                        .overlay(Rectangle().foregroundColor(.backgroundMain))
                 }
                 Spacer()
                 RoundedRectangle(cornerRadius: 10)
-                    .fill(.backgroundLayer2)
+                    .fill(.backgroundMain)
                     .frame(maxWidth: 180, maxHeight: 45)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(5)
         }
         .frame(height: cardHeight)
-        .background(.backgroundMain)
-        .cornerRadius(15)
+        .background(.backgroundLayer1)
+        .cornerRadius(20)
     }
 }
 

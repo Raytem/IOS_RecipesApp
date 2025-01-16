@@ -13,12 +13,13 @@ struct RecipeCardSettings {
     var imageWidth: CGFloat
     var cardHeight: CGFloat
     var buttonAlignment: Alignment
+    var buttonFullWidth: Bool
     var isStackVertical: Bool
     
     static let recipeCardSettings: [RecipeCardViewType: RecipeCardSettings] = [
-        .grid: .init(imageHeight: 180, imageWidth: .infinity, cardHeight: 350, buttonAlignment: .center, isStackVertical: true),
-        .list: .init(imageHeight: 180, imageWidth: 160, cardHeight: 180, buttonAlignment: .leading, isStackVertical: false),
-        .single: .init(imageHeight: 400, imageWidth: .infinity, cardHeight: 560, buttonAlignment: .leading, isStackVertical: true)
+        .grid: .init(imageHeight: 180, imageWidth: .infinity, cardHeight: 350, buttonAlignment: .center, buttonFullWidth: true, isStackVertical: true),
+        .list: .init(imageHeight: 180, imageWidth: 160, cardHeight: 180, buttonAlignment: .leading, buttonFullWidth: false, isStackVertical: false),
+        .single: .init(imageHeight: 400, imageWidth: .infinity, cardHeight: 560, buttonAlignment: .leading, buttonFullWidth: false, isStackVertical: true)
     ]
         
     static func get(for viewType: RecipeCardViewType) -> RecipeCardSettings {

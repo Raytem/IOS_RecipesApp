@@ -10,7 +10,7 @@ import Foundation
 var recipeCardMockData: [RecipeModel] = [
     .init(
         id: 1,
-        title: "Red Lentil Soup with ",
+        title: "Red Lentil Soup with some s",
         image: URL(string: "https://img.spoonacular.com/recipes/715415-312x231.jpg"),
         readyInMinutes: 78,
         aggregateLikes: 1340,
@@ -34,7 +34,7 @@ var recipeCardMockData: [RecipeModel] = [
     ),
     .init(
         id: 4,
-        title: "Red Lentil Soup with Chicken and Turnips",
+        title: "Red Lentil Soup withips",
         image: URL(string: "https://img.iamcook.ru/2022/upl/recipes/cat/u-9006fa19d5ee6fd1100570e52dc85a9e.jpg"),
         readyInMinutes: 45,
         aggregateLikes: 1340,
@@ -42,7 +42,7 @@ var recipeCardMockData: [RecipeModel] = [
     ),
     .init(
         id: 5,
-        title: "Red Lentil Soup with ",
+        title: "Red with ",
         image: URL(string: "https://img.spoonacular.com/recipes/715415-312x231.jpg"),
         readyInMinutes: 45,
         aggregateLikes: 1340,
@@ -58,7 +58,7 @@ var recipeCardMockData: [RecipeModel] = [
     ),
     .init(
         id: 7,
-        title: "Red Lentil Soup with Chicken and Turnips",
+        title: "Red Lentil Soupips",
         image: URL(string: "https://www.steakhome.ru/upload/iblock/631/631bc2e3ff55546997f496395aae39e0.jpg"),
         readyInMinutes: 30,
         aggregateLikes: 1340,

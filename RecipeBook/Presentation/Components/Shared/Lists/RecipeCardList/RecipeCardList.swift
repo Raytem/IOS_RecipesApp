@@ -13,7 +13,7 @@ struct RecipeCardList: View {
     @Binding var isLoading: Bool
     var onScrollTargetAppear: () -> Void
     
-    let gridSpacing: CGFloat = 10
+    let gridSpacing: CGFloat = 15
     
     private var columns: [GridItem] {
         Array(
@@ -77,6 +77,7 @@ struct RecipeCardList: View {
                     }
                 }
             }
+            .padding(.horizontal, cardViewType == .list ? 10 : 0)
         }
     }
 }

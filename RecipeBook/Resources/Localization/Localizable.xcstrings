@@ -29,6 +29,19 @@
     "%lld" : {
 
     },
+    "%lld h" : {
+
+    },
+    "%lld h %lld min" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld h %2$lld min"
+          }
+        }
+      }
+    },
     "%lld ingredients" : {
       "localizations" : {
         "ru" : {
@@ -115,6 +128,9 @@
         }
       }
     },
+    "%lld min" : {
+
+    },
     "%lld servings" : {
       "localizations" : {
         "en" : {
@@ -168,6 +184,7 @@
       }
     },
     "%lldh" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -178,6 +195,7 @@
       }
     },
     "%lldh %lldmin" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -194,6 +212,7 @@
       }
     },
     "%lldmin" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -271,6 +290,9 @@
 
     },
     "Cajun" : {
+
+    },
+    "Cancel" : {
 
     },
     "Caribbean" : {
@@ -409,6 +431,16 @@
         }
       }
     },
+    "Ingredients are missing" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ингредиенты отсутствуют"
+          }
+        }
+      }
+    },
     "Irish" : {
 
     },
@@ -510,6 +542,7 @@
       }
     },
     "No saved recipes" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -552,6 +585,12 @@
         }
       }
     },
+    "Remove" : {
+
+    },
+    "Remove: %lld" : {
+
+    },
     "Reset" : {
       "localizations" : {
         "en" : {
@@ -583,6 +622,9 @@
           }
         }
       }
+    },
+    "Saved Recipes" : {
+
     },
     "Screens.Main.RecipesTitle" : {
       "extractionState" : "manual",
@@ -618,6 +660,7 @@
       }
     },
     "Search for recipes and add it to saved" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -626,6 +669,9 @@
           }
         }
       }
+    },
+    "Select" : {
+
     },
     "Select All" : {
       "localizations" : {
@@ -709,6 +755,16 @@
     },
     "Thai" : {
 
+    },
+    "There are no cooking steps" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Шаги приготовления отсутствуют"
+          }
+        }
+      }
     },
     "Vietnamese" : {
 

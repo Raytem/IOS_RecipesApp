@@ -41,12 +41,26 @@ struct IngredientsAndCookingStepsSheet: View {
                 
                 switch activeTab {
                 case .ingredients:
-                    VStack(spacing: 10) {
-                        ForEach(ingredients, id: \.id) { ingredient in
-                            IngredientCard(ingredient: ingredient)
+                    if ingredients.isEmpty {
+                        ContentUnavailableView(
+                            "Ingredients are missing",
+                            systemImage: "carrot"
+                        )
+                    } else {
+                        VStack(spacing: 10) {
+                            ForEach(ingredients, id: \.id) { ingredient in
+                                IngredientCard(ingredient: ingredient)
+                            }
                         }
                     }
+                    
                 case .cookingSteps:
+                    if cookingSteps.isEmpty {
+                        ContentUnavailableView(
+                            "There are no cooking steps",
+                            systemImage: "list.bullet.rectangle.portrait"
+                        )
+                    }
                     VStack(spacing: 10) {
                         ForEach(
                             cookingSteps.sorted { $0.number < $1.number},
@@ -67,5 +81,7 @@ struct IngredientsAndCookingStepsSheet: View {
         servings: 1,
         ingredients: recipeDetailsMockData.extendedIngredients,
         cookingSteps: recipeDetailsMockData.cookingSteps
+//        ingredients: [],
+//        cookingSteps: []
     )
 }

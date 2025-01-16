@@ -31,6 +31,7 @@ struct RecipeCardListSkeleton: View {
                 RecipeCardSkeleton(
                     viewType: $cardViewType
                 )
+                .padding(cardViewType == .list ? 10 : 0)
             }
         }
     }

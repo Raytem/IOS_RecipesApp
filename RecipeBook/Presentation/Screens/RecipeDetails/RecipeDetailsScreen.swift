@@ -53,7 +53,7 @@ struct RecipeDetailsScreen: View {
                             ).onTapGesture {
                                 handleIngridientsSectionClick()
                             }
-                            .sheet(isPresented: $viewModel.isIngredientsSheeShowing) {
+                            .sheet(isPresented: $viewModel.isIngredientsSheetShowing) {
                                 IngredientsAndCookingStepsSheet(
                                     servings: recipeDetails.servings,
                                     ingredients: recipeDetails.extendedIngredients,
@@ -140,7 +140,7 @@ struct RecipeDetailsScreen: View {
     }
     
     private func handleIngridientsSectionClick() {
-        viewModel.isIngredientsSheeShowing.toggle()
+        viewModel.isIngredientsSheetShowing.toggle()
     }
     
     private func handleAddToSavedClick() {

@@ -22,7 +22,9 @@ struct ContentView: View {
                     )
                 )
                     .setUpNavigationTab(.main)
-                SavedRecipesView()
+                SavedRecipesScreen(
+                    viewModel: SavedRecipesViewModel()
+                )
                     .setUpNavigationTab(.savedRecipes)
                 SettingsView()
                     .setUpNavigationTab(.settings)

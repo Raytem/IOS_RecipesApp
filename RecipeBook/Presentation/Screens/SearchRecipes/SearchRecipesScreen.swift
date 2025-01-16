@@ -22,7 +22,7 @@ struct SearchRecipesScreen: View {
                     isLoading: $viewModel.isRecipesLoading,
                     onScrollTargetAppear: onScrollTargetAppear
                 )
-                .padding()
+                .padding(.vertical, 20)
                 
                 // Navigation link for transitioning to the search results screen
                 NavigationLink(

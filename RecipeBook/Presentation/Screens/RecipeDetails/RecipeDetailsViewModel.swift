@@ -17,7 +17,7 @@ class RecipeDetailsViewModel {
     var relatedRecipesModels: [RecipeModel] = []
     
     var isAboutRecipeSheetShowing = false
-    var isIngredientsSheeShowing = false
+    var isIngredientsSheetShowing = false
     
     var isDetailsLoading = true
     var isRelatedRecipesLoading = true

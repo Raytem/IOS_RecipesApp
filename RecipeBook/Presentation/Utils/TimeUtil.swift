@@ -15,11 +15,11 @@ struct TimeUtil {
             let minutesWithoutHours = minutes - hours * 60
             
             if (minutesWithoutHours > 0) {
-                return "\(hours)h \(minutesWithoutHours)min"
+                return "\(hours) h \(minutesWithoutHours) min"
             }
-            return "\(hours)h"
+            return "\(hours) h"
         }
         
-        return "\(minutes)min"
+        return "\(minutes) min"
     }
 }
