@@ -32,6 +32,46 @@ struct RecipeDetailsResponse: Decodable {
         let meta: [String]
     }
     
+    struct Nutrition: Decodable {
+        struct CaloricBreakdown: Decodable {
+            let percentProtein: Double
+            let percentFat: Double
+            let percentCarbs: Double
+        }
+        struct WeigthPerServing: Decodable {
+            let amount: Int
+            let unit: String
+        }
+        struct Nutrient: Decodable {
+            let name: String
+            let amount: Double
+            let unit: String
+            let percentOfDailyNeeds: Double
+        }
+        
+        let nutrients: [Nutrient]
+        let weightPerServing: WeigthPerServing
+        let caloricBreakdown: CaloricBreakdown
+    }
+    
+    struct AnalyzedInstruction: Decodable {
+        struct Step: Decodable {
+            struct Ingredient: Decodable, Identifiable {
+                let id: Int
+                let name: String
+                let localizedName: String
+                let image: String
+            }
+            
+            let number: Int
+            let step: String
+            let ingredients: [Ingredient]
+        }
+        
+        let name: String
+        let steps: [Step]
+    }
+    
     let id: Int
     let title: String
     let image: String
@@ -61,4 +101,7 @@ struct RecipeDetailsResponse: Decodable {
     let servings: Int
     
     let extendedIngredients: [ExtendedIngredient]
+    let nutrition: Nutrition
+    
+    let analyzedInstructions: [AnalyzedInstruction]
 }

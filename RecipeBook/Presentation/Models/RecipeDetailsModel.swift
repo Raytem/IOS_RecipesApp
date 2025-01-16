@@ -18,6 +18,27 @@ struct RecipeDetailsModel: Identifiable {
         var unit: String
     }
     
+    struct CookingStep {
+        var number: Int
+        var desctipion: String
+    }
+    
+    struct Nutrition {
+        struct Nutrient {
+            let name: String
+            let amount: Double
+            let unit: String
+        }
+        
+        struct WeigthPerServing: Decodable {
+            let amount: Int
+            let unit: String
+        }
+        
+        let nutrients: [Nutrient]
+        let weightPerServing: WeigthPerServing
+    }
+    
     var id: Int
     var title: String
     var image: URL?
@@ -30,5 +51,9 @@ struct RecipeDetailsModel: Identifiable {
     var healthScore: Int
     var servings: Int
     var sourceUrl: String
+    
+    var nutrition: Nutrition
+    
     var extendedIngredients: [ExtendedIngredient]
+    var cookingSteps: [CookingStep]
 }

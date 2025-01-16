@@ -24,7 +24,7 @@ struct IngredientCard: View {
                 .font(.headline)
 
             Spacer()
-            Text("\(formatAmount(ingredient.amount)) \(ingredient.unit)")
+            Text("\(NumberUtil.getFormattedNumber(ingredient.amount)) \(ingredient.unit)")
                 .foregroundStyle(.gray)
                 .multilineTextAlignment(.center)
         }
@@ -32,15 +32,6 @@ struct IngredientCard: View {
         .padding(10)
         .background(.backgroundLayer2)
         .cornerRadius(15)
-    }
-    
-    
-    func formatAmount(_ amount: Double) -> String {
-        var format = "%.0f"
-        if (amount - ceil(amount) != 0) {
-            format = "%.2f"
-        }
-        return String(format: format, amount)
     }
 }
 

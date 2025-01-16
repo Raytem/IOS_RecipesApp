@@ -50,7 +50,7 @@ struct FloatingActionBar<Content: View>: View {
             }
             .padding(10)
             .frame(maxWidth: .infinity)
-            .background()
+            .background(.backgroundLayer1)
             .clipShape(
                 UnevenRoundedRectangle(
                     cornerRadii: rectangleCornerRadii

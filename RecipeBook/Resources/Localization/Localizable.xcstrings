@@ -29,51 +29,33 @@
     "%lld" : {
 
     },
-    "%lld items" : {
+    "%lld ingredients" : {
       "localizations" : {
-        "en" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "%lld item"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "%lld items"
-                }
-              }
-            }
-          }
-        },
         "ru" : {
           "variations" : {
             "plural" : {
               "few" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "%lld позиции"
+                  "value" : "%lld ингредиента"
                 }
               },
               "many" : {
                 "stringUnit" : {
                   "state" : "needs_review",
-                  "value" : "%lld позиций"
+                  "value" : "%lld ингредиентов"
                 }
               },
               "one" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "%lld позиция"
+                  "state" : "translated",
+                  "value" : "%lld ингредиент"
                 }
               },
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "%lld позиций"
+                  "value" : "%lld ингредиентов"
                 }
               }
             }
@@ -129,23 +111,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "%lld min" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld min"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld мин"
           }
         }
       }
@@ -330,6 +295,16 @@
         }
       }
     },
+    "Cooking steps" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Шаги приготовления"
+          }
+        }
+      }
+    },
     "Cuisines" : {
       "localizations" : {
         "ru" : {
@@ -411,16 +386,6 @@
     "French" : {
 
     },
-    "full list" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "полный список"
-          }
-        }
-      }
-    },
     "Indian" : {
 
     },
@@ -430,6 +395,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ингредиенты"
+          }
+        }
+      }
+    },
+    "Ingredients & cooking" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ингредиенты и приготовление"
           }
         }
       }
@@ -461,6 +436,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Понравилось"
+          }
+        }
+      }
+    },
+    "look" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "посмотреть"
           }
         }
       }
@@ -536,6 +521,16 @@
     },
     "Nordic" : {
 
+    },
+    "Nutrients" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Питательные вещества"
+          }
+        }
+      }
     },
     "Ready time" : {
       "localizations" : {
@@ -702,6 +697,16 @@
     "Spanish" : {
 
     },
+    "Step %lld" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Шаг %lld"
+          }
+        }
+      }
+    },
     "Thai" : {
 
     },
@@ -720,6 +725,16 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "Режим отображения"
+          }
+        }
+      }
+    },
+    "Weight per serving" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вес одной порции"
           }
         }
       }

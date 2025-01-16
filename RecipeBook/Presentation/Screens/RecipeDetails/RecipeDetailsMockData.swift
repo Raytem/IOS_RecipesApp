@@ -21,8 +21,26 @@ let recipeDetailsMockData = RecipeDetailsModel(
     healthScore: 19,
     servings: 2,
     sourceUrl: "https://spoonacular.com/crockpot-refried-beans-775585",
+    nutrition: RecipeDetailsModel.Nutrition(
+        nutrients: [
+            .init(
+                name: "Calories",
+                amount: 10,
+                unit: "kkal"
+            ),
+            .init(
+                name: "Shugar",
+                amount: 20,
+                unit: "g"
+            )
+        ],
+        weightPerServing: .init(
+            amount: 230,
+            unit: "g"
+        )
+    ),
     extendedIngredients: [
-        RecipeDetailsModel.ExtendedIngredient(
+        .init(
             id: 1001,
             name: "butter",
             image: URL(string: "\(AppConfig.config.recipeApi.ingredientsImgServerBaseUrl)/butter-sliced.jpg"),
@@ -30,7 +48,7 @@ let recipeDetailsMockData = RecipeDetailsModel(
             amount: 1.0,
             unit: "tbsp"
         ),
-        RecipeDetailsModel.ExtendedIngredient(
+        .init(
             id: 10011135,
             name: "cauliflower florets",
             image: URL(string: "\(AppConfig.config.recipeApi.ingredientsImgServerBaseUrl)/cauliflower.jpg"),
@@ -38,7 +56,7 @@ let recipeDetailsMockData = RecipeDetailsModel(
             amount: 2.0,
             unit: "cups"
         ),
-        RecipeDetailsModel.ExtendedIngredient(
+        .init(
             id: 1041009,
             name: "cheese",
             image: URL(string: "\(AppConfig.config.recipeApi.ingredientsImgServerBaseUrl)/cheddar-cheese.png"),
@@ -46,7 +64,7 @@ let recipeDetailsMockData = RecipeDetailsModel(
             amount: 2.0,
             unit: "tbsp"
         ),
-        RecipeDetailsModel.ExtendedIngredient(
+        .init(
             id: 1034053,
             name: "extra virgin olive oil",
             image: URL(string: "\(AppConfig.config.recipeApi.ingredientsImgServerBaseUrl)/olive-oil.jpg"),
@@ -54,7 +72,7 @@ let recipeDetailsMockData = RecipeDetailsModel(
             amount: 1.0,
             unit: "tbsp"
         ),
-        RecipeDetailsModel.ExtendedIngredient(
+        .init(
             id: 11215,
             name: "garlic",
             image: URL(string: "\(AppConfig.config.recipeApi.ingredientsImgServerBaseUrl)/garlic.jpg"),
@@ -62,7 +80,7 @@ let recipeDetailsMockData = RecipeDetailsModel(
             amount: 5.0,
             unit: "cloves"
         ),
-        RecipeDetailsModel.ExtendedIngredient(
+        .init(
             id: 20420,
             name: "pasta",
             image: URL(string: "\(AppConfig.config.recipeApi.ingredientsImgServerBaseUrl)/fusilli.jpg"),
@@ -70,7 +88,7 @@ let recipeDetailsMockData = RecipeDetailsModel(
             amount: 6.0,
             unit: "ounces"
         ),
-        RecipeDetailsModel.ExtendedIngredient(
+        .init(
             id: 1032009,
             name: "red pepper flakes",
             image: URL(string: "\(AppConfig.config.recipeApi.ingredientsImgServerBaseUrl)/red-pepper-flakes.jpg"),
@@ -78,7 +96,7 @@ let recipeDetailsMockData = RecipeDetailsModel(
             amount: 2.0,
             unit: "pinches"
         ),
-        RecipeDetailsModel.ExtendedIngredient(
+        .init(
             id: 1102047,
             name: "salt and pepper",
             image: URL(string: "\(AppConfig.config.recipeApi.ingredientsImgServerBaseUrl)/salt-and-pepper.jpg"),
@@ -86,7 +104,7 @@ let recipeDetailsMockData = RecipeDetailsModel(
             amount: 2.0,
             unit: "servings"
         ),
-        RecipeDetailsModel.ExtendedIngredient(
+        .init(
             id: 11291,
             name: "scallions",
             image: URL(string: "\(AppConfig.config.recipeApi.ingredientsImgServerBaseUrl)/spring-onions.jpg"),
@@ -94,7 +112,7 @@ let recipeDetailsMockData = RecipeDetailsModel(
             amount: 3.0,
             unit: ""
         ),
-        RecipeDetailsModel.ExtendedIngredient(
+        .init(
             id: 14106,
             name: "white wine",
             image: URL(string: "\(AppConfig.config.recipeApi.ingredientsImgServerBaseUrl)/white-wine.jpg"),
@@ -102,7 +120,7 @@ let recipeDetailsMockData = RecipeDetailsModel(
             amount: 2.0,
             unit: "tbsp"
         ),
-        RecipeDetailsModel.ExtendedIngredient(
+        .init(
             id: 99025,
             name: "whole wheat bread crumbs",
             image: URL(string: "\(AppConfig.config.recipeApi.ingredientsImgServerBaseUrl)/breadcrumbs.jpg"),
@@ -110,5 +128,12 @@ let recipeDetailsMockData = RecipeDetailsModel(
             amount: 0.25,
             unit: "cup"
         )
+    ],
+    cookingSteps: [
+        .init(number: 1, desctipion: "Do something jksljf ksdjflsd fj"),
+        .init(number: 2, desctipion: "D sdf sdf  sdfo something jksljf  sdfsd fsksdjflsd fj"),
+        .init(number: 3, desctipion: "Do something jksljf ksdjflsd fj"),
+        .init(number: 4, desctipion: "Do something jksljf ksdjfl sd fsd  sdfsd fj"),
+        .init(number: 5, desctipion: "Do something jksljf ksdjflsdksdj lsjd kjsdl fjklsdj flksd fsd f fj")
     ]
 )

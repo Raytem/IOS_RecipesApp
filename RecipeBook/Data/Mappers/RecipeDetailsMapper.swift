@@ -36,8 +36,21 @@ struct RecipeDetailsMapper {
             healthScore: resp.healthScore,
             servings: resp.servings,
             sourceUrl: resp.spoonacularSourceUrl,
+            nutrition: RecipeDetailsModel.Nutrition(
+                nutrients: resp.nutrition.nutrients.map {
+                    .init(
+                        name: $0.name,
+                        amount: $0.amount,
+                        unit: $0.unit
+                    )
+                },
+                weightPerServing: .init(
+                    amount: resp.nutrition.weightPerServing.amount,
+                    unit: resp.nutrition.weightPerServing.unit
+                )
+            ),
             extendedIngredients: resp.extendedIngredients.map({
-                RecipeDetailsModel.ExtendedIngredient(
+                .init(
                     id: $0.id,
                     name: $0.nameClean,
                     image:
@@ -46,7 +59,15 @@ struct RecipeDetailsMapper {
                     amount: $0.amount,
                     unit: $0.unit
                 )
-            })
+            }),
+            cookingSteps: !resp.analyzedInstructions.isEmpty
+                ? resp.analyzedInstructions[0].steps.map {
+                    .init(
+                        number: $0.number,
+                        desctipion: $0.step
+                    )
+                }
+                : []
         )
     }
 }

@@ -15,7 +15,7 @@ struct AboutRecipeSection: View {
     var body: some View {
         RecipeDetailsSection(title: "About recipe") {
             ZStack(alignment: .topLeading) {
-                Text(recipeDetailsModel.summary)
+                Text(recipeDetailsModel.summary.htmlToString())
                     .lineLimit(2)
                     .foregroundStyle(.gray)
                 

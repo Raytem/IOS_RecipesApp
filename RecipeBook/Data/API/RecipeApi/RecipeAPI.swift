@@ -100,7 +100,7 @@ final class RecipeAPI {
         id recipeId: Int,
         completion: @escaping ((Result<RecipeDetailsResponse, Error>) -> ())
     ) {
-        var queryParams = ["includeNutrition": "false"]
+        var queryParams = ["includeNutrition": "true"]
         addApiKeyToParams(&queryParams)
         
         AF.request("\(RecipeAPI.baseUrl)/recipes/\(recipeId)/information", parameters: queryParams)

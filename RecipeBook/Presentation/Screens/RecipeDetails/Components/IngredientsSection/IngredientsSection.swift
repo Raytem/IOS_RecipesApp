@@ -11,7 +11,7 @@ struct IngredientsSection: View {
     var ingredients: [RecipeDetailsModel.ExtendedIngredient]
     
     var body: some View {
-        RecipeDetailsSection(title: "Ingredients") {
+        RecipeDetailsSection(title: "Ingredients & cooking") {
             ZStack(alignment: .topLeading) {
                 Text(getIngredientsString())
                     .lineLimit(2)
@@ -27,7 +27,7 @@ struct IngredientsSection: View {
                             color: .backgroundLayer1
                         ) {
                             CustomButton(
-                                title: "full list",
+                                title: "look",
                                 color: .primary,
                                 size: .small,
                                 variant: .text,

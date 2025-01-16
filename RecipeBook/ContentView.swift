@@ -27,6 +27,7 @@ struct ContentView: View {
                 SettingsView()
                     .setUpNavigationTab(.settings)
             }
+            .ignoresSafeArea(.keyboard, edges: .bottom)
             
             NavBarView(selectedTab: $selectedTab)
         }

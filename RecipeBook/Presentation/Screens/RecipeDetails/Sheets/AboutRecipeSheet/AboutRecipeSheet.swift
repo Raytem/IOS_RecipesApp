@@ -27,7 +27,7 @@ struct AboutRecipeSheet: View {
                                     Text(row.key)
                                         .foregroundStyle(.gray)
                                 }
-                                .frame(maxWidth: 100, alignment: .leading)
+                                .frame(maxWidth: 120, alignment: .leading)
                                 
                                 Text(row.value.isEmpty ? "–" : row.value)
                             }
@@ -36,7 +36,7 @@ struct AboutRecipeSheet: View {
                     }
                 }
                 
-                Text(viewModel.recipeDetailsModel.summary)
+                Text(viewModel.recipeDetailsModel.summary.htmlToString())
                     .font(.callout)
             }
             .padding(.top, 20)

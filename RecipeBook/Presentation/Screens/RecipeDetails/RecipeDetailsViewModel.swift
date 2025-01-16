@@ -44,7 +44,7 @@ class RecipeDetailsViewModel {
             self.relatedRecipesModels = recipeCardMockData
             self.isRelatedRecipesLoading = false
         }
-        
+
 //        isDetailsLoading = true
 //        RecipeRepository.shared.getRecipeDetails(id: recipeId) { result in
 //            switch result {

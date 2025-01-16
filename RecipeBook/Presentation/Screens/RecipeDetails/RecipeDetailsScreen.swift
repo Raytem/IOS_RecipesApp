@@ -54,9 +54,10 @@ struct RecipeDetailsScreen: View {
                                 handleIngridientsSectionClick()
                             }
                             .sheet(isPresented: $viewModel.isIngredientsSheeShowing) {
-                                IngredientsSheet(
+                                IngredientsAndCookingStepsSheet(
                                     servings: recipeDetails.servings,
-                                    ingredients: recipeDetails.extendedIngredients
+                                    ingredients: recipeDetails.extendedIngredients,
+                                    cookingSteps: recipeDetails.cookingSteps
                                 )
                             }
                             
@@ -150,7 +151,7 @@ struct RecipeDetailsScreen: View {
 #Preview {
     RecipeDetailsScreen(
         viewModel: RecipeDetailsViewModel(
-            recipeId: 716429,
+            recipeId: 648715,
             recipeDetailsPreview: RecipeDetailsPreview(
                 title: recipeDetailsMockData.title,
                 image: recipeDetailsMockData.image
