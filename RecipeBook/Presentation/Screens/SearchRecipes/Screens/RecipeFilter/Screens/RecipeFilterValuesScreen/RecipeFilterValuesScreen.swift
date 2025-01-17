@@ -19,15 +19,13 @@ struct RecipeFilterValuesScreen<Item: DisplayNamable>: View {
            ZStack {
                List(viewModel.searchResults, id: \.self) { item in
                    HStack {
-                       Image(
-                        systemName: viewModel.temporarySelectedItems.contains(item)
-                                    ? "checkmark.circle.fill"
-                                    : "circle"
+                       Checkmark(
+                            isActive: viewModel.temporarySelectedItems.contains(item),
+                            activeColor: .primary50,
+                            disabledColor: .primary50
                        )
-                           .font(.system(size: 22))
-                           .foregroundStyle(.primary50)
-                       Text(item.displayName)
                        
+                       Text(item.displayName)
                    }
                    .frame(maxWidth: .infinity, alignment: .leading)
                    .contentShape(Rectangle())
