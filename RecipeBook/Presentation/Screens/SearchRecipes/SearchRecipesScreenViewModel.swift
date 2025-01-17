@@ -11,6 +11,8 @@ import SwiftUI
 class SearchRecipesScreenViewModel {
     var recipesModels: [RecipeModel]
     
+    var scrollToTop: Bool = false
+    
     // sheets & alerst
     var isSearchablePresented = false
     var isFiltersSheetShowing = false
@@ -79,16 +81,18 @@ class SearchRecipesScreenViewModel {
     }
     
     func updateSortBy(to newValue: SearchRecipesSortOption) {
-            if newValue != sortBy {
-                resetRecipes()
-                sortBy = newValue
-                fetchRecipes()
-            }
+        if newValue != sortBy {
+            resetRecipes()
+            sortBy = newValue
+            fetchRecipes()
+            scrollToTop.toggle()
         }
+    }
 
     func applyFilters() {
         resetRecipes()
         fetchRecipes()
+        scrollToTop.toggle()
     }
 
     func refreshData() {

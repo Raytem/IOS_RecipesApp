@@ -15,22 +15,29 @@ struct SearchRecipesScreen: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView(.vertical) {
-                RecipeCardList(
-                    recipeModels: $viewModel.recipesModels,
-                    cardViewType: $viewModel.cardViewType,
-                    isLoading: $viewModel.isRecipesLoading,
-                    onScrollTargetAppear: onScrollTargetAppear
-                )
-                .padding(.vertical, 20)
-                
-                // Navigation link for transitioning to the search results screen
-                NavigationLink(
-                    destination: SearchRecipesScreen(
-                        viewModel: viewModel.getNewInstanceForNewSearchRequest()
-                    ),
-                    isActive: $isNavigateToNewSearchPage
-                ) { EmptyView() }
+            ScrollViewReader { scrollView in
+                ScrollView(.vertical) {
+                    RecipeCardList(
+                        recipeModels: $viewModel.recipesModels,
+                        cardViewType: $viewModel.cardViewType,
+                        isLoading: $viewModel.isRecipesLoading,
+                        onScrollTargetAppear: onScrollTargetAppear
+                    )
+                    .padding(.vertical, 20)
+                    
+                    // Navigation link for transitioning to the search results screen
+                    NavigationLink(
+                        destination: SearchRecipesScreen(
+                            viewModel: viewModel.getNewInstanceForNewSearchRequest()
+                        ),
+                        isActive: $isNavigateToNewSearchPage
+                    ) { EmptyView() }
+                }
+                .onChange(of: viewModel.scrollToTop) {
+                    withAnimation {
+                        scrollView.scrollTo(1, anchor: .top)
+                    }
+                }
             }
             .scrollDisabled(viewModel.isRecipesLoading)
             .background(.backgroundLayer1)
@@ -150,6 +157,7 @@ struct SearchRecipesScreen: View {
 
     private func handleFiltersAppllyButtonClick() {
         viewModel.applyFilters()
+        //TODLO ADD
     }
 
     private func handleRefreshData() {
