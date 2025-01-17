@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 
 struct SavedRecipesScreen: View {
+    @Environment(\.modelContext) var modelContext
+    @Environment(\.scenePhase) var scenePhase
+    
     @EnvironmentObject var tabBarSettings: TabBarSettings
     @State var viewModel: SavedRecipesViewModel
     
@@ -17,13 +21,13 @@ struct SavedRecipesScreen: View {
                 ZStack(alignment: .bottom) {
                     SavedRecipesList(
                         savedRecipes: viewModel.filteredRecipes,
-                        selectedRecipes: $viewModel.selectedRecipes,
+                        selectedRecipesIndexes: $viewModel.selectedRecipesIndexes,
                         isEditModeEnabled: $viewModel.isEditModeEnabled,
                         onRemoveSingle: viewModel.removeSingleRecipe
                     )
                     
                     SavedRecipesFloatingActionBar(
-                        selectedRecipesCount: viewModel.selectedRecipes.count,
+                        selectedRecipesCount: viewModel.selectedRecipesIndexes.count,
                         isEditModeEnabled: $viewModel.isEditModeEnabled,
                         onRemoveSelected: viewModel.removeSelectedFromSaved
                     )
@@ -33,7 +37,7 @@ struct SavedRecipesScreen: View {
             .toolbar {
                 SavedRecipesToolbar(
                     savedRecipes: $viewModel.savedRecipes,
-                    selectedRecipes: $viewModel.selectedRecipes,
+                    selectedRecipesIndexes: $viewModel.selectedRecipesIndexes,
                     isEditModeEnabled: $viewModel.isEditModeEnabled
                 )
             }
@@ -43,27 +47,34 @@ struct SavedRecipesScreen: View {
         .tint(.toolbarItemAccent)
         
         
-        .onChange(of: viewModel.isEditModeEnabled) {
-            toggleTabBarShadow(!viewModel.isEditModeEnabled)
-        }
         .onAppear {
+            viewModel.modelContext = modelContext
+            viewModel.fetchRecipes()
             toggleTabBarShadow(!viewModel.isEditModeEnabled)
         }
         .onDisappear {
             toggleTabBarShadow(true)
         }
+        .onChange(of: viewModel.isEditModeEnabled) {
+            toggleTabBarShadow(!viewModel.isEditModeEnabled)
+        }
+        .onNotification(.savedRecipesDidUpdated) {
+            viewModel.fetchRecipes()
+        }
     }
     
     func toggleTabBarShadow(_ isShowing: Bool) {
-        withAnimation(.linear(duration: 0.2)) {
+        withAnimation(tabBarSettings.shadowAnimation) {
             tabBarSettings.isShadowShowing = isShowing
         }
     }
 }
+
 
 #Preview {
     SavedRecipesScreen(
         viewModel: SavedRecipesViewModel()
     )
     .environmentObject(TabBarSettings())
+    .modelContainer(for: SavedRecipeModel.self, inMemory: true)
 }

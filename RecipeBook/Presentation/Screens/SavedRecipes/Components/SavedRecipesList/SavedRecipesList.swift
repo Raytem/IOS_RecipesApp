@@ -9,48 +9,64 @@ import SwiftUI
 
 struct SavedRecipesList: View {
     var savedRecipes: [SavedRecipeModel]
-    @Binding var selectedRecipes: Set<SavedRecipeModel>
+    @Binding var selectedRecipesIndexes: Set<Int>
     @Binding var isEditModeEnabled: Bool
-    var onRemoveSingle: (_ recipe: SavedRecipeModel) -> Void
+    var onRemoveSingle: (_ index: Int) -> Void
     
     var body: some View {
-        List {
-            ForEach(savedRecipes, id: \.id) { recipe in
-                SavedRecipeRow(
-                    recipe: recipe,
-                    isSelected: isItemSelected(recipe),
-                    isEditModeEnabled: $isEditModeEnabled,
-                    onRemove: { handleRemoveSingleButtonClick($0) },
-                    onSelect: { handleSelectItem($0) }
+        if savedRecipes.isEmpty {
+            ContentUnavailableView(
+                String(localized: "There are no saved recipes", table: "SavedRecipesScreen"),
+                systemImage: "bookmark.slash",
+                description: Text(
+                    String(
+                        localized: "Find the recipes that suit you and save them for easy access later",
+                        table: "SavedRecipesScreen"
+                    )
                 )
+            )
+        } else {
+            List {
+                ForEach(savedRecipes, id: \.id) { recipe in
+                        if let index = savedRecipes.firstIndex(where: { $0.id == recipe.id }) {
+                           SavedRecipeRow(
+                               recipe: recipe,
+                               index: index,
+                               isSelected: isItemSelected(index),
+                               isEditModeEnabled: $isEditModeEnabled,
+                               onRemove: { handleRemoveSingleButtonClick($0) },
+                               onSelect: { handleSelectItem($0) }
+                           )
+                        }
+                   }
             }
+            .listStyle(.plain)
+            .scrollContentBackground(.hidden)
+            .scrollIndicators(.hidden)
+            .listRowSpacing(20)
+            .padding(.horizontal, 10)
+            .padding(.top, 10)
+            .safeAreaPadding(.bottom, 80)
         }
-        .listStyle(.plain)
-        .scrollContentBackground(.hidden)
-        .scrollIndicators(.hidden)
-        .listRowSpacing(20)
-        .padding(.horizontal, 10)
-        .padding(.top, 10)
-        .safeAreaPadding(.bottom, 80)
     }
     
-    func isItemSelected(_ item: SavedRecipeModel) -> Bool {
-        selectedRecipes.contains(item)
+    func isItemSelected(_ index: Int) -> Bool {
+        selectedRecipesIndexes.contains(index)
     }
     
-    func handleSelectItem(_ item: SavedRecipeModel) {
+    func handleSelectItem(_ index: Int) {
         withAnimation(.spring(duration: 0.2)) {
-            if (selectedRecipes.contains(item)) {
-                selectedRecipes.remove(item)
+            if (selectedRecipesIndexes.contains(index)) {
+                selectedRecipesIndexes.remove(index)
             } else {
-                selectedRecipes.insert(item)
+                selectedRecipesIndexes.insert(index)
             }
         }
     }
     
-    func handleRemoveSingleButtonClick(_ item: SavedRecipeModel) {
+    func handleRemoveSingleButtonClick(_ index: Int) {
         withAnimation(.spring(duration: 0.2)) {
-            onRemoveSingle(item)
+            onRemoveSingle(index)
         }
     }
 }
@@ -58,7 +74,7 @@ struct SavedRecipesList: View {
 #Preview {
     SavedRecipesList(
         savedRecipes: savedRecipeMockData,
-        selectedRecipes: .constant(Set([savedRecipeMockData[0]])),
+        selectedRecipesIndexes: .constant(Set()),
         isEditModeEnabled: .constant(true),
         onRemoveSingle: { print($0) }
     )

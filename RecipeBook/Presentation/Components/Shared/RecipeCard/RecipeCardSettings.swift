@@ -17,7 +17,7 @@ struct RecipeCardSettings {
     var isStackVertical: Bool
     
     static let recipeCardSettings: [RecipeCardViewType: RecipeCardSettings] = [
-        .grid: .init(imageHeight: 180, imageWidth: .infinity, cardHeight: 350, buttonAlignment: .center, buttonFullWidth: true, isStackVertical: true),
+        .grid: .init(imageHeight: 200, imageWidth: .infinity, cardHeight: 350, buttonAlignment: .center, buttonFullWidth: true, isStackVertical: true),
         .list: .init(imageHeight: 180, imageWidth: 160, cardHeight: 180, buttonAlignment: .leading, buttonFullWidth: false, isStackVertical: false),
         .single: .init(imageHeight: 400, imageWidth: .infinity, cardHeight: 560, buttonAlignment: .leading, buttonFullWidth: false, isStackVertical: true)
     ]

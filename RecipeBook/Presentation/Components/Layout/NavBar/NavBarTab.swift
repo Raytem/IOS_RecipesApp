@@ -8,5 +8,5 @@
 import Foundation
 
 enum NavBarTab: CaseIterable {
-    case main, savedRecipes, settings
+    case main, savedRecipes
 }

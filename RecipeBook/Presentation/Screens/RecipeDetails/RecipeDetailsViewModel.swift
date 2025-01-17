@@ -7,15 +7,19 @@
 
 import Foundation
 import SwiftUI
+import SwiftData
 
 
 @Observable
 class RecipeDetailsViewModel {
+    var modelContext: ModelContext? = nil
+    
     var recipeId: Int
     var recipeDetailsPreview: RecipeDetailsPreview?
     var recipeDetailsModel: RecipeDetailsModel?
     var relatedRecipesModels: [RecipeModel] = []
     
+    var isSaved: Bool = false
     var isAboutRecipeSheetShowing = false
     var isIngredientsSheetShowing = false
     
@@ -44,7 +48,7 @@ class RecipeDetailsViewModel {
             self.relatedRecipesModels = recipeCardMockData
             self.isRelatedRecipesLoading = false
         }
-
+//
 //        isDetailsLoading = true
 //        RecipeRepository.shared.getRecipeDetails(id: recipeId) { result in
 //            switch result {
@@ -71,5 +75,64 @@ class RecipeDetailsViewModel {
 //            }
 //        }
         
+    }
+    
+    private func isRecipeSaved() -> Bool {
+        do {
+            let id = recipeId
+            let fetchDescriptor = FetchDescriptor<SavedRecipeModel>(predicate: #Predicate { $0.id == id })
+            let count = try modelContext?.fetchCount(fetchDescriptor) ?? 0
+            return count > 0
+        } catch {
+           print("Error checking if recipe is saved", error)
+           return false
+        }
+    }
+    
+    private func removeFromSaved() {
+        do {
+            let targetId = recipeId
+            try modelContext?.delete(model: SavedRecipeModel.self, where: #Predicate {
+                $0.id == targetId
+            })
+            try modelContext?.save()
+            isSaved = false
+            
+            NotificationCenter.default.post(name: .savedRecipesDidUpdated, object: nil)
+        } catch {
+            print("Error while deleting recipe", error)
+        }
+    }
+    
+    private func addToSaved() {
+        do {
+            if let recipe = recipeDetailsModel {
+                let savedRecipe = SavedRecipeModel(
+                    id: recipeId,
+                    title: recipe.title,
+                    image: recipe.image,
+                    readyInMinutes: recipe.readyInMinutes
+                )
+                modelContext?.insert(savedRecipe)
+                try modelContext?.save()
+                isSaved = true
+            }
+            
+            NotificationCenter.default.post(name: .savedRecipesDidUpdated, object: nil)
+        } catch {
+            print("Error while saving recipe", error)
+        }
+    }
+    
+    func addToSavedOrRemove() {
+        if isRecipeSaved() {
+            removeFromSaved()
+        } else {
+            addToSaved()
+        }
+    }
+    
+    func updateIsSavedState() {
+        isSaved = isRecipeSaved()
     }
 }

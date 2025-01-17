@@ -15,7 +15,7 @@ struct SmallInformationalSection: View {
     
     var body: some View {
         RecipeDetailsSection {
-            VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading, spacing: 5) {
                 HStack(alignment: .top, spacing: 5) {
                     if let color = imageColor {
                         Image(systemName: imageSystemName)

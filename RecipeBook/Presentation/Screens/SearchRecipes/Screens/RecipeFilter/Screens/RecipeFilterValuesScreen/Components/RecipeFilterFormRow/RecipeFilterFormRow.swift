@@ -30,7 +30,7 @@ struct RecipeFilterFormRow<Item: DisplayNamable>: View {
                 if !selectedValues.isEmpty {
                     Text(getSelectedValuesString())
                         .font(.footnote)
-                        .foregroundStyle(.gray) // TODO: replace color
+                        .foregroundStyle(.gray)
                         .lineLimit(1)
                 }
             }

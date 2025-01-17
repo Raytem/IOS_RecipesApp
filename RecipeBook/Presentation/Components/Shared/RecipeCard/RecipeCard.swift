@@ -6,10 +6,23 @@
 //
 
 import SwiftUI
+import SwiftData
+
 
 struct RecipeCard: View {
+    @Environment(\.modelContext) var modelContext: ModelContext
     @State public var viewModel: RecipeCardViewModel
     @Binding var viewType: RecipeCardViewType
+    
+    private var buttonTitle: String {
+        viewModel.isSaved
+        ? String(localized: "Saved", table: "RecipeCard")
+        : String(localized: "Save", table: "RecipeCard")
+    }
+    
+    private var buttonIcon: String {
+        viewModel.isSaved ? "checkmark" : "bookmark.fill"
+    }
     
     private var isStackVertical: Bool {
         RecipeCardSettings.get(for: viewType).isStackVertical
@@ -80,7 +93,7 @@ struct RecipeCard: View {
                                 .lineLimit(1)
                             Spacer()
                         }
-                        .font(.callout)
+                        .font(.subheadline)
                         .fontWeight(.medium)
                         .foregroundStyle(.neaturalGray4)
                     }
@@ -96,8 +109,8 @@ struct RecipeCard: View {
                     
                     VStack(alignment: .leading, spacing: 5) {
                         Text(viewModel.recipeModel.title)
-                            .font(.body)
-                            .fontWeight(.bold)
+                            .font(.callout)
+                            .fontWeight(.semibold)
                             .foregroundStyle(Color(.label))
                             .lineLimit(2)
                             .truncationMode(.tail)
@@ -110,7 +123,7 @@ struct RecipeCard: View {
                                     .sorted(by: <)
                                     .joined(separator: ", ")
                             )
-                            .font(.subheadline)
+                            .font(.footnote)
                             .foregroundStyle(Color(.label))
                             .lineLimit(1)
                             .truncationMode(.tail)
@@ -120,7 +133,7 @@ struct RecipeCard: View {
                             Image(systemName: "heart.fill")
                                 .foregroundStyle(.red)
                             Text("\(viewModel.recipeModel.aggregateLikes) likes")
-                                .font(.subheadline)
+                                .font(.footnote)
                                 .lineLimit(1)
                                 .foregroundStyle(.gray)
                         }
@@ -129,9 +142,10 @@ struct RecipeCard: View {
                     Spacer()
                     
                     CustomButton(
-                        title: "Add to saved",
+                        title: "\(buttonTitle)",
+                        isInverted: viewModel.isSaved ? true : false,
                         size: .medium,
-                        startIcon: "bookmark.fill",
+                        startIcon: buttonIcon,
                         fullWidth: buttonFullWidth,
                         action: handleAddToSavedButtonClick
                     )
@@ -147,10 +161,20 @@ struct RecipeCard: View {
             .frame(height: cardHeight)
             .background(.clear)
         }
+        
+        .onAppear {
+            viewModel.modelContext = modelContext
+            viewModel.updateIsSavedState()
+        }
+        .onNotification(.savedRecipesDidUpdated) {
+            viewModel.updateIsSavedState()
+        }
     }
     
     func handleAddToSavedButtonClick() {
-        viewModel.addToSaved()
+        withAnimation(.spring(duration: 0.2)) {
+            viewModel.addToSavedOrRemove()
+        }
     }
 }
 
@@ -159,6 +183,7 @@ struct RecipeCard: View {
         viewModel: RecipeCardViewModel(
             recipeModel: recipeCardMockData[0]
         ),
-        viewType: .constant(.list)
+        viewType: .constant(.grid)
     )
+    .modelContainer(for: SavedRecipeModel.self, inMemory: true)
 }

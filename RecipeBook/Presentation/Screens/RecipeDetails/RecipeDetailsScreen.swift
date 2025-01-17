@@ -6,10 +6,24 @@
 //
 
 import SwiftUI
+import SwiftData
+
 
 struct RecipeDetailsScreen: View {
+    @Environment(\.modelContext) var modelContext: ModelContext
+    
     @EnvironmentObject var tabBarSettings: TabBarSettings
     @State var viewModel: RecipeDetailsViewModel
+    
+    private var saveButtonTitle: String {
+        viewModel.isSaved
+        ? String(localized: "Saved", table: "RecipeDetailsScreen")
+        : String(localized: "Save", table: "RecipeDetailsScreen")
+    }
+    
+    private var saveButtonIcon: String {
+        viewModel.isSaved ? "checkmark" : "bookmark.fill"
+    }
     
     var body: some View {
         NavigationStack {
@@ -94,10 +108,12 @@ struct RecipeDetailsScreen: View {
                     backgroundColor: .backgroundLayer2
                 ) {
                     CustomButton(
-                        title: "Add to saved",
+                        title: "\(saveButtonTitle)",
                         color: .primary,
-                        startIcon: "bookmark.fill",
+                        isInverted: viewModel.isSaved,
+                        startIcon: saveButtonIcon,
                         fullWidth: true,
+                        disabled: viewModel.recipeDetailsModel == nil && !viewModel.isSaved,
                         action: handleAddToSavedClick
                     )
                 }
@@ -109,16 +125,23 @@ struct RecipeDetailsScreen: View {
         .tint(.toolbarItemAccent)
         
         .onAppear {
+            viewModel.modelContext = modelContext
+            
+            viewModel.updateIsSavedState()
             viewModel.fetchRecipeDetails()
             
-            withAnimation(.linear(duration: 0.4)) {
+            withAnimation(tabBarSettings.shadowAnimation) {
                 tabBarSettings.isShadowShowing = false
             }
         }
         .onDisappear {
-            withAnimation(.linear(duration: 0.4)) {
+            withAnimation(tabBarSettings.shadowAnimation) {
                 tabBarSettings.isShadowShowing = true
             }
+        }
+        
+        .onNotification(.savedRecipesDidUpdated) {
+            viewModel.updateIsSavedState()
         }
         
         // error alert
@@ -144,7 +167,9 @@ struct RecipeDetailsScreen: View {
     }
     
     private func handleAddToSavedClick() {
-        
+        withAnimation(.spring(duration: 0.2)) {
+            viewModel.addToSavedOrRemove()
+        }
     }
 }
 
@@ -159,4 +184,5 @@ struct RecipeDetailsScreen: View {
         )
     )
     .environmentObject(TabBarSettings())
+    .modelContainer(for: SavedRecipeModel.self, inMemory: true)
 }

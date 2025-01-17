@@ -29,32 +29,6 @@
     "%lld" : {
 
     },
-    "%lld h" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lldч"
-          }
-        }
-      }
-    },
-    "%lld h %lld min" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lld h %2$lld min"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$lld ч %2$lld мин"
-          }
-        }
-      }
-    },
     "%lld ingredients" : {
       "localizations" : {
         "ru" : {
@@ -141,16 +115,6 @@
         }
       }
     },
-    "%lld min" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld мин"
-          }
-        }
-      }
-    },
     "%lld servings" : {
       "localizations" : {
         "en" : {
@@ -203,6 +167,42 @@
         }
       }
     },
+    "%lldh" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lldч"
+          }
+        }
+      }
+    },
+    "%lldh %lldmin" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lldh %2$lldmin"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lldч %2$lldмин"
+          }
+        }
+      }
+    },
+    "%lldmin" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%2$lldмин"
+          }
+        }
+      }
+    },
     "∞" : {
 
     },
@@ -212,22 +212,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "О рецепте"
-          }
-        }
-      }
-    },
-    "Add to saved" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Add to saved"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Сохранить"
           }
         }
       }
@@ -392,6 +376,9 @@
           }
         }
       }
+    },
+    "Find the recipes that suit you and save them for easy access later" : {
+
     },
     "French" : {
 
@@ -614,6 +601,16 @@
         }
       }
     },
+    "Save" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сохранить"
+          }
+        }
+      }
+    },
     "Saved" : {
       "localizations" : {
         "ru" : {
@@ -759,6 +756,9 @@
           }
         }
       }
+    },
+    "There are no saved recipes" : {
+
     },
     "Vietnamese" : {
 

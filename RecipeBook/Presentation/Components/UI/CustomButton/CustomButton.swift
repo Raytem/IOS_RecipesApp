@@ -10,6 +10,7 @@ import SwiftUI
 struct CustomButton: View {
     var title: LocalizedStringKey
     var color: ButtonColor
+    var isInverted: Bool
     var size: ButtonSize
     var variant: ButtonVariant
     var fontWeight: Font.Weight
@@ -26,6 +27,7 @@ struct CustomButton: View {
     init(
         title: LocalizedStringKey = "",
         color: ButtonColor = .primary,
+        isInverted: Bool = false,
         size: ButtonSize = .medium,
         variant: ButtonVariant = .contained,
         fontWeight: Font.Weight = .semibold,
@@ -39,6 +41,7 @@ struct CustomButton: View {
     ) {
         self.title = title
         self.color = color
+        self.isInverted = isInverted
         self.size = size
         self.variant = variant
         self.fontWeight = fontWeight
@@ -52,7 +55,9 @@ struct CustomButton: View {
     }
     
     private let primaryColor: Color = .primary50
+    private let primaryColorInverted: Color = .primary30
     private let secondaryColor: Color = .secondary60
+    private let secondaryColorInverted: Color = .secondary40
     private let disabledColor: Color = .neaturalGray3
     
     
@@ -66,8 +71,8 @@ struct CustomButton: View {
             }
             
             bg = switch color {
-            case .primary: primaryColor
-            case .secondary: secondaryColor
+            case .primary: isInverted ? primaryColorInverted.opacity(0.4) : primaryColor
+            case .secondary: isInverted ? secondaryColorInverted.opacity(0.4) : secondaryColor
             }
         case .outlined, .text:
             bg = Color.clear
@@ -99,7 +104,10 @@ struct CustomButton: View {
         var foreground: Color
         switch variant {
         case .contained:
-            foreground = .neaturalWhite
+            switch color {
+            case .primary: foreground = isInverted ? primaryColor : .neaturalWhite
+            case .secondary: foreground = isInverted ? secondaryColor : .neaturalWhite
+            }
         case .outlined, .text:
             if disabled {
                 foreground = disabledColor
@@ -136,9 +144,9 @@ struct CustomButton: View {
         case .small:
             return EdgeInsets(top: 8, leading: 13, bottom: 8, trailing: 13)
         case .medium:
-            return EdgeInsets(top: 13, leading: 20, bottom: 13, trailing: 20)
+            return EdgeInsets(top: 12, leading: 20, bottom: 12, trailing: 20)
         case .large:
-            return EdgeInsets(top: 20, leading: 45, bottom: 20, trailing: 45)
+            return EdgeInsets(top: 17, leading: 45, bottom: 17, trailing: 45)
         }
     }
 
@@ -152,9 +160,9 @@ struct CustomButton: View {
 
     private var font: Font {
         switch size {
-        case .small: return .subheadline.weight(.bold)
-        case .medium: return .body.weight(.bold)
-        case .large: return .title3.weight(.bold)
+        case .small: return .footnote.weight(.bold)
+        case .medium: return .callout.weight(.bold)
+        case .large: return .headline.weight(.bold)
         }
     }
     
@@ -215,11 +223,12 @@ struct CustomButton: View {
     CustomButton(
         title: "Click",
         color: .primary,
-        size: .small,
+        isInverted: true,
+        size: .medium,
         variant: .contained,
         startIcon: "heart",
         fullWidth: false,
-        withShadow: true,
+        withShadow: false,
         disabled: false,
         action: { print("tap") }
     )

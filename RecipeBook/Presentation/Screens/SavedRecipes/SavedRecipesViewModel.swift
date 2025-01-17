@@ -6,16 +6,18 @@
 //
 
 import Foundation
+import SwiftData
+import SwiftUI
 
 
 @Observable
 class SavedRecipesViewModel {
-    var savedRecipes: [SavedRecipeModel]
-    var selectedRecipes: Set<SavedRecipeModel> = Set([])
+    var modelContext: ModelContext? = nil
     
-    var isEditModeEnabled: Bool = false
-    
+    var savedRecipes: [SavedRecipeModel] = []
+    var selectedRecipesIndexes: Set<Int> = Set()
     var query: String = ""
+    var isEditModeEnabled: Bool = false
     
     var filteredRecipes: [SavedRecipeModel] {
         if !query.isEmpty {
@@ -26,27 +28,40 @@ class SavedRecipesViewModel {
         return savedRecipes
     }
     
-    init(
-        savedRecipes: [SavedRecipeModel] = savedRecipeMockData // TDODO: remove mock
-    ) {
-        self.savedRecipes = savedRecipes
+    func fetchRecipes() {
+        let fetchDescriptor = FetchDescriptor<SavedRecipeModel>(
+            sortBy: [SortDescriptor(\.createdAt, order: .reverse)]
+        )
+        
+        do {
+            let data = try modelContext?.fetch(fetchDescriptor)
+            if let data {
+                savedRecipes = data
+            }
+        } catch {
+            print("error while fetching saved recipes")
+        }
     }
     
-    func removeSingleRecipe(_ recipeToRemove: SavedRecipeModel) {
-        savedRecipes.removeAll(where: {
-            $0 == recipeToRemove
-        })
+    func removeSingleRecipe(_ index: Int) {
+        modelContext?.delete(filteredRecipes[index])
+        savedRecipes.remove(at: index)
         startPostRemoveActions()
+        
+        NotificationCenter.default.post(name: .savedRecipesDidUpdated, object: nil)
     }
     
     func removeSelectedFromSaved() {
-        savedRecipes.removeAll { savedRecipe in
-            selectedRecipes.contains(savedRecipe)
+        for index in selectedRecipesIndexes {
+            let recipeToDelete = filteredRecipes[index]
+            modelContext?.delete(recipeToDelete)
+            savedRecipes.remove(at: index)
         }
-        selectedRecipes.removeAll()
+        selectedRecipesIndexes.removeAll()
         startPostRemoveActions()
-        
         isEditModeEnabled = false
+        
+        NotificationCenter.default.post(name: .savedRecipesDidUpdated, object: nil)
     }
     
     private func startPostRemoveActions() {

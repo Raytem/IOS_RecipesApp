@@ -38,9 +38,9 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Data/API/RecipeApi/Enums/SortDirection.swift,
+				Presentation/Components/Layout/NavBar/NavBar.swift,
 				Presentation/Components/Layout/NavBar/NavBarTab.swift,
 				Presentation/Components/Layout/NavBar/NavBarTabModel.swift,
-				Presentation/Components/Layout/NavBar/NavBarView.swift,
 				Presentation/Components/Shared/RecipeCard/RecipeCardMockData.swift,
 				Presentation/Screens/SavedRecipes/SavedRecipesScreen.swift,
 				Presentation/Screens/SavedRecipes/SavedRecipesViewModel.swift,
@@ -55,6 +55,7 @@
 				Resources/Localization/Cuisines.xcstrings,
 				Resources/Localization/Localizable.xcstrings,
 				Resources/Localization/MealTypes.xcstrings,
+				Resources/Localization/RecipeDetailsScreen.xcstrings,
 				Resources/Localization/RecipeSortingOptions.xcstrings,
 			);
 			target = A5B933832D2AA94A00D18C00 /* RecipeBookTests */;
@@ -63,9 +64,9 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Data/API/RecipeApi/Enums/SortDirection.swift,
+				Presentation/Components/Layout/NavBar/NavBar.swift,
 				Presentation/Components/Layout/NavBar/NavBarTab.swift,
 				Presentation/Components/Layout/NavBar/NavBarTabModel.swift,
-				Presentation/Components/Layout/NavBar/NavBarView.swift,
 				Presentation/Components/Shared/RecipeCard/RecipeCardMockData.swift,
 				Presentation/Screens/SavedRecipes/SavedRecipesScreen.swift,
 				Presentation/Screens/SavedRecipes/SavedRecipesViewModel.swift,
@@ -80,6 +81,7 @@
 				Resources/Localization/Cuisines.xcstrings,
 				Resources/Localization/Localizable.xcstrings,
 				Resources/Localization/MealTypes.xcstrings,
+				Resources/Localization/RecipeDetailsScreen.xcstrings,
 				Resources/Localization/RecipeSortingOptions.xcstrings,
 			);
 			target = A5B9338D2D2AA94A00D18C00 /* RecipeBookUITests */;
@@ -473,6 +475,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RecipeBook/Preview Content\"";
+				DEVELOPMENT_TEAM = C9F6BM74AH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RecipeBook/Info.plist;
@@ -503,6 +506,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RecipeBook/Preview Content\"";
+				DEVELOPMENT_TEAM = C9F6BM74AH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RecipeBook/Info.plist;

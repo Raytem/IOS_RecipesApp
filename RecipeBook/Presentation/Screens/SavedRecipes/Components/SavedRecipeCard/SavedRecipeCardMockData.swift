@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 
 var savedRecipeMockData: [SavedRecipeModel] = [

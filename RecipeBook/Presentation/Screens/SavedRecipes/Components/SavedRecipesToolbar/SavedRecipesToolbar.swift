@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SavedRecipesToolbar: ToolbarContent {
     @Binding var savedRecipes: [SavedRecipeModel]
-    @Binding var selectedRecipes: Set<SavedRecipeModel>
+    @Binding var selectedRecipesIndexes: Set<Int>
     @Binding var isEditModeEnabled: Bool
     
     var selectButtonText: LocalizedStringKey {
@@ -17,7 +17,7 @@ struct SavedRecipesToolbar: ToolbarContent {
     }
     
     var selectAllButtonText: LocalizedStringKey {
-        savedRecipes.count == selectedRecipes.count
+        savedRecipes.count == selectedRecipesIndexes.count
         ? "Reset"
         : "Select All"
     }
@@ -41,17 +41,19 @@ struct SavedRecipesToolbar: ToolbarContent {
     
     func handleSelectAllButtonClick() {
         withAnimation(.spring(duration: 0.2)) {
-            if selectedRecipes.count == savedRecipes.count {
-                selectedRecipes = Set()
+            if selectedRecipesIndexes.count == savedRecipes.count {
+                selectedRecipesIndexes = Set()
             } else {
-                selectedRecipes = Set(savedRecipes)
+                if !savedRecipes.isEmpty {
+                    selectedRecipesIndexes = Set(0..<savedRecipes.count)
+                }
             }
         }
     }
     
     func handleSelectButtonClick() {
         withAnimation(.spring(duration: 0.2)) {
-            selectedRecipes.removeAll()
+            selectedRecipesIndexes.removeAll()
             isEditModeEnabled.toggle()
         }
     }
@@ -60,7 +62,7 @@ struct SavedRecipesToolbar: ToolbarContent {
 #Preview {
 //    SavedRecipesToolbar(
 //        savedRecipes: .constant(savedRecipeMockData),
-//        selectedRecipes: .constant(Set([savedRecipeMockData[0]])),
+//        selectedRecipes: .constant(Set()),
 //        isEditModeEnabled: .constant(true)
 //    )
 }

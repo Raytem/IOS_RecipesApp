@@ -107,7 +107,7 @@ class SearchRecipesScreenViewModel {
             isRecipesLoading = true
         }
         
-        // for testing
+        // TODO: for testing
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
             self.recipesModels.append(contentsOf: getNewRicipeMockData())
             self.lastPage = self.lastPage + 1

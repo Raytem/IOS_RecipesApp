@@ -10,5 +10,4 @@ import Foundation
 struct NavBarTabModel {
     let tab: NavBarTab
     let imageName: String
-    var isAnimating: Bool?
 }

@@ -11,4 +11,5 @@ import SwiftUI
 
 class TabBarSettings: ObservableObject {
     @Published var isShadowShowing: Bool = true
+    @Published var shadowAnimation: Animation = .linear(duration: 0.2)
 }

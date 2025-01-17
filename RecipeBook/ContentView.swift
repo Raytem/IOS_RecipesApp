@@ -26,12 +26,10 @@ struct ContentView: View {
                     viewModel: SavedRecipesViewModel()
                 )
                     .setUpNavigationTab(.savedRecipes)
-                SettingsView()
-                    .setUpNavigationTab(.settings)
             }
             .ignoresSafeArea(.keyboard, edges: .bottom)
             
-            NavBarView(selectedTab: $selectedTab)
+            NavBar(selectedTab: $selectedTab)
         }
         .environmentObject(tabBarSettings)
     }
@@ -39,6 +37,7 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .modelContainer(for: SavedRecipeModel.self, inMemory: true)
 }
 
 extension View {
