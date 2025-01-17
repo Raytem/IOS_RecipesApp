@@ -30,7 +30,14 @@
 
     },
     "%lld h" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lldч"
+          }
+        }
+      }
     },
     "%lld h %lld min" : {
       "localizations" : {
@@ -38,6 +45,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "%1$lld h %2$lld min"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld ч %2$lld мин"
           }
         }
       }
@@ -129,7 +142,14 @@
       }
     },
     "%lld min" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld мин"
+          }
+        }
+      }
     },
     "%lld servings" : {
       "localizations" : {
@@ -179,45 +199,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "%lldh" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lldч"
-          }
-        }
-      }
-    },
-    "%lldh %lldmin" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lldh %2$lldmin"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$lldч %2$lldмин"
-          }
-        }
-      }
-    },
-    "%lldmin" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lldмин"
           }
         }
       }
@@ -293,7 +274,14 @@
 
     },
     "Cancel" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отменить"
+          }
+        }
+      }
     },
     "Caribbean" : {
 
@@ -541,17 +529,6 @@
         }
       }
     },
-    "No saved recipes" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No saved recipes"
-          }
-        }
-      }
-    },
     "Nordic" : {
 
     },
@@ -586,10 +563,24 @@
       }
     },
     "Remove" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Удалить"
+          }
+        }
+      }
     },
     "Remove: %lld" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Удалить: %lld"
+          }
+        }
+      }
     },
     "Reset" : {
       "localizations" : {
@@ -623,8 +614,15 @@
         }
       }
     },
-    "Saved Recipes" : {
-
+    "Saved" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сохраненные"
+          }
+        }
+      }
     },
     "Screens.Main.RecipesTitle" : {
       "extractionState" : "manual",
@@ -659,19 +657,15 @@
         }
       }
     },
-    "Search for recipes and add it to saved" : {
-      "extractionState" : "stale",
+    "Select" : {
       "localizations" : {
-        "en" : {
+        "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Search for recipes and add it to saved"
+            "value" : "Выбрать"
           }
         }
       }
-    },
-    "Select" : {
-
     },
     "Select All" : {
       "localizations" : {

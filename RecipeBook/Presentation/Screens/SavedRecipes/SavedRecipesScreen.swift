@@ -37,7 +37,7 @@ struct SavedRecipesScreen: View {
                     isEditModeEnabled: $viewModel.isEditModeEnabled
                 )
             }
-            .applyCustomNavigationBarTitle("Saved Recipes")
+            .applyCustomNavigationBarTitle("Saved")
             .applyDefaultTopBarStyle()
         }
         .tint(.toolbarItemAccent)
