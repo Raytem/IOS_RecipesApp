@@ -49,19 +49,19 @@ struct RecipeCard: View {
     }
     
     var body: some View {
-        NavigationLink(
-            destination: {
-                RecipeDetailsScreen(
-                    viewModel: .init(
-                        recipeId: viewModel.recipeModel.id,
-                        recipeDetailsPreview: .init(
-                            title: viewModel.recipeModel.title,
-                            image: viewModel.recipeModel.image
-                        )
-                    )
-                )
-            }
-        ) {
+//        NavigationLink(
+//            destination: {
+//                RecipeDetailsScreen(
+//                    viewModel: .init(
+//                        recipeId: viewModel.recipeModel.id,
+//                        recipeDetailsPreview: .init(
+//                            title: viewModel.recipeModel.title,
+//                            image: viewModel.recipeModel.image
+//                        )
+//                    )
+//                )
+//            }
+//        ) {
             DynamicStack(
                 isVertical: isStackVertical,
                 horizontalAlignment: .leading,
@@ -160,7 +160,7 @@ struct RecipeCard: View {
             }
             .frame(height: cardHeight)
             .background(.clear)
-        }
+//        }
         
         .onAppear {
             viewModel.modelContext = modelContext

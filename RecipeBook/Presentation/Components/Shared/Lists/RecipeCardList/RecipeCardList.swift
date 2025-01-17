@@ -63,16 +63,30 @@ struct RecipeCardList: View {
                 spacing: gridSpacing
             ) {
                 ForEach(recipeModels, id: \.id) { recipeModel in
-                    RecipeCard(
-                        viewModel: RecipeCardViewModel(
-                            recipeModel: recipeModel
-                        ),
-                        viewType: $cardViewType
-                    )
-                    .overlay {
-                        if (recipeModel == recipeModels.last) {
-                            Rectangle().fill(Color(.clear))
-                                .onAppear { onScrollTargetAppear() }
+                    NavigationLink(
+                        destination: {
+                            RecipeDetailsScreen(
+                                viewModel: .init(
+                                    recipeId: recipeModel.id,
+                                    recipeDetailsPreview: .init(
+                                        title: recipeModel.title,
+                                        image: recipeModel.image
+                                    )
+                                )
+                            )
+                        }
+                    ) {
+                        RecipeCard(
+                            viewModel: RecipeCardViewModel(
+                                recipeModel: recipeModel
+                            ),
+                            viewType: $cardViewType
+                        )
+                        .overlay {
+                            if (recipeModel == recipeModels.last) {
+                                Rectangle().fill(Color(.clear))
+                                    .onAppear { onScrollTargetAppear() }
+                            }
                         }
                     }
                 }

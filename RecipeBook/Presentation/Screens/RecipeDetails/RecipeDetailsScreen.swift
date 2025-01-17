@@ -123,7 +123,7 @@ struct RecipeDetailsScreen: View {
             .applyDefaultTopBarStyle()
         }
         .tint(.toolbarItemAccent)
-        
+       
         .onAppear {
             viewModel.modelContext = modelContext
             
@@ -139,7 +139,7 @@ struct RecipeDetailsScreen: View {
                 tabBarSettings.isShadowShowing = true
             }
         }
-        
+
         .onNotification(.savedRecipesDidUpdated) {
             viewModel.updateIsSavedState()
         }

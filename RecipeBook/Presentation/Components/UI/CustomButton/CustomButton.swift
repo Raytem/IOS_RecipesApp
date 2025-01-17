@@ -160,7 +160,7 @@ struct CustomButton: View {
 
     private var font: Font {
         switch size {
-        case .small: return .footnote.weight(.bold)
+        case .small: return .subheadline.weight(.bold)
         case .medium: return .callout.weight(.bold)
         case .large: return .headline.weight(.bold)
         }
@@ -224,7 +224,7 @@ struct CustomButton: View {
         title: "Click",
         color: .primary,
         isInverted: true,
-        size: .medium,
+        size: .small,
         variant: .contained,
         startIcon: "heart",
         fullWidth: false,

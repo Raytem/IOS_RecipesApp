@@ -43,6 +43,7 @@ struct RecipeFilterFormRow<Item: DisplayNamable>: View {
                     size: .small,
                     variant: .text,
                     fontWeight: .regular,
+                    withPaddings: false,
                     action: handleRest
                 )
              }

@@ -27,11 +27,11 @@ struct ContentView: View {
                 )
                     .setUpNavigationTab(.savedRecipes)
             }
-            .ignoresSafeArea(.keyboard, edges: .bottom)
             
             NavBar(selectedTab: $selectedTab)
         }
         .environmentObject(tabBarSettings)
+        .ignoresSafeArea(.keyboard, edges: .bottom)
     }
 }
 

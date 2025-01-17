@@ -57,6 +57,7 @@
 				Resources/Localization/MealTypes.xcstrings,
 				Resources/Localization/RecipeDetailsScreen.xcstrings,
 				Resources/Localization/RecipeSortingOptions.xcstrings,
+				Resources/Localization/SavedRecipesScreen.xcstrings,
 			);
 			target = A5B933832D2AA94A00D18C00 /* RecipeBookTests */;
 		};
@@ -83,6 +84,7 @@
 				Resources/Localization/MealTypes.xcstrings,
 				Resources/Localization/RecipeDetailsScreen.xcstrings,
 				Resources/Localization/RecipeSortingOptions.xcstrings,
+				Resources/Localization/SavedRecipesScreen.xcstrings,
 			);
 			target = A5B9338D2D2AA94A00D18C00 /* RecipeBookUITests */;
 		};

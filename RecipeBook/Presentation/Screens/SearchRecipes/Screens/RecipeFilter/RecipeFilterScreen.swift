@@ -65,7 +65,6 @@ struct RecipeFilterScreen: View {
                             allItems: MealType.allCases,
                             selectedItems: $temporaryFilters.mealTypes
                         )
-//                        var maxReadyTime: Double?
                     }
                     .listRowBackground(Color(.backgroundLayer1))
                 }

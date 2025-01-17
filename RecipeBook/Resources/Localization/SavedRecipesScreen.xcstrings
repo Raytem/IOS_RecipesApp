@@ -1,0 +1,26 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Find the recipes that suit you and save them for easy access later" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Найдите подходящие вам рецепты и сохраните их для удобного доступа позже"
+          }
+        }
+      }
+    },
+    "There are no saved recipes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сохраненных рецептов нет"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

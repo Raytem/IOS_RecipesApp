@@ -198,7 +198,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%2$lldмин"
+            "value" : "%lldмин"
           }
         }
       }
@@ -378,7 +378,14 @@
       }
     },
     "Find the recipes that suit you and save them for easy access later" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Найдите подходящие вам рецепты и сохраните их для удобного доступа позже"
+          }
+        }
+      }
     },
     "French" : {
 
@@ -538,6 +545,9 @@
           }
         }
       }
+    },
+    "RecipeDetailsSection" : {
+
     },
     "Related recipes" : {
       "localizations" : {
@@ -758,6 +768,9 @@
       }
     },
     "There are no saved recipes" : {
+
+    },
+    "Title" : {
 
     },
     "Vietnamese" : {
