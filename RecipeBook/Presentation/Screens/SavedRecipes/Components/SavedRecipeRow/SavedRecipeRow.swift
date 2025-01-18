@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SavedRecipeRow: View {
     var recipe: SavedRecipeModel
-    var index: Int
+    var backgroundColor: Color
     var isSelected: Bool
     @Binding var isEditModeEnabled: Bool
     var onRemove: (_ index: Int) -> Void
@@ -32,10 +32,10 @@ struct SavedRecipeRow: View {
         .animation(.bouncy(duration: 0.3), value: isEditModeEnabled)
         .listRowInsets(.init())
         .listRowSeparator(.hidden)
-        .listRowBackground(Color(.backgroundMain))
+        .listRowBackground(backgroundColor)
         .swipeActions(edge: .trailing) {
             Button(action: {
-                onRemove(index)
+                onRemove(recipe.id)
             }) {
                 Label("Remove", systemImage: "bookmark.slash")
             }
@@ -48,7 +48,7 @@ struct SavedRecipeRow: View {
                     .foregroundColor(.clear)
                     .contentShape(Rectangle())
                     .onTapGesture {
-                        onSelect(index)
+                        onSelect(recipe.id)
                     }
             }
         }
@@ -58,7 +58,7 @@ struct SavedRecipeRow: View {
 #Preview {
     SavedRecipeRow(
         recipe: savedRecipeMockData[0],
-        index: 0,
+        backgroundColor: .backgroundLayer1,
         isSelected: true,
         isEditModeEnabled: .constant(true),
         onRemove: { print("Removing: ", $0) },

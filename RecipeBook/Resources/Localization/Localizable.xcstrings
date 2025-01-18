@@ -546,9 +546,6 @@
         }
       }
     },
-    "RecipeDetailsSection" : {
-
-    },
     "Related recipes" : {
       "localizations" : {
         "ru" : {
@@ -768,9 +765,6 @@
       }
     },
     "There are no saved recipes" : {
-
-    },
-    "Title" : {
 
     },
     "Vietnamese" : {

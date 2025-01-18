@@ -14,15 +14,15 @@ struct RecipeCardSkeleton: View {
         RecipeCardSettings.get(for: viewType).isStackVertical
    }
     
-    private var imageHeight: CGFloat {
+    private var imageHeight: CGFloat? {
         RecipeCardSettings.get(for: viewType).imageHeight
    }
    
-    private var imageWidth: CGFloat {
+    private var imageWidth: CGFloat? {
         RecipeCardSettings.get(for: viewType).imageWidth
     }
 
-    private var cardHeight: CGFloat {
+    private var cardHeight: CGFloat? {
         RecipeCardSettings.get(for: viewType).cardHeight
     }
 
@@ -44,7 +44,7 @@ struct RecipeCardSkeleton: View {
             spacing: 10
         ) {
             // Image block
-            Color(.backgroundMain)
+            Color(.backgroundLayer2)
             .frame(width: imageWidth, height: imageHeight)
             .cornerRadius(20)
             
@@ -52,15 +52,15 @@ struct RecipeCardSkeleton: View {
             VStack(alignment: .leading, spacing: 0) {
                 VStack(alignment: .leading, spacing: 5) {
                     Text("_______________________________").redacted(reason: .placeholder)
-                        .overlay(Rectangle().foregroundColor(.backgroundMain))
+                        .overlay(Rectangle().foregroundColor(.backgroundLayer2))
                     Text("___________________________").redacted(reason: .placeholder)
-                        .overlay(Rectangle().foregroundColor(.backgroundMain))
+                        .overlay(Rectangle().foregroundColor(.backgroundLayer2))
                     Text("______________").redacted(reason: .placeholder)
-                        .overlay(Rectangle().foregroundColor(.backgroundMain))
+                        .overlay(Rectangle().foregroundColor(.backgroundLayer2))
                 }
                 Spacer()
                 RoundedRectangle(cornerRadius: 10)
-                    .fill(.backgroundMain)
+                    .fill(.backgroundLayer2)
                     .frame(maxWidth: 180, maxHeight: 45)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -69,6 +69,7 @@ struct RecipeCardSkeleton: View {
         .frame(height: cardHeight)
         .background(.backgroundLayer1)
         .cornerRadius(20)
+        .padding(5)
     }
 }
 

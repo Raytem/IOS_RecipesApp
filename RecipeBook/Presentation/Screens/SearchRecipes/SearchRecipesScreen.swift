@@ -157,7 +157,6 @@ struct SearchRecipesScreen: View {
 
     private func handleFiltersAppllyButtonClick() {
         viewModel.applyFilters()
-        //TODLO ADD
     }
 
     private func handleRefreshData() {

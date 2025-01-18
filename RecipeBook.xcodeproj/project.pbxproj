@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A56728CF2D367CC1003D0C7A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A56728CE2D367CC1003D0C7A /* Alamofire */; };
+		A595E27B2D3BF92B00EC3FD7 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = A595E27A2D3BF92400EC3FD7 /* readme.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A595E27A2D3BF92400EC3FD7 /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		A5B933722D2AA94800D18C00 /* Recipe Book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Recipe Book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5B933842D2AA94A00D18C00 /* RecipeBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipeBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5B9338E2D2AA94A00D18C00 /* RecipeBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipeBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +151,7 @@
 		A5B933692D2AA94800D18C00 = {
 			isa = PBXGroup;
 			children = (
+				A595E27A2D3BF92400EC3FD7 /* readme.md */,
 				A5B933742D2AA94800D18C00 /* RecipeBook */,
 				A5B933872D2AA94A00D18C00 /* RecipeBookTests */,
 				A5B933912D2AA94A00D18C00 /* RecipeBookUITests */,
@@ -291,6 +294,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A595E27B2D3BF92B00EC3FD7 /* readme.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

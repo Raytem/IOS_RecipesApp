@@ -48,7 +48,7 @@ struct RecipeDetailsScreen: View {
                                     desctiption: "Likes"
                                 )
                             }
-                            
+//                            
                             AboutRecipeSection(
                                 recipeDetailsModel: recipeDetails
                             ).onTapGesture {
@@ -56,7 +56,7 @@ struct RecipeDetailsScreen: View {
                             }
                             .sheet(isPresented: $viewModel.isAboutRecipeSheetShowing) {
                                 AboutRecipeSheet(
-                                    viewModel: AboutRecipeSheetViewModel(
+                                    viewModel: .init(
                                         recipeDetailsModel: recipeDetails
                                     )
                                 )

@@ -29,6 +29,7 @@ struct ContentView: View {
             }
             
             NavBar(selectedTab: $selectedTab)
+                .ignoresSafeArea(edges: [.bottom])
         }
         .environmentObject(tabBarSettings)
         .ignoresSafeArea(.keyboard, edges: .bottom)

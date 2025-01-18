@@ -28,6 +28,6 @@ struct Checkmark: View {
 
 #Preview {
     Checkmark(
-        isActive: false
+        isActive: true
     )
 }

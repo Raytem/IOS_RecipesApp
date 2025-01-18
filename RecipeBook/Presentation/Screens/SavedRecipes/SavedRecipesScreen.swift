@@ -11,7 +11,6 @@ import SwiftData
 
 struct SavedRecipesScreen: View {
     @Environment(\.modelContext) var modelContext
-    @Environment(\.scenePhase) var scenePhase
     
     @EnvironmentObject var tabBarSettings: TabBarSettings
     @State var viewModel: SavedRecipesViewModel
@@ -21,23 +20,24 @@ struct SavedRecipesScreen: View {
                 ZStack(alignment: .bottom) {
                     SavedRecipesList(
                         savedRecipes: viewModel.filteredRecipes,
-                        selectedRecipesIndexes: $viewModel.selectedRecipesIndexes,
+                        rowBackgroundColor: .backgroundLayer1,
+                        selectedRecipesIds: $viewModel.selectedRecipesIds,
                         isEditModeEnabled: $viewModel.isEditModeEnabled,
                         onRemoveSingle: viewModel.removeSingleRecipe
                     )
                     
                     SavedRecipesFloatingActionBar(
-                        selectedRecipesCount: viewModel.selectedRecipesIndexes.count,
+                        selectedRecipesCount: viewModel.selectedRecipesIds.count,
                         isEditModeEnabled: $viewModel.isEditModeEnabled,
                         onRemoveSelected: viewModel.removeSelectedFromSaved
                     )
             }
-            .background(.backgroundMain)
+            .background(.backgroundLayer1)
             .searchable(text: $viewModel.query)
             .toolbar {
                 SavedRecipesToolbar(
                     savedRecipes: $viewModel.savedRecipes,
-                    selectedRecipesIndexes: $viewModel.selectedRecipesIndexes,
+                    selectedRecipesIds: $viewModel.selectedRecipesIds,
                     isEditModeEnabled: $viewModel.isEditModeEnabled
                 )
             }

@@ -83,7 +83,7 @@
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "RECIPE_API_KEY"
-            value = "8de75a697d344ba28aa9c526d11d7952"
+            value = "bb98f6cee7304631acd2e4ca0ad288da"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable

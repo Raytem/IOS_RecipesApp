@@ -100,7 +100,7 @@ struct RecipeCardList: View {
     RecipeCardList(
         recipeModels: .constant(recipeCardMockData),
         cardViewType: .constant(.grid),
-        isLoading: .constant(false),
+        isLoading: .constant(true),
         onScrollTargetAppear: { print("appeared") }
     )
 }

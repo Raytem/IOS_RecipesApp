@@ -9,7 +9,8 @@ import SwiftUI
 
 struct SavedRecipesList: View {
     var savedRecipes: [SavedRecipeModel]
-    @Binding var selectedRecipesIndexes: Set<Int>
+    var rowBackgroundColor: Color
+    @Binding var selectedRecipesIds: Set<Int>
     @Binding var isEditModeEnabled: Bool
     var onRemoveSingle: (_ index: Int) -> Void
     
@@ -28,16 +29,14 @@ struct SavedRecipesList: View {
         } else {
             List {
                 ForEach(savedRecipes, id: \.id) { recipe in
-                        if let index = savedRecipes.firstIndex(where: { $0.id == recipe.id }) {
-                           SavedRecipeRow(
-                               recipe: recipe,
-                               index: index,
-                               isSelected: isItemSelected(index),
-                               isEditModeEnabled: $isEditModeEnabled,
-                               onRemove: { handleRemoveSingleButtonClick($0) },
-                               onSelect: { handleSelectItem($0) }
-                           )
-                        }
+                    SavedRecipeRow(
+                        recipe: recipe,
+                        backgroundColor: rowBackgroundColor,
+                        isSelected: isItemSelected(recipe.id),
+                        isEditModeEnabled: $isEditModeEnabled,
+                        onRemove: { handleRemoveSingleButtonClick($0) },
+                        onSelect: { handleSelectItem($0) }
+                    )
                    }
             }
             .listStyle(.plain)
@@ -50,16 +49,16 @@ struct SavedRecipesList: View {
         }
     }
     
-    func isItemSelected(_ index: Int) -> Bool {
-        selectedRecipesIndexes.contains(index)
+    func isItemSelected(_ id: Int) -> Bool {
+        selectedRecipesIds.contains(id)
     }
     
-    func handleSelectItem(_ index: Int) {
+    func handleSelectItem(_ id: Int) {
         withAnimation(.spring(duration: 0.2)) {
-            if (selectedRecipesIndexes.contains(index)) {
-                selectedRecipesIndexes.remove(index)
+            if (selectedRecipesIds.contains(id)) {
+                selectedRecipesIds.remove(id)
             } else {
-                selectedRecipesIndexes.insert(index)
+                selectedRecipesIds.insert(id)
             }
         }
     }
@@ -74,7 +73,8 @@ struct SavedRecipesList: View {
 #Preview {
     SavedRecipesList(
         savedRecipes: savedRecipeMockData,
-        selectedRecipesIndexes: .constant(Set()),
+        rowBackgroundColor: .backgroundLayer1,
+        selectedRecipesIds: .constant(Set()),
         isEditModeEnabled: .constant(true),
         onRemoveSingle: { print($0) }
     )

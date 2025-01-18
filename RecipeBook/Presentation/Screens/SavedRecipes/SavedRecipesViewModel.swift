@@ -15,7 +15,7 @@ class SavedRecipesViewModel {
     var modelContext: ModelContext? = nil
     
     var savedRecipes: [SavedRecipeModel] = []
-    var selectedRecipesIndexes: Set<Int> = Set()
+    var selectedRecipesIds: Set<Int> = Set()
     var query: String = ""
     var isEditModeEnabled: Bool = false
     
@@ -43,25 +43,52 @@ class SavedRecipesViewModel {
         }
     }
     
-    func removeSingleRecipe(_ index: Int) {
-        modelContext?.delete(filteredRecipes[index])
-        savedRecipes.remove(at: index)
-        startPostRemoveActions()
-        
-        NotificationCenter.default.post(name: .savedRecipesDidUpdated, object: nil)
+    func removeSingleRecipe(_ recipeId: Int) {
+        do {
+            // removing from local db
+            try modelContext?.delete(
+                model: SavedRecipeModel.self,
+                where: #Predicate {
+                    $0.id == recipeId
+                }
+            )
+            // removing from state
+            savedRecipes.removeAll(where: { $0.id == recipeId })
+            
+            // removing from selected
+            selectedRecipesIds.remove(recipeId)
+            
+            startPostRemoveActions()
+            
+            NotificationCenter.default.post(name: .savedRecipesDidUpdated, object: nil)
+        } catch {
+            print("Error while removing saved recipes")
+        }
     }
     
     func removeSelectedFromSaved() {
-        for index in selectedRecipesIndexes {
-            let recipeToDelete = filteredRecipes[index]
-            modelContext?.delete(recipeToDelete)
-            savedRecipes.remove(at: index)
+        do {
+            // removing from local db
+            let recipeIdsToDelete = Array(selectedRecipesIds)
+            try modelContext?.delete(
+                model: SavedRecipeModel.self,
+                where: #Predicate {
+                    recipeIdsToDelete.contains($0.id)
+                }
+            )
+            // removing from state
+            savedRecipes.removeAll(where: { recipeIdsToDelete.contains($0.id) })
+            
+            // clear selected recipes
+            selectedRecipesIds.removeAll()
+            
+            startPostRemoveActions()
+            isEditModeEnabled = false
+            
+            NotificationCenter.default.post(name: .savedRecipesDidUpdated, object: nil)
+        } catch {
+            print("Error while removing saved recipes")
         }
-        selectedRecipesIndexes.removeAll()
-        startPostRemoveActions()
-        isEditModeEnabled = false
-        
-        NotificationCenter.default.post(name: .savedRecipesDidUpdated, object: nil)
     }
     
     private func startPostRemoveActions() {
