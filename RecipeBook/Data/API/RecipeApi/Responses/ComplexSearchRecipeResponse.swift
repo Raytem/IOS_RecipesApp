@@ -8,7 +8,7 @@
 struct ComplexSearchRecipeResponse: Codable, Identifiable {
     let id: Int
     let title: String
-    let image: String
+    let image: String?
     let summary: String
     let readyInMinutes: Int
     let preparationMinutes: Int?

@@ -26,7 +26,7 @@ struct RecipeDetailsMapper {
         return RecipeDetailsModel(
             id: resp.id,
             title: resp.title,
-            image: URL(string: resp.image),
+            image: URL(string: resp.image ?? ""),
             readyInMinutes: resp.readyInMinutes,
             aggregateLikes: resp.aggregateLikes,
             diets: mappedDiets,
@@ -52,9 +52,9 @@ struct RecipeDetailsMapper {
             extendedIngredients: resp.extendedIngredients.map({
                 .init(
                     id: $0.id,
-                    name: $0.nameClean,
+                    name: $0.nameClean ?? $0.name,
                     image:
-                        URL(string: "\(AppConfig.config.recipeApi.ingredientsImgServerBaseUrl)/\($0.image)"),
+                        URL(string: "\(AppConfig.config.recipeApi.ingredientsImgServerBaseUrl)/\($0.image ?? "")"),
                     consistency: $0.consistency,
                     amount: $0.amount,
                     unit: $0.unit

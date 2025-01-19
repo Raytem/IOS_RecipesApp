@@ -18,7 +18,7 @@ struct RecipeMapper {
         return RecipeModel(
             id: resp.id,
             title: resp.title,
-            image: URL(string: resp.image),
+            image: URL(string: resp.image ?? ""),
             readyInMinutes: resp.readyInMinutes,
             aggregateLikes: resp.aggregateLikes,
             diets: mappedDiets

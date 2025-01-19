@@ -19,10 +19,10 @@ struct RecipeDetailsResponse: Decodable {
         }
         
         let id: Int
-        var image: String // image name without base server url
+        var image: String? // image name without base server url
         let consistency: String
         let name: String
-        let nameClean: String
+        let nameClean: String?
         let original: String
         let originalName: String
         let amount: Double
@@ -60,7 +60,7 @@ struct RecipeDetailsResponse: Decodable {
                 let id: Int
                 let name: String
                 let localizedName: String
-                let image: String
+                let image: String?
             }
             
             let number: Int
@@ -74,7 +74,7 @@ struct RecipeDetailsResponse: Decodable {
     
     let id: Int
     let title: String
-    let image: String
+    let image: String?
     let summary: String
     let readyInMinutes: Int
     let preparationMinutes: Int?

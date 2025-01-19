@@ -64,11 +64,13 @@ final class RecipeRepository {
                         completion(.success(mappedData))
                         
                     case .failure(let error):
+                        print("error while getting recipes by id")
                         completion(.failure(error))
                     }
                 }
                 
             case .failure(let error):
+                print("error while searching for simmilar reicpes")
                 completion(.failure(error))
             }
         }

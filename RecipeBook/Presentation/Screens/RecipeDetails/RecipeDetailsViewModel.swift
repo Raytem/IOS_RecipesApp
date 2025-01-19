@@ -56,7 +56,6 @@ class RecipeDetailsViewModel {
                 self.recipeDetailsModel = recipeDetails
                 self.isDetailsLoading = false
             case .failure(let error):
-                print(error)
                 self.isDetailsLoading = false
                 self.isShowingErrorAlert = true
             }
